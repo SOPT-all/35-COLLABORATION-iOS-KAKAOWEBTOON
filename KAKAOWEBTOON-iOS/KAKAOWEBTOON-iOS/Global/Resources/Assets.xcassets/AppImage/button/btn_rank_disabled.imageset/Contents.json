@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "btn_rank_disabled.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
