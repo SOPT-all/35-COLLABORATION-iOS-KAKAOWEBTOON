@@ -16,6 +16,7 @@
 		E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D7F2CEB929F004045F1 /* UIView+.swift */; };
 		E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D812CEB9359004045F1 /* UIStackView+.swift */; };
 		E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D832CEB93EA004045F1 /* UIFont+.swift */; };
+		E31F1D882CEB9564004045F1 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D872CEB9564004045F1 /* ReuseIdentifiable.swift */; };
 		E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892EF2CEB0D2200103A49 /* FontLiteral.swift */; };
 		E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892F12CEB204800103A49 /* UILabel+.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		E31F1D7F2CEB929F004045F1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E31F1D812CEB9359004045F1 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		E31F1D832CEB93EA004045F1 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		E31F1D872CEB9564004045F1 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		E3A892EF2CEB0D2200103A49 /* FontLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiteral.swift; sourceTree = "<group>"; };
 		E3A892F12CEB204800103A49 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 		8757EA092CEA16AD00EBBCF4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E31F1D872CEB9564004045F1 /* ReuseIdentifiable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
+				E31F1D882CEB9564004045F1 /* ReuseIdentifiable.swift in Sources */,
 				8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */,
 				E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */,
 				8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */,
