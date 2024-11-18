@@ -10,7 +10,7 @@ import UIKit
 class KWTabBarController: UITabBarController {
     
     // MARK: - Properties
-
+    
     enum KakaoWebtoonTab: Int, CaseIterable {
         
         case timeTable
@@ -38,20 +38,22 @@ class KWTabBarController: UITabBarController {
         
         func viewController() -> UIViewController {
             switch self {
-            case .timeTable: return UIViewController()
+            case .timeTable: return ViewController()
             case .ranking: return UIViewController()
             case .gift: return UIViewController()
             case .storage: return UIViewController()
             }
         }
+        
     }
-
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTabBar()
+        setupTabBarStyle()
     }
     
     // MARK: - Private func
@@ -65,5 +67,11 @@ class KWTabBarController: UITabBarController {
         
         self.viewControllers = viewControllers
     }
-
+    
+    private func setupTabBarStyle() {
+        tabBar.backgroundColor = .black3
+        tabBar.tintColor = .yellow2
+        tabBar.unselectedItemTintColor = .dg1
+    }
+    
 }
