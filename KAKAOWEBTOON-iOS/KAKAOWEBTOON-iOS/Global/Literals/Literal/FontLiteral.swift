@@ -73,11 +73,3 @@ enum KakaoWebtoonFont {
         return UIFont.systemFont(ofSize: size, weight: weight)
     }
 }
-
-extension UIFont {
-    
-    static func appleSDGothicNeo(_ fontName: KakaoWebtoonFont) -> UIFont {
-        return fontName.font()
-    }
-    
-}
