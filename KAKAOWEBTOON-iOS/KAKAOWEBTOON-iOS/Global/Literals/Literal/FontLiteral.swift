@@ -11,7 +11,7 @@ enum KakaoWebtoonFont {
     case head_sb_22
     case title1_eb_17, title2_sb_16
     case body1_r_14, body2_sb_13, body3_sb_12, body4_sb_12, body5_r_12, body6_l_12, body7_eb_12
-    case caption2_r_10, caption3_l_10, caption4_eb_8, caption5_eb_10
+    case caption1_r_10, caption2_l_10, caption3_eb_8, caption4_eb_10
     
     var size: CGFloat {
         switch self {
@@ -21,8 +21,8 @@ enum KakaoWebtoonFont {
         case .body1_r_14: return 14
         case .body2_sb_13: return 13
         case .body3_sb_12, .body4_sb_12, .body5_r_12, .body6_l_12, .body7_eb_12: return 12
-        case .caption2_r_10, .caption3_l_10, .caption5_eb_10: return 10
-        case .caption4_eb_8: return 8
+        case .caption1_r_10, .caption2_l_10, .caption4_eb_10: return 10
+        case .caption3_eb_8: return 8
         }
     }
     
@@ -30,11 +30,11 @@ enum KakaoWebtoonFont {
         switch self {
         case .head_sb_22, .title2_sb_16, .body2_sb_13, .body3_sb_12, .body4_sb_12:
             return .semibold
-        case .title1_eb_17, .body7_eb_12, .caption4_eb_8, .caption5_eb_10:
+        case .title1_eb_17, .body7_eb_12, .caption3_eb_8, .caption4_eb_10:
             return .heavy
-        case .body1_r_14, .body5_r_12, .caption2_r_10:
+        case .body1_r_14, .body5_r_12, .caption1_r_10:
             return .regular
-        case .body6_l_12, .caption3_l_10:
+        case .body6_l_12, .caption2_l_10:
             return .light
         }
     }
@@ -50,9 +50,9 @@ enum KakaoWebtoonFont {
         case .body4_sb_12: return 14
         case .body5_r_12: return 15.6
         case .body6_l_12, .body7_eb_12: return 14.4
-        case .caption2_r_10, .caption3_l_10: return 12
-        case .caption4_eb_8: return 9.6
-        case .caption5_eb_10: return 12
+        case .caption1_r_10, .caption2_l_10: return 12
+        case .caption3_eb_8: return 9.6
+        case .caption4_eb_10: return 12
         }
     }
     
@@ -60,14 +60,14 @@ enum KakaoWebtoonFont {
         switch self {
         case .head_sb_22: return -0.22
         case .title1_eb_17: return -0.17
-        case .title2_sb_16, .body2_sb_13, .body4_sb_12, .caption2_r_10: return 0
+        case .title2_sb_16, .body2_sb_13, .body4_sb_12, .caption1_r_10: return 0
         case .body1_r_14: return -0.14
         case .body3_sb_12, .body6_l_12: return -0.12
         case .body5_r_12: return -0.13
         case .body7_eb_12: return -0.1
-        case .caption3_l_10: return -0.1
-        case .caption4_eb_8: return -0.08
-        case .caption5_eb_10: return -0.1
+        case .caption2_l_10: return -0.1
+        case .caption3_eb_8: return -0.08
+        case .caption4_eb_10: return -0.1
         }
     }
     
