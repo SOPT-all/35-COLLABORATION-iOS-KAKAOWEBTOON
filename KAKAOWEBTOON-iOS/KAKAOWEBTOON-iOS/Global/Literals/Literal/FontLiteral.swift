@@ -50,9 +50,8 @@ enum KakaoWebtoonFont {
         case .body4_sb_12: return 14
         case .body5_r_12: return 15.6
         case .body6_l_12, .body7_eb_12: return 14.4
-        case .caption1_r_10, .caption2_l_10: return 12
+        case .caption1_r_10, .caption2_l_10, .caption4_eb_10: return 12
         case .caption3_eb_8: return 9.6
-        case .caption4_eb_10: return 12
         }
     }
     
@@ -64,10 +63,8 @@ enum KakaoWebtoonFont {
         case .body1_r_14: return -0.14
         case .body3_sb_12, .body6_l_12: return -0.12
         case .body5_r_12: return -0.13
-        case .body7_eb_12: return -0.1
-        case .caption2_l_10: return -0.1
+        case .body7_eb_12, .caption2_l_10, .caption4_eb_10 : return -0.1
         case .caption3_eb_8: return -0.08
-        case .caption4_eb_10: return -0.1
         }
     }
     
