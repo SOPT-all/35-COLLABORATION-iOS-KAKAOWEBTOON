@@ -38,10 +38,10 @@ class KWTabBarController: UITabBarController {
         
         func viewController() -> UIViewController {
             switch self {
-            case .timeTable: return ViewController()
+            case .timeTable: return UINavigationController(rootViewController: HomeViewController())
             case .ranking: return UIViewController()
             case .gift: return UIViewController()
-            case .storage: return UIViewController()
+            case .storage: return UINavigationController(rootViewController: StorageViewController())
             }
         }
         
