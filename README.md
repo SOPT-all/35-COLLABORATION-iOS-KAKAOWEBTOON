@@ -1,7 +1,7 @@
 # 🏊🏻‍♂️ 카카오웹툰 iOS
 
 ## 🙆🏻‍♀️🙅🏻‍♂️ 프로젝트 설명 
-🌟 35rd SOPT 합동세미나 앱 9팀, 카카오뱅크
+🌟 35rd SOPT 합동세미나 앱 9팀, 카카오웹툰
 
 
 ## 🍎 역할 분담 및 주요 기능
@@ -80,16 +80,16 @@
 
 Conflict 해결 시 : `[Conflict/ #이슈] Conflict 해결`
 
-PR을 develop에 merge 시 : 기본 머지 메시지
+PR을 main에 merge 시 : 기본 머지 메시지
 
-내 브랜치에 develop merge 시 (브랜치 최신화) : `[Merge/#이슈] Pull Develop` - `[Merge/#13] Pull Develop`
+내 브랜치에 main에 merge 시 (브랜치 최신화) : `[Merge/#이슈] Pull Develop` - `[Merge/#13] Pull Develop`
 ## 📌Issue Convention
 
 ### Branch
 
 브랜치명 시작은 소문자로 한다.
 
-default branch : `develop`
+default branch : `main`
 
 작업 branch : `커밋타입/이슈번호 - 작업뷰` - 예시 `feat/#12-MainView`
 
