@@ -16,6 +16,7 @@
 		E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D812CEB9359004045F1 /* UIStackView+.swift */; };
 		E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D832CEB93EA004045F1 /* UIFont+.swift */; };
 		E31F1D882CEB9564004045F1 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D872CEB9564004045F1 /* ReuseIdentifiable.swift */; };
+		E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1E2E2CEBA2B5004045F1 /* KWTabBarController.swift */; };
 		E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892EF2CEB0D2200103A49 /* FontLiteral.swift */; };
 		E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892F12CEB204800103A49 /* UILabel+.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		E31F1D812CEB9359004045F1 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		E31F1D832CEB93EA004045F1 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		E31F1D872CEB9564004045F1 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
+		E31F1E2E2CEBA2B5004045F1 /* KWTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWTabBarController.swift; sourceTree = "<group>"; };
 		E3A892EF2CEB0D2200103A49 /* FontLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiteral.swift; sourceTree = "<group>"; };
 		E3A892F12CEB204800103A49 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +184,7 @@
 		8757EA122CEA176A00EBBCF4 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E31F1E2C2CEBA23C004045F1 /* TabBar */,
 				8757EA172CEA178C00EBBCF4 /* Episode */,
 				8757EA162CEA178300EBBCF4 /* Storage */,
 				8757EA152CEA177D00EBBCF4 /* Search */,
@@ -362,6 +365,22 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E31F1E2C2CEBA23C004045F1 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E31F1E2D2CEBA247004045F1 /* ViewControllers */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		E31F1E2D2CEBA247004045F1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E31F1E2E2CEBA2B5004045F1 /* KWTabBarController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -435,6 +454,7 @@
 				E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */,
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
+				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
 				E31F1D882CEB9564004045F1 /* ReuseIdentifiable.swift in Sources */,
 				8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */,
