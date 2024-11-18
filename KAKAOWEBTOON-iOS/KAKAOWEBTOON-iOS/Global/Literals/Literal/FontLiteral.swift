@@ -8,6 +8,7 @@
 import UIKit
 
 enum KakaoWebtoonFont {
+    
     case head_sb_22
     case title1_eb_17, title2_sb_16
     case body1_r_14, body2_sb_13, body3_sb_12, body4_sb_12, body5_r_12, body6_l_12, body7_eb_12
@@ -68,14 +69,15 @@ enum KakaoWebtoonFont {
         }
     }
     
-    // UIFont 생성
     func font() -> UIFont {
         return UIFont.systemFont(ofSize: size, weight: weight)
     }
 }
 
 extension UIFont {
+    
     static func appleSDGothicNeo(_ fontName: KakaoWebtoonFont) -> UIFont {
         return fontName.font()
     }
+    
 }

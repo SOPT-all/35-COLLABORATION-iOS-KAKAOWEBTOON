@@ -8,6 +8,7 @@
 import UIKit
 
 extension UILabel {
+    
     func applyStyle(_ fontStyle: KakaoWebtoonFont) {
         let text = self.text ?? " "
         
@@ -27,4 +28,5 @@ extension UILabel {
         let attributedString = NSAttributedString(string: text, attributes: attributes)
         self.attributedText = attributedString
     }
+    
 }
