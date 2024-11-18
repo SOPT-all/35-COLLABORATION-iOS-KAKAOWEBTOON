@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILabel {
-    func applyStyle(fontStyle: KakaoWebtoonFont) {
+    func applyStyle(_ fontStyle: KakaoWebtoonFont) {
         let text = self.text ?? " "
         
         let lineHeight = fontStyle.lineHeight
