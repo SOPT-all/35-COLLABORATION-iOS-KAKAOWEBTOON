@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C6570B02CEC9B00001118B3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6C6570AF2CEC9B00001118B3 /* SnapKit */; };
+		6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570B12CECE6FD001118B3 /* HomeView.swift */; };
+		6C6570B42CECFCB0001118B3 /* adSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570B32CECFCB0001118B3 /* adSectionCell.swift */; };
 		8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */; };
 		8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */; };
 		8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F52CEA15EA00EBBCF4 /* ViewController.swift */; };
 		8757E9FB2CEA15EC00EBBCF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8757E9FA2CEA15EC00EBBCF4 /* Assets.xcassets */; };
 		8757E9FE2CEA15EC00EBBCF4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8757E9FD2CEA15EC00EBBCF4 /* Base */; };
-		8757EA2D2CEC437000EBBCF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2C2CEC437000EBBCF4 /* Alamofire */; };
-		8757EA302CEC43AE00EBBCF4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2F2CEC43AE00EBBCF4 /* Moya */; };
-		8757EA332CEC43BE00EBBCF4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA322CEC43BE00EBBCF4 /* Then */; };
 		E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D7F2CEB929F004045F1 /* UIView+.swift */; };
 		E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D812CEB9359004045F1 /* UIStackView+.swift */; };
 		E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D832CEB93EA004045F1 /* UIFont+.swift */; };
@@ -22,12 +22,13 @@
 		E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1E2E2CEBA2B5004045F1 /* KWTabBarController.swift */; };
 		E31F1E312CEBA8D1004045F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1E302CEBA8D1004045F1 /* HomeViewController.swift */; };
 		E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1E322CEBA8F1004045F1 /* StorageViewController.swift */; };
-		E31F1E362CEBABD7004045F1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E31F1E352CEBABD7004045F1 /* SnapKit */; };
 		E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892EF2CEB0D2200103A49 /* FontLiteral.swift */; };
 		E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892F12CEB204800103A49 /* UILabel+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C6570B12CECE6FD001118B3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6C6570B32CECFCB0001118B3 /* adSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adSectionCell.swift; sourceTree = "<group>"; };
 		8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOWEBTOON-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,21 +52,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E31F1E362CEBABD7004045F1 /* SnapKit in Frameworks */,
-				8757EA2D2CEC437000EBBCF4 /* Alamofire in Frameworks */,
-				8757EA302CEC43AE00EBBCF4 /* Moya in Frameworks */,
-				8757EA332CEC43BE00EBBCF4 /* Then in Frameworks */,
+				6C6570B02CEC9B00001118B3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C6570AE2CEC9B00001118B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C6570B72CECFDF4001118B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8757E9E52CEA15EA00EBBCF4 = {
 			isa = PBXGroup;
 			children = (
 				8757E9F02CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS */,
 				8757E9EF2CEA15EA00EBBCF4 /* Products */,
+				6C6570AE2CEC9B00001118B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,8 +230,8 @@
 		8757EA142CEA177800EBBCF4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6C6570B72CECFDF4001118B3 /* Model */,
 				8757EA1C2CEA17B900EBBCF4 /* Cell */,
-				8757EA1B2CEA17B300EBBCF4 /* Model */,
 				8757EA1A2CEA17AD00EBBCF4 /* View */,
 				8757EA192CEA17A200EBBCF4 /* ViewController */,
 			);
@@ -276,20 +289,15 @@
 		8757EA1A2CEA17AD00EBBCF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C6570B12CECE6FD001118B3 /* HomeView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		8757EA1B2CEA17B300EBBCF4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		8757EA1C2CEA17B900EBBCF4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				6C6570B32CECFCB0001118B3 /* adSectionCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -412,9 +420,7 @@
 			);
 			name = "KAKAOWEBTOON-iOS";
 			packageProductDependencies = (
-				8757EA2C2CEC437000EBBCF4 /* Alamofire */,
-				8757EA2F2CEC43AE00EBBCF4 /* Moya */,
-				8757EA322CEC43BE00EBBCF4 /* Then */,
+				6C6570AF2CEC9B00001118B3 /* SnapKit */,
 			);
 			productName = "KAKAOWEBTOON-iOS";
 			productReference = 8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */;
@@ -445,10 +451,7 @@
 			);
 			mainGroup = 8757E9E52CEA15EA00EBBCF4;
 			packageReferences = (
-				E31F1E342CEBABD7004045F1 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				8757EA2B2CEC437000EBBCF4 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				8757EA2E2CEC43AE00EBBCF4 /* XCRemoteSwiftPackageReference "Moya" */,
-				8757EA312CEC43BE00EBBCF4 /* XCRemoteSwiftPackageReference "Then" */,
+				6C6570AB2CEC9A34001118B3 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 8757E9EF2CEA15EA00EBBCF4 /* Products */;
 			projectDirPath = "";
@@ -478,7 +481,9 @@
 			files = (
 				E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */,
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
+				6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
+				6C6570B42CECFCB0001118B3 /* adSectionCell.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
 				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
@@ -557,7 +562,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -614,7 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -639,6 +644,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -667,6 +673,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -704,33 +711,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8757EA2B2CEC437000EBBCF4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		6C6570AB2CEC9A34001118B3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.10.1;
-			};
-		};
-		8757EA2E2CEC43AE00EBBCF4 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.3;
-			};
-		};
-		8757EA312CEC43BE00EBBCF4 /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		E31F1E342CEBABD7004045F1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.7.1;
@@ -739,24 +722,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8757EA2C2CEC437000EBBCF4 /* Alamofire */ = {
+		6C6570AF2CEC9B00001118B3 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8757EA2B2CEC437000EBBCF4 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		8757EA2F2CEC43AE00EBBCF4 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8757EA2E2CEC43AE00EBBCF4 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		8757EA322CEC43BE00EBBCF4 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8757EA312CEC43BE00EBBCF4 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		E31F1E352CEBABD7004045F1 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E31F1E342CEBABD7004045F1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 6C6570AB2CEC9A34001118B3 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
