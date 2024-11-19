@@ -8,7 +8,6 @@
 | 👑정지원 | 김승원 | 김현수 |
 | :--------: | :--------: | :--------: | 
 |  <img src="https://github.com/NOW-SOPT-APP1-YeogiEottae/YeogiEottae-iOS/assets/95562494/9340af4a-7c5f-4140-8836-2290b185c3a0" width="300px"/> | <img src="https://github.com/user-attachments/assets/bf60f0a2-ee24-4bc2-99b3-f1a40277a647e" width="300px"/> | <img src="https://github.com/user-attachments/assets/b5b2e337-af2f-4622-b952-9b384ac2ab2f" width="300px"/> |
-
 | episode | search, storage | main | 
 | 웹툰 상세 | 검색, 보관함 | 메인 홈 | 
 
