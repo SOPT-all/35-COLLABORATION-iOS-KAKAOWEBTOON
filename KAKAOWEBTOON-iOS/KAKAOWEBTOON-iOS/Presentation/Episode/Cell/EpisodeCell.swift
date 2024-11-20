@@ -112,13 +112,14 @@ class EpisodeCell: UICollectionViewCell {
         }
         
         progressBarBackground.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(4)
-            make.horizontalEdges.equalToSuperview().inset(5)
+            make.bottom.equalToSuperview().inset(2)
+            make.horizontalEdges.equalToSuperview().inset(3)
             make.height.equalTo(4)
         }
         
         progressBarForeground.snp.makeConstraints { make in
             make.leading.verticalEdges.equalToSuperview()
+            //초기값
             make.width.equalTo(0)
         }
     }
