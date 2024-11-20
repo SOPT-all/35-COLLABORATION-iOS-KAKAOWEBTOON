@@ -197,3 +197,13 @@ class EpisodeHeaderView: UICollectionReusableView {
         }
     }
 }
+
+private func formatNumber(_ number: Int) -> String {
+    if number >= 1_000_000_000 {
+        return String(format: "%.1f억", Double(number) / 1_000_000_000)
+    } else if number >= 10_000 {
+        return String(format: "%.1f만", Double(number) / 10_000)
+    } else {
+        return "\(number)"
+    }
+}
