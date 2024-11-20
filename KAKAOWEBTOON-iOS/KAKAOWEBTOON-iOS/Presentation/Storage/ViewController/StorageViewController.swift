@@ -23,9 +23,20 @@ class StorageViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationBar()
+        setupDelegate()
+        register()
     }
     
     // MARK: - Private func
+    
+    private func register() {
+        storageView.storageTableView.register(WebtoonBoxCell.self, forCellReuseIdentifier: WebtoonBoxCell.reuseIdentifier)
+    }
+    
+    private func setupDelegate() {
+//        storageView.storageTableView.delegate = self
+        storageView.storageTableView.dataSource = self
+    }
     
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.setupNavigationBarStyle(.title("보관함"))
@@ -47,6 +58,19 @@ class StorageViewController: UIViewController {
     @objc
     private func didTapButton() {
         print(#function)
+    }
+    
+}
+
+extension StorageViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let webtoonBoxCell = storageView.storageTableView.dequeueReusableCell(withIdentifier: WebtoonBoxCell.reuseIdentifier, for: indexPath) as? WebtoonBoxCell else { return UITableViewCell() }
+        return webtoonBoxCell
     }
     
 }
