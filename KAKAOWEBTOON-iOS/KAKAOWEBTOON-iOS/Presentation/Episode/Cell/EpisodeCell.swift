@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 class EpisodeCell: UICollectionViewCell {
-    static let identifier = "EpisodeCell"
     
     //MARK: - Properties
     
