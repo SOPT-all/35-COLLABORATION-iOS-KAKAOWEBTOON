@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     // MARK: - Properties
     
     // MARK: - UI Properties
@@ -15,10 +16,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     private let rootView = HomeView()
     
     // MARK: - Life Cycle
+    
+    override func loadView() {
+        view = rootView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = rootView
         self.view.backgroundColor = .black3
         
         setDelegate()
@@ -35,7 +39,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private func register() {
         rootView.collectionView.register(
-            adSectionCell.self, forCellWithReuseIdentifier: adSectionCell.reuseIdentifier
+            AdSectionCell.self, forCellWithReuseIdentifier: AdSectionCell.reuseIdentifier
+        )
+        
+        rootView.collectionView.register(
+            AllToonsSectionCell.self, forCellWithReuseIdentifier: AllToonsSectionCell.reuseIdentifier
         )
     }
     
@@ -53,7 +61,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .toonCategorySection:
             return 0
         case .allToonsSection:
-            return 0
+            return 9
         case .addSection:
             return 0
         }
@@ -65,13 +73,20 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         switch sectionType {
         case .adSection:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: adSectionCell.reuseIdentifier, for: indexPath) as? adSectionCell
-            else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdSectionCell.reuseIdentifier, for: indexPath) as? AdSectionCell
+            else {
+                return UICollectionViewCell()
+            }
             return cell
         case .toonCategorySection:
             return UICollectionViewCell()
         case .allToonsSection:
-            return UICollectionViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllToonsSectionCell.reuseIdentifier, for: indexPath) as? AllToonsSectionCell 
+            else {
+                return UICollectionViewCell()
+            }
+            cell.configure(with: .init(title: "sss", image: .icBack))
+            return cell
         case .addSection:
             return UICollectionViewCell()
         }

@@ -64,17 +64,25 @@ class HomeView: UIView {
     }
     
     private func adSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: .init (
-                widthDimension: .fractionalWidth(1), heightDimension: .absolute(400)
-            )
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(193)
         )
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
-                widthDimension: .fractionalWidth(1), heightDimension: .absolute(400)), subitems: [item]
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: itemSize, subitems: [item]
             )
         
-        let section = NSCollectionLayoutSection(group: group)
+        let section = NSCollectionLayoutSection(
+            group: group
+        )
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 29, leading: 11, bottom: 0, trailing: 11
+        )
         
         return section
     }
@@ -96,17 +104,42 @@ class HomeView: UIView {
     }
     
     private func allToonsSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: .init (
-                widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)
-            )
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(115), heightDimension: .absolute(230)
         )
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
-                widthDimension: .fractionalWidth(1), heightDimension: .absolute(400)), subitems: [item]
-            )
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
         
-        let section = NSCollectionLayoutSection(group: group)
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(353), heightDimension: .absolute(230)
+        )
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize, subitems: [item, item, item]
+        )
+        group.interItemSpacing = NSCollectionLayoutSpacing.fixed(4)
+        
+        let section = NSCollectionLayoutSection(
+            group: group
+        )
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0, leading: 11, bottom: 0, trailing: 11
+        )
+        section.interGroupSpacing = 4
+        
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(22)
+        )
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader, alignment: .top
+        )
+        
+        section.boundarySupplementaryItems = [header]
         
         return section
     }

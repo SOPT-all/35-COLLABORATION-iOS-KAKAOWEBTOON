@@ -1,5 +1,5 @@
 //
-//  adSectionCell.swift
+//  AdSectionCell.swift
 //  KAKAOWEBTOON-iOS
 //
 //  Created by MaengKim on 11/20/24.
@@ -9,8 +9,9 @@ import UIKit
 
 import SnapKit
 
-class adSectionCell: UICollectionViewCell {
-    static let identifier = "adSectionCell"
+class AdSectionCell: UICollectionViewCell {
+    
+    static let identifier = "AdSectionCell"
 
     private let adSectionImage: UIImageView = {
         let img = UIImageView()
@@ -33,7 +34,7 @@ class adSectionCell: UICollectionViewCell {
     
     private func setLayout() {
         adSectionImage.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(29)
+            $0.top.equalToSuperview()
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
