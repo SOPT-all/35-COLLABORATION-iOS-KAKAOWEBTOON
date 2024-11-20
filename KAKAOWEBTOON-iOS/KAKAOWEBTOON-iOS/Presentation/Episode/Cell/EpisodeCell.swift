@@ -28,7 +28,7 @@ class EpisodeCell: UICollectionViewCell {
         label.backgroundColor = .clear
         label.layer.borderWidth = 1
         label.layer.borderColor = UIColor.grey1.cgColor
-        label.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
+        label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.textAlignment = .center
         label.setupCornerRadius(6)
         return label
@@ -43,7 +43,7 @@ class EpisodeCell: UICollectionViewCell {
     private let episodeTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .primaryWhite
-        label.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
+        label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.textAlignment = .left
         return label
     }()
@@ -51,7 +51,7 @@ class EpisodeCell: UICollectionViewCell {
     private let episodeDateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .grey2
-        label.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
+        label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.textAlignment = .left
         return label
     }()
