@@ -11,6 +11,12 @@ import SnapKit
 
 class StorageView: UIView {
     
+    // MARK: - UI Properties
+    
+    let storageTableView = UITableView()
+    
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -24,15 +30,18 @@ class StorageView: UIView {
     }
     
     func setupHierarchy() {
-        
+        self.addSubviews(storageTableView)
     }
     
     func setupStyle() {
         self.backgroundColor = .black3
-        
+        storageTableView.backgroundColor = .primaryRed
     }
     
     func setupLayout() {
-        
+        storageTableView.snp.makeConstraints {
+            $0.verticalEdges.equalTo(self.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+        }
     }
 }

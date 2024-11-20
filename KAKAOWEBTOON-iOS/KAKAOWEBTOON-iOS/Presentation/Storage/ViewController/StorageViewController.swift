@@ -12,7 +12,7 @@ class StorageViewController: UIViewController {
     // MARK: - Properties
     
     private let storageView = StorageView()
-
+    
     // MARK: - Life Cycle
     
     override func loadView() {
@@ -28,26 +28,25 @@ class StorageViewController: UIViewController {
     // MARK: - Private func
     
     private func setupNavigationBar() {
-        self.title = "보관함"
+        self.navigationController?.navigationBar.setupNavigationBarStyle(.title("보관함"))
         
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithDefaultBackground()
-        appearance.backgroundColor = .black3
-        appearance.shadowColor = nil
-
-        let titleFont = UIFont.appleSDGothicNeo(.title1_eb_17)
-        let titleAttributes: [NSAttributedString.Key: Any] = [
-          .font: titleFont,
-          .foregroundColor: UIColor.primaryWhite,
-          .kern: KakaoWebtoonFont.title1_eb_17.letterSpacing
-        ]
-
-        appearance.titleTextAttributes = titleAttributes
-
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.isNavigationBarHidden = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem.setupBarButton(
+            type: .coin,
+            target: self,
+            action: #selector(didTapButton)
+        )
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
+            buttonTypes: [.research, .menu],
+            target: self,
+            actions: [#selector(didTapButton), #selector(didTapButton)]
+        )
+        
     }
-
+    
+    @objc
+    private func didTapButton() {
+        print(#function)
+    }
+    
 }
