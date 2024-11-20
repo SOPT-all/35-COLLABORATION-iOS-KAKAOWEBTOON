@@ -8,61 +8,75 @@
 import UIKit
 
 import SnapKit
-import Then
 
 class EpisodeCell: UICollectionViewCell {
     static let identifier = "EpisodeCell"
     
     //MARK: - Properties
     
-    private let imageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true
-        $0.setupCornerRadius(8)
-    }
+    private let episodeCellImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.setupCornerRadius(8)
+        return imageView
+    }()
     
-    private let badgeLabel = UILabel().then {
-        $0.text = "무료"
-        $0.textColor = .white
-        $0.backgroundColor = .clear
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.grey1.cgColor
-        $0.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
-        $0.textAlignment = .center
-        $0.setupCornerRadius(6)
-    }
+    private let episodeBadgeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "무료"
+        label.textColor = .white
+        label.backgroundColor = .clear
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.grey1.cgColor
+        label.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
+        label.textAlignment = .center
+        label.setupCornerRadius(6)
+        return label
+    }()
     
-    private let labelView = UIView().then {
-        $0.backgroundColor = .black3
-    }
+    private let episodeCellLabelView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black3
+        return view
+    }()
     
-    private let titleLabel = UILabel().then {
-        $0.textColor = .primaryWhite
-        $0.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
-        $0.textAlignment = .left
-    }
+    private let episodeTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .primaryWhite
+        label.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
+        label.textAlignment = .left
+        return label
+    }()
     
-    private let dateLabel = UILabel().then {
-        $0.textColor = .grey2
-        $0.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
-        $0.textAlignment = .left
-    }
+    private let episodeDateLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .grey2
+        label.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
+        label.textAlignment = .left
+        return label
+    }()
     
-    private let progressBarBackground = UIView().then {
-        $0.backgroundColor = .white50
-        $0.setupCornerRadius(4)
-    }
+    private let progressBarBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white50
+        view.setupCornerRadius(4)
+        return view
+    }()
     
-    private let progressBarForeground = UIView().then {
-        $0.backgroundColor = .primaryWhite
-        $0.setupCornerRadius(4)
-    }
+    private let progressBarForeground: UIView = {
+        let view = UIView()
+        view.backgroundColor = .primaryWhite
+        view.setupCornerRadius(4)
+        return view
+    }()
     
     //MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupStyle()
         setupHierarchy()
         setupLayout()
     }
@@ -78,37 +92,38 @@ class EpisodeCell: UICollectionViewCell {
     }
     
     private func setupHierarchy() {
-        contentView.addSubviews(imageView, labelView)
-        imageView.addSubviews(badgeLabel, progressBarBackground)
-        labelView.addSubviews(titleLabel, dateLabel)
+        contentView.addSubviews(episodeCellImageView, episodeCellLabelView)
         progressBarBackground.addSubview(progressBarForeground)
+        episodeCellImageView.addSubviews(episodeBadgeLabel, progressBarBackground)
+        episodeCellLabelView.addSubviews(episodeTitleLabel, episodeDateLabel)
     }
     
     private func setupLayout() {
-        imageView.snp.makeConstraints { make in
+        episodeCellImageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(117.0 / 218.0)
         }
         
-        badgeLabel.snp.makeConstraints { make in
+        episodeBadgeLabel.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().inset(2)
             make.width.equalTo(26)
             make.height.equalTo(15)
         }
         
-        labelView.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom)
+        episodeCellLabelView.snp.makeConstraints { make in
+            make.top.equalTo(episodeCellImageView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(47)
+            make.height.equalToSuperview().multipliedBy(101.0 / 218.0)
         }
         
-        titleLabel.snp.makeConstraints { make in
+        episodeTitleLabel.snp.makeConstraints { make in
             make.top.trailing.equalToSuperview().inset(8)
             make.trailing.equalToSuperview().inset(31)
         }
         
-        dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(2)
-            make.horizontalEdges.equalTo(titleLabel.snp.leading)
+        episodeDateLabel.snp.makeConstraints { make in
+            make.top.equalTo(episodeTitleLabel.snp.bottom).offset(2)
+            make.horizontalEdges.equalTo(episodeTitleLabel.snp.leading)
         }
         
         progressBarBackground.snp.makeConstraints { make in
@@ -125,9 +140,9 @@ class EpisodeCell: UICollectionViewCell {
     }
     
     func configure(with title: String, date: String, image: UIImage?, progress: Int) {
-        titleLabel.text = title
-        dateLabel.text = date
-        imageView.image = image
+        episodeTitleLabel.text = title
+        episodeDateLabel.text = date
+        episodeCellImageView.image = image
         updateProgressBar(progress: progress)
     }
     
