@@ -69,9 +69,23 @@ class KWTabBarController: UITabBarController {
     }
     
     private func setupTabBarStyle() {
-        tabBar.backgroundColor = .black3
-        tabBar.tintColor = .yellow2
-        tabBar.unselectedItemTintColor = .dg1
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .black3
+        appearance.stackedLayoutAppearance.selected.iconColor = .yellow2
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+            .foregroundColor: UIColor.yellow2
+        ]
+        
+        appearance.stackedLayoutAppearance.normal.iconColor = .dg1
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor.dg1
+        ]
+        
+        tabBar.standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        }
     }
     
 }
