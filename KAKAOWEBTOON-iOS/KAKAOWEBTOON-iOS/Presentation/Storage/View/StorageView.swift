@@ -13,7 +13,15 @@ class StorageView: UIView {
     
     // MARK: - UI Properties
     
-    let storageTableView = UITableView()
+    let storageCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 0
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .primaryRed
+        return collectionView
+    }()
     
     // MARK: - Init
     
@@ -30,18 +38,16 @@ class StorageView: UIView {
     }
     
     func setupHierarchy() {
-        self.addSubviews(storageTableView)
+        self.addSubview(storageCollectionView)
     }
     
     func setupStyle() {
         self.backgroundColor = .black3
-        storageTableView.backgroundColor = .primaryRed
     }
     
     func setupLayout() {
-        storageTableView.snp.makeConstraints {
-            $0.verticalEdges.equalTo(self.safeAreaLayoutGuide)
-            $0.horizontalEdges.equalToSuperview()
+        storageCollectionView.snp.makeConstraints {
+            $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
     }
 }

@@ -30,12 +30,16 @@ class StorageViewController: UIViewController {
     // MARK: - Private func
     
     private func register() {
-        storageView.storageTableView.register(WebtoonBoxCell.self, forCellReuseIdentifier: WebtoonBoxCell.reuseIdentifier)
+        storageView.storageCollectionView
+            .register(
+                WebToonBoxCell.self,
+                forCellWithReuseIdentifier: WebToonBoxCell.reuseIdentifier
+            )
     }
     
     private func setupDelegate() {
-//        storageView.storageTableView.delegate = self
-        storageView.storageTableView.dataSource = self
+        storageView.storageCollectionView.dataSource = self
+        storageView.storageCollectionView.delegate = self
     }
     
     private func setupNavigationBar() {
@@ -62,15 +66,28 @@ class StorageViewController: UIViewController {
     
 }
 
-extension StorageViewController: UITableViewDataSource {
+// MARK: - Extensions
+
+extension StorageViewController: UICollectionViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let webtoonBoxCell = storageView.storageTableView.dequeueReusableCell(withIdentifier: WebtoonBoxCell.reuseIdentifier, for: indexPath) as? WebtoonBoxCell else { return UITableViewCell() }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let webtoonBoxCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: WebToonBoxCell.reuseIdentifier,
+            for: indexPath
+        ) as? WebToonBoxCell else {
+            return UICollectionViewCell()
+        }
         return webtoonBoxCell
     }
     
+}
+
+extension StorageViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 100)
+    }
 }

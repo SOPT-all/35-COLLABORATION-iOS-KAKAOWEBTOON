@@ -27,7 +27,7 @@
 		E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892F12CEB204800103A49 /* UILabel+.swift */; };
 		E3C623AA2CECF63B00BD5047 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623A92CECF63B00BD5047 /* UIBarButtonItem+.swift */; };
 		E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */; };
-		E3C72D512CEDC2B400ADFC8E /* WebtoonBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C72D502CEDC2B400ADFC8E /* WebtoonBoxCell.swift */; };
+		E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */; };
 		E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FB5E812CEC78570005F835 /* StorageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,7 @@
 		E3A892F12CEB204800103A49 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		E3C623A92CECF63B00BD5047 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
 		E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
-		E3C72D502CEDC2B400ADFC8E /* WebtoonBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebtoonBoxCell.swift; sourceTree = "<group>"; };
+		E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonBoxCell.swift; sourceTree = "<group>"; };
 		E3FB5E812CEC78570005F835 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -358,7 +358,7 @@
 		8757EA242CEA180500EBBCF4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E3C72D502CEDC2B400ADFC8E /* WebtoonBoxCell.swift */,
+				E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -494,7 +494,7 @@
 				E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
 				E3C623AA2CECF63B00BD5047 /* UIBarButtonItem+.swift in Sources */,
-				E3C72D512CEDC2B400ADFC8E /* WebtoonBoxCell.swift in Sources */,
+				E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
 				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
