@@ -19,7 +19,7 @@ class StorageView: UIView {
         flowLayout.minimumLineSpacing = 10
         flowLayout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .primaryRed
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -37,15 +37,17 @@ class StorageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupHierarchy() {
+    // MARK: - Private func
+    
+    private func setupHierarchy() {
         self.addSubview(storageCollectionView)
     }
     
-    func setupStyle() {
+    private func setupStyle() {
         self.backgroundColor = .black3
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         storageCollectionView.snp.makeConstraints {
             $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
