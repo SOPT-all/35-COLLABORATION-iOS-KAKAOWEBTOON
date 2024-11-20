@@ -86,6 +86,7 @@ class EpisodeCell: UICollectionViewCell {
     }
     
     // MARK: - Private Func
+    
     private func setupStyle() {
         contentView.backgroundColor = .clear
         contentView.setupCornerRadius(8)
@@ -148,6 +149,7 @@ class EpisodeCell: UICollectionViewCell {
     
     private func updateProgressBar(progress: Int) {
         // 진행바의 길이를 progress에 따라 설정 (0 ~ 10)
+        progressBarBackground.layoutIfNeeded()
         let maxWidth = progressBarBackground.frame.width
         let progressWidth = CGFloat(progress) / 10.0 * maxWidth
         progressBarForeground.snp.updateConstraints { make in
@@ -155,4 +157,3 @@ class EpisodeCell: UICollectionViewCell {
         }
     }
 }
-
