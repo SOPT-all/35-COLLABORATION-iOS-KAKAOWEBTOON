@@ -15,6 +15,7 @@
 		8757EA2D2CEC437000EBBCF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2C2CEC437000EBBCF4 /* Alamofire */; };
 		8757EA302CEC43AE00EBBCF4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2F2CEC43AE00EBBCF4 /* Moya */; };
 		8757EA332CEC43BE00EBBCF4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA322CEC43BE00EBBCF4 /* Then */; };
+		8757EA5A2CEE118D00EBBCF4 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */; };
 		E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D7F2CEB929F004045F1 /* UIView+.swift */; };
 		E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D812CEB9359004045F1 /* UIStackView+.swift */; };
 		E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D832CEB93EA004045F1 /* UIFont+.swift */; };
@@ -38,6 +39,7 @@
 		8757E9FA2CEA15EC00EBBCF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8757E9FD2CEA15EC00EBBCF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8757E9FF2CEA15EC00EBBCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		E31F1D7F2CEB929F004045F1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E31F1D812CEB9359004045F1 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		E31F1D832CEB93EA004045F1 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 		8757EA282CEA181A00EBBCF4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
 				E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
+				8757EA5A2CEE118D00EBBCF4 /* EpisodeCell.swift in Sources */,
 				E3C623AA2CECF63B00BD5047 /* UIBarButtonItem+.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
 				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
