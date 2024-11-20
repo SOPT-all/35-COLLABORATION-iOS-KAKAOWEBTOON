@@ -48,6 +48,16 @@ class EpisodeCell: UICollectionViewCell {
         $0.textAlignment = .left
     }
     
+    private let progressBarBackground = UIView().then {
+        $0.backgroundColor = .white50
+        $0.setupCornerRadius(4)
+    }
+    
+    private let progressBarForeground = UIView().then {
+        $0.backgroundColor = .primaryWhite
+        $0.setupCornerRadius(4)
+    }
+    
     //MARK: - Life Cycle
     
     override init(frame: CGRect) {
@@ -68,12 +78,10 @@ class EpisodeCell: UICollectionViewCell {
     }
     
     private func setupHierarchy() {
-        contentView.addSubviews(
-            imageView,
-            badgeLabel,
-            labelView
-        )
+        contentView.addSubviews(imageView, labelView)
+        imageView.addSubviews(badgeLabel, progressBarBackground)
         labelView.addSubviews(titleLabel, dateLabel)
+        progressBarBackground.addSubview(progressBarForeground)
     }
     
     private func setupLayout() {
@@ -102,12 +110,33 @@ class EpisodeCell: UICollectionViewCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(2)
             make.horizontalEdges.equalTo(titleLabel.snp.leading)
         }
+        
+        progressBarBackground.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(4)
+            make.horizontalEdges.equalToSuperview().inset(5)
+            make.height.equalTo(4)
+        }
+        
+        progressBarForeground.snp.makeConstraints { make in
+            make.leading.verticalEdges.equalToSuperview()
+            make.width.equalTo(0)
+        }
     }
     
-    func configure(with title: String, date: String, image: UIImage?) {
+    func configure(with title: String, date: String, image: UIImage?, progress: Int) {
         titleLabel.text = title
         dateLabel.text = date
         imageView.image = image
+        updateProgressBar(progress: progress)
+    }
+    
+    private func updateProgressBar(progress: Int) {
+        // 진행바의 길이를 progress에 따라 설정 (0 ~ 10)
+        let maxWidth = progressBarBackground.frame.width
+        let progressWidth = CGFloat(progress) / 10.0 * maxWidth
+        progressBarForeground.snp.updateConstraints { make in
+            make.width.equalTo(progressWidth)
+        }
     }
 }
 
