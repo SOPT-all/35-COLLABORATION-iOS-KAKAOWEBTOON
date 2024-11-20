@@ -14,11 +14,16 @@ class AllToonsSectionCell: UICollectionViewCell {
     static let identifier = "AllToonsSectionCell"
     
 //    private let titleLabel = UILabel(frame: .zero)
-    private let imageView = UIImageView(frame: .zero)
+    private let imageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentView.backgroundColor = .red
+        self.contentView.backgroundColor = .gray
         
         setUI()
         setLayout()
@@ -26,7 +31,7 @@ class AllToonsSectionCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.contentView.backgroundColor = .red
+        self.contentView.backgroundColor = .gray
     }
     
     private func setUI() {

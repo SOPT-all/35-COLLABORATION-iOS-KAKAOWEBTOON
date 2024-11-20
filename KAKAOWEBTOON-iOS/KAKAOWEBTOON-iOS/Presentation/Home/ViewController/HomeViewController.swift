@@ -45,6 +45,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         rootView.collectionView.register(
             AllToonsSectionCell.self, forCellWithReuseIdentifier: AllToonsSectionCell.reuseIdentifier
         )
+        
+        rootView.collectionView.register(
+            AllToonsSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AllToonsSectionHeaderView.Identifier
+        )
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -61,7 +65,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .toonCategorySection:
             return 0
         case .allToonsSection:
-            return 9
+            return 9 //서버 넘어오면 model 받아서 indexPath.row로..
         case .addSection:
             return 0
         }
@@ -85,13 +89,32 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             else {
                 return UICollectionViewCell()
             }
-            cell.configure(with: .init(title: "sss", image: .icBack))
+            cell.configure(with: .init(title: "sss", image: .imgHomeCharcter))
             return cell
         case .addSection:
             return UICollectionViewCell()
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 28)
+        }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                            viewForSupplementaryElementOfKind kind: String,
+                            at indexPath: IndexPath) -> UICollectionReusableView {
+        let sectionType = HomeSection.allCases[indexPath.section]
+        
+        switch sectionType {
+        case .allToonsSection:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllToonsSectionHeaerView", for: indexPath) as! AllToonsSectionHeaderView
+            return header
+        default:
+            return UICollectionReusableView()
+        }
+    }
     
     // MARK: Set up NavigationBar
     
@@ -127,7 +150,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         navigationItem.leftBarButtonItem = leftCoinBarButton
         navigationItem.titleView = logoImage
         navigationItem.rightBarButtonItems = [rightMenuButton, rightSearchButton]
-        
     }
 }
 

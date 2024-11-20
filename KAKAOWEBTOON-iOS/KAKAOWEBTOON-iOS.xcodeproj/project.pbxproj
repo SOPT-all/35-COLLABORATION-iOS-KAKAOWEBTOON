@@ -12,6 +12,7 @@
 		6C6570B42CECFCB0001118B3 /* AdSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570B32CECFCB0001118B3 /* AdSectionCell.swift */; };
 		6C6570B92CED99DD001118B3 /* AllToonsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570B82CED99DD001118B3 /* AllToonsSectionCell.swift */; };
 		6C6570BB2CEDA9AF001118B3 /* AllToonsSectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570BA2CEDA9AF001118B3 /* AllToonsSectionApp.swift */; };
+		6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */; };
 		8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */; };
 		8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */; };
 		8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F52CEA15EA00EBBCF4 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		6C6570B32CECFCB0001118B3 /* AdSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSectionCell.swift; sourceTree = "<group>"; };
 		6C6570B82CED99DD001118B3 /* AllToonsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionCell.swift; sourceTree = "<group>"; };
 		6C6570BA2CEDA9AF001118B3 /* AllToonsSectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionApp.swift; sourceTree = "<group>"; };
+		6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionHeaderView.swift; sourceTree = "<group>"; };
 		8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOWEBTOON-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				6C6570B12CECE6FD001118B3 /* HomeView.swift */,
+				6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
 				6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
+				6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */,
 				6C6570B92CED99DD001118B3 /* AllToonsSectionCell.swift in Sources */,
 				6C6570B42CECFCB0001118B3 /* AdSectionCell.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,

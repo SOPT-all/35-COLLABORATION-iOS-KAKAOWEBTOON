@@ -112,32 +112,33 @@ class HomeView: UIView {
         let item = NSCollectionLayoutItem(
             layoutSize: itemSize
         )
+        item.contentInsets.leading = 4
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(353), heightDimension: .absolute(230)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(230)
         )
         
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize, subitems: [item, item, item]
         )
-        group.interItemSpacing = NSCollectionLayoutSpacing.fixed(4)
         
         let section = NSCollectionLayoutSection(
             group: group
         )
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0, leading: 11, bottom: 0, trailing: 11
+            top: 0, leading: 0, bottom: 0, trailing: 0
         )
         section.interGroupSpacing = 4
         
         let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(22)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(28)
         )
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader, alignment: .top
         )
+        
         
         section.boundarySupplementaryItems = [header]
         
