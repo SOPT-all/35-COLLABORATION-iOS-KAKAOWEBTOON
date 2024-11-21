@@ -8,23 +8,46 @@
 import UIKit
 
 class StorageViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    private let storageView = StorageView()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.view.backgroundColor = .blue
+    // MARK: - Life Cycle
+    
+    override func loadView() {
+        self.view = storageView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupNavigationBar()
     }
-    */
+    
+    // MARK: - Private func
+    
+    private func setupNavigationBar() {
+        self.title = "보관함"
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithDefaultBackground()
+        appearance.backgroundColor = .black3
+        appearance.shadowColor = nil
+
+        let titleFont = UIFont.appleSDGothicNeo(.title1_eb_17)
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+          .font: titleFont,
+          .foregroundColor: UIColor.primaryWhite,
+          .kern: KakaoWebtoonFont.title1_eb_17.letterSpacing
+        ]
+
+        appearance.titleTextAttributes = titleAttributes
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.isNavigationBarHidden = false
+    }
 
 }
