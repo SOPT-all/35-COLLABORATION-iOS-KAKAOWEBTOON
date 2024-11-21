@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 class CategoryTabView: UIView {
     
     // MARK: - Properties
@@ -15,9 +17,8 @@ class CategoryTabView: UIView {
     
     // MARK: - UI Properties
     
-    private lazy var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = title
         label.font = .appleSDGothicNeo(.body2_sb_13)
         label.applyStyle(.body2_sb_13)
         label.textColor = .dg4
@@ -28,7 +29,8 @@ class CategoryTabView: UIView {
     private let yellowUnderLine: UIView = {
         let view = UIView()
         view.backgroundColor = .yellow2
-        view.setupCornerRadius(5)
+        view.isHidden = true
+        view.setupCornerRadius(1)
         return view
     }()
     
@@ -54,10 +56,30 @@ class CategoryTabView: UIView {
     }
     
     private func setupStyle() {
-        
+        self.backgroundColor = .clear
+        self.titleLabel.text = title
     }
     
     private func setupLayer() {
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(7)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(5)
+        }
         
+        yellowUnderLine.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom)
+            $0.centerX.equalToSuperview()
+            $0.horizontalEdges.equalTo(titleLabel)
+            $0.height.equalTo(2)
+        }
     }
+    
+    // MARK: - Funcs
+    
+    func isSelected() {
+        titleLabel.textColor = .primaryWhite
+        yellowUnderLine.isHidden = false
+    }
+    
 }
