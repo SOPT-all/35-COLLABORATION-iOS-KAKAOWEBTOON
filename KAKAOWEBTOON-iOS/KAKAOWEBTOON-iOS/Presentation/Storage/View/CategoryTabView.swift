@@ -14,6 +14,11 @@ class CategoryTabView: UIView {
     // MARK: - Properties
     
     private let title: String
+    var isSelected: Bool = false {
+        didSet {
+            toolTabTapped()
+        }
+    }
     
     // MARK: - UI Properties
     
@@ -56,7 +61,7 @@ class CategoryTabView: UIView {
     }
     
     private func setupStyle() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .black3
         self.titleLabel.text = title
     }
     
@@ -77,9 +82,15 @@ class CategoryTabView: UIView {
     
     // MARK: - Funcs
     
-    func isSelected() {
-        titleLabel.textColor = .primaryWhite
-        yellowUnderLine.isHidden = false
+    private func toolTabTapped() {
+//        isSelected.toggle()
+        if isSelected {
+            titleLabel.textColor = .primaryWhite
+            yellowUnderLine.isHidden = false
+        } else {
+            titleLabel.textColor = .dg4
+            yellowUnderLine.isHidden = true
+        }
     }
     
 }

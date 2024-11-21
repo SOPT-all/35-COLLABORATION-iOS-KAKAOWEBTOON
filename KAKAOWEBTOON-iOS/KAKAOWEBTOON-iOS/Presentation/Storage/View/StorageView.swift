@@ -11,9 +11,13 @@ import SnapKit
 
 class StorageView: UIView {
     
+    // MARK: - Properties
+    
+    private var categoryTabs: [CategoryTabView] = []
+    
     // MARK: - UI Properties
     
-    private let storageHeaderView = CategorySelectorView()
+    let storageHeaderView = CategorySelectorView()
     
     let storageCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -35,6 +39,7 @@ class StorageView: UIView {
         setupHierarchy()
         setupStyle()
         setupLayout()
+        addViewsToArray()
     }
     
     required init?(coder: NSCoder) {
@@ -64,4 +69,22 @@ class StorageView: UIView {
             $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
     }
+    
+    private func addViewsToArray() {
+        categoryTabs.append(storageHeaderView.recentTab)
+        categoryTabs.append(storageHeaderView.saveTab)
+        categoryTabs.append(storageHeaderView.buyTab)
+        categoryTabs.append(storageHeaderView.downloadTab)
+        categoryTabs.append(storageHeaderView.commentTab)
+    }
+    
+    // MARK: - Funcs
+    
+    func categoryTabToggle(_ tab: CategoryTabView) {
+        categoryTabs.forEach { view in
+            view.isSelected = false
+        }
+        tab.isSelected = true
+    }
+    
 }
