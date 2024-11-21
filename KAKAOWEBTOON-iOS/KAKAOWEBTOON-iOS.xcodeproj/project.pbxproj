@@ -16,6 +16,7 @@
 		8757EA302CEC43AE00EBBCF4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2F2CEC43AE00EBBCF4 /* Moya */; };
 		8757EA332CEC43BE00EBBCF4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA322CEC43BE00EBBCF4 /* Then */; };
 		E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* CategoryTabView.swift */; };
+		E31D73462CEF98120090822F /* ToolTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D73452CEF98120090822F /* ToolTabView.swift */; };
 		E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D7F2CEB929F004045F1 /* UIView+.swift */; };
 		E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D812CEB9359004045F1 /* UIStackView+.swift */; };
 		E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D832CEB93EA004045F1 /* UIFont+.swift */; };
@@ -44,6 +45,7 @@
 		8757E9FD2CEA15EC00EBBCF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8757E9FF2CEA15EC00EBBCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E31702C22CEF0E8A0028278A /* CategoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabView.swift; sourceTree = "<group>"; };
+		E31D73452CEF98120090822F /* ToolTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTabView.swift; sourceTree = "<group>"; };
 		E31F1D7F2CEB929F004045F1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E31F1D812CEB9359004045F1 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		E31F1D832CEB93EA004045F1 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				E3FB5E812CEC78570005F835 /* StorageView.swift */,
 				E3E4659E2CEF00AF002DE0D3 /* CategorySelectorView.swift */,
 				E31702C22CEF0E8A0028278A /* CategoryTabView.swift */,
+				E31D73452CEF98120090822F /* ToolTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 			files = (
 				E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */,
 				E33DBBB82CEE46CD00E6AB94 /* HashTagView.swift in Sources */,
+				E31D73462CEF98120090822F /* ToolTabView.swift in Sources */,
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
 				E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */,
