@@ -82,24 +82,24 @@ class AllToonsSectionHeaderView: UICollectionReusableView {
         
         allArrayImageView.snp.makeConstraints{
             $0.centerY.equalTo(allLabel)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.trailing.equalToSuperview().inset(15)
             $0.size.equalTo(12)
         }
         
         allLabel.snp.makeConstraints{
             $0.top.equalToSuperview().offset(4)
-            $0.trailing.equalTo(allArrayImageView.snp.leading).offset(-4)
+            $0.trailing.equalTo(allArrayImageView.snp.leading).inset(-4)
         }
         
         sortArrayImageView.snp.makeConstraints{
             $0.centerY.equalTo(sortLabel)
             $0.size.equalTo(12)
-            $0.trailing.equalTo(allLabel.snp.leading).offset(-13)
+            $0.trailing.equalTo(allLabel.snp.leading).inset(-13)
         }
         
         sortLabel.snp.makeConstraints{
             $0.top.equalToSuperview().offset(4)
-            $0.trailing.equalTo(sortArrayImageView.snp.leading).offset(-4)
+            $0.trailing.equalTo(sortArrayImageView.snp.leading).inset(-4)
         }
     }
 }

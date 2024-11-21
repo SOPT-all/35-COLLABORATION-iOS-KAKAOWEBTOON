@@ -11,8 +11,6 @@ import SnapKit
 
 class AllToonsSectionCell: UICollectionViewCell {
     
-    static let identifier = "AllToonsSectionCell"
-    
 //    private let titleLabel = UILabel(frame: .zero)
     private let imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -25,8 +23,8 @@ class AllToonsSectionCell: UICollectionViewCell {
         super.init(frame: frame)
         self.contentView.backgroundColor = .gray
         
-        setUI()
-        setLayout()
+        setupHierarchy()
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -34,12 +32,12 @@ class AllToonsSectionCell: UICollectionViewCell {
         self.contentView.backgroundColor = .gray
     }
     
-    private func setUI() {
+    private func setupHierarchy() {
 //        self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(imageView)
     }
     
-    private func setLayout() {
+    private func setupLayout() {
 //        titleLabel.snp.makeConstraints{
 //            $0.centerX.equalToSuperview()
 //            $0.centerY.equalToSuperview()
