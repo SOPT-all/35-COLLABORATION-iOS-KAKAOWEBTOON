@@ -83,7 +83,6 @@ class CategoryTabView: UIView {
     // MARK: - Funcs
     
     private func toolTabTapped() {
-//        isSelected.toggle()
         if isSelected {
             titleLabel.textColor = .primaryWhite
             yellowUnderLine.isHidden = false
