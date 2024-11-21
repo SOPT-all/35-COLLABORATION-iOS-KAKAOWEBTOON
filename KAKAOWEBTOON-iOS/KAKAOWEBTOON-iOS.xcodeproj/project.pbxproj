@@ -30,6 +30,7 @@
 		E3C623AA2CECF63B00BD5047 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623A92CECF63B00BD5047 /* UIBarButtonItem+.swift */; };
 		E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */; };
 		E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */; };
+		E3E4659F2CEF00AF002DE0D3 /* StorageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E4659E2CEF00AF002DE0D3 /* StorageHeaderView.swift */; };
 		E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FB5E812CEC78570005F835 /* StorageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		E3C623A92CECF63B00BD5047 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
 		E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
 		E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonBoxCell.swift; sourceTree = "<group>"; };
+		E3E4659E2CEF00AF002DE0D3 /* StorageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHeaderView.swift; sourceTree = "<group>"; };
 		E3FB5E812CEC78570005F835 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				E3FB5E812CEC78570005F835 /* StorageView.swift */,
+				E3E4659E2CEF00AF002DE0D3 /* StorageHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				E31F1E312CEBA8D1004045F1 /* HomeViewController.swift in Sources */,
 				E33DBBB32CEE364700E6AB94 /* FreeTagView.swift in Sources */,
 				E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */,
+				E3E4659F2CEF00AF002DE0D3 /* StorageHeaderView.swift in Sources */,
 				8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */,
 				8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */,
 			);
