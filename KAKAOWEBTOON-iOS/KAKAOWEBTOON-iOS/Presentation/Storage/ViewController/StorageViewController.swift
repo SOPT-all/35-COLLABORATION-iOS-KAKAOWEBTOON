@@ -44,19 +44,16 @@ class StorageViewController: UIViewController {
     
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.setupNavigationBarStyle(.title("보관함"))
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem.setupBarButton(
             type: .coin,
             target: self,
             action: #selector(didTapButton)
         )
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
             buttonTypes: [.research, .menu],
             target: self,
             actions: [#selector(didTapButton), #selector(didTapButton)]
         )
-        
     }
     
     @objc
@@ -94,6 +91,7 @@ extension StorageViewController: UICollectionViewDataSource {
 }
 
 extension StorageViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -101,4 +99,5 @@ extension StorageViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 100)
     }
+    
 }

@@ -13,13 +13,17 @@ class StorageView: UIView {
     
     // MARK: - UI Properties
     
+    private let storageHeaderView = StorageHeaderView()
+    
     let storageCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 10
         flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionHeadersPinToVisibleBounds = true
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
@@ -40,7 +44,7 @@ class StorageView: UIView {
     // MARK: - Private func
     
     private func setupHierarchy() {
-        self.addSubview(storageCollectionView)
+        self.addSubviews(storageHeaderView, storageCollectionView)
     }
     
     private func setupStyle() {
@@ -48,8 +52,16 @@ class StorageView: UIView {
     }
     
     private func setupLayout() {
+        storageHeaderView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(80)
+        }
+        
         storageCollectionView.snp.makeConstraints {
-            $0.edges.equalTo(self.safeAreaLayoutGuide)
+            $0.top.equalTo(storageHeaderView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
     }
 }
