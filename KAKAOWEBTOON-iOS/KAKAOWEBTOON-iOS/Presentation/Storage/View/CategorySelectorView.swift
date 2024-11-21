@@ -28,8 +28,8 @@ class CategorySelectorView: UIView {
         return stackView
     }()
     
-    private let sortTabView = ToolTabView()
-    private let editTabView = ToolTabView()
+    private let sortTabView = ToolTabView(.sort)
+    private let editTabView = ToolTabView(.edit)
     
     private lazy var toolTabStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [sortTabView, editTabView])
