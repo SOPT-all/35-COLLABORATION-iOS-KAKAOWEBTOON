@@ -72,7 +72,7 @@ class WebToonBoxCell: UICollectionViewCell {
     }
     
     func setupStyle() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .black3
     }
     
     func setupLayout() {
