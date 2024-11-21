@@ -9,11 +9,6 @@ import UIKit
 
 class StorageHeaderView: UIView {
     
-    /*
-     해야할 일 :
-     헤더뷰 추후 구현
-     */
-    
     // MARK: - UI Properties
     
     

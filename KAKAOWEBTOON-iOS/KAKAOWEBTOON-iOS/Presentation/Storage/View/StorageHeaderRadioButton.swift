@@ -9,11 +9,6 @@ import UIKit
 
 class StorageRadioButtonView: UIView {
     
-    /*
-     해야할 일 :
-     라디오 버튼 추후 구현
-     */
-    
     // MARK: - Properties
     
     private let title: String
