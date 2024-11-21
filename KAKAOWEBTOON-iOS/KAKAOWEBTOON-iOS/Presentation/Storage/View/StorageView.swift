@@ -11,6 +11,24 @@ import SnapKit
 
 class StorageView: UIView {
     
+    // MARK: - UI Properties
+    
+    private let storageHeaderView = StorageHeaderView()
+    
+    let storageCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionHeadersPinToVisibleBounds = true
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        return collectionView
+    }()
+    
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -23,16 +41,27 @@ class StorageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupHierarchy() {
-        
+    // MARK: - Private func
+    
+    private func setupHierarchy() {
+        self.addSubviews(storageHeaderView, storageCollectionView)
     }
     
-    func setupStyle() {
+    private func setupStyle() {
         self.backgroundColor = .black3
-        
     }
     
-    func setupLayout() {
+    private func setupLayout() {
+        storageHeaderView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(80)
+        }
         
+        storageCollectionView.snp.makeConstraints {
+            $0.top.equalTo(storageHeaderView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
+        }
     }
 }
