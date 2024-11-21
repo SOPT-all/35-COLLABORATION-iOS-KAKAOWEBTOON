@@ -1,5 +1,5 @@
 //
-//  StorageHeaderView.swift
+//  CategorySelectorView.swift
 //  KAKAOWEBTOON-iOS
 //
 //  Created by 김승원 on 11/21/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StorageHeaderView: UIView {
+class CategorySelectorView: UIView {
     
     // MARK: - UI Properties
     

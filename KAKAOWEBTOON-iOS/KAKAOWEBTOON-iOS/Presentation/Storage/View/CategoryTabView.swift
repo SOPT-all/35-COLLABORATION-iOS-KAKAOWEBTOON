@@ -1,5 +1,5 @@
 //
-//  StorageRadioButtonView.swift
+//  CategoryTabView.swift
 //  KAKAOWEBTOON-iOS
 //
 //  Created by 김승원 on 11/21/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StorageRadioButtonView: UIView {
+class CategoryTabView: UIView {
     
     // MARK: - Properties
     

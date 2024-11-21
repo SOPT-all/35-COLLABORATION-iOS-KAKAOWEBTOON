@@ -13,7 +13,7 @@ class StorageView: UIView {
     
     // MARK: - UI Properties
     
-    private let storageHeaderView = StorageHeaderView()
+    private let storageHeaderView = CategorySelectorView()
     
     let storageCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
