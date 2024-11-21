@@ -1,5 +1,5 @@
 //
-//  FreeView.swift
+//  FreeTagView.swift
 //  KAKAOWEBTOON-iOS
 //
 //  Created by 김승원 on 11/21/24.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-enum FreeViewType: String {
+enum FreeTagViewType: String {
     
     case free = "연재 무료"
     case three = "3다무"
@@ -33,11 +33,11 @@ enum FreeViewType: String {
     
 }
 
-class FreeView: UIView {
+class FreeTagView: UIView {
     
     // MARK: - Properties
     
-    private let type: FreeViewType
+    private let type: FreeTagViewType
     
     // MARK: - UI Properties
     
@@ -65,7 +65,7 @@ class FreeView: UIView {
     
     // MARK: - Init
 
-    init(_ type: FreeViewType) {
+    init(_ type: FreeTagViewType) {
         self.type = type
         super.init(frame: .zero)
         

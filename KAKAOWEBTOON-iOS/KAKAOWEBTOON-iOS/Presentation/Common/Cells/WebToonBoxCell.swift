@@ -21,6 +21,27 @@ class WebToonBoxCell: UICollectionViewCell {
         return imageView
     }()
     
+    lazy var freeTagView = FreeTagView(.free)
+    lazy var hashTagView = HashTagView("코믹/일상")
+    
+    private lazy var tagStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [freeTagView, hashTagView])
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .fill
+        stackView.spacing = 3
+        stackView.axis = .horizontal
+        return stackView
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "웹툰 제목"
+        label.font = .appleSDGothicNeo(.title1_eb_17)
+        label.applyStyle(.title1_eb_17)
+        label.textColor = .primaryWhite
+        return label
+    }()
+    
     let authorLabel: UILabel = {
         let label = UILabel()
         label.text = "작가"
@@ -28,18 +49,6 @@ class WebToonBoxCell: UICollectionViewCell {
         label.applyStyle(.body7_eb_12)
         label.textColor = .grey4
         return label
-    }()
-    
-    lazy var freeView = FreeView(.free)
-    lazy var hashTagView = HashTagView("코믹/일상")
-    
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [freeView, hashTagView])
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .fill
-        stackView.spacing = 3
-        stackView.axis = .horizontal
-        return stackView
     }()
 
     // MARK: - Init
@@ -59,7 +68,7 @@ class WebToonBoxCell: UICollectionViewCell {
     // MARK: - Private func
     
     func setupHierarchy() {
-        self.addSubviews(webtoonImageView, authorLabel)
+        self.addSubviews(webtoonImageView, titleLabel, authorLabel)
     }
     
     func setupStyle() {
@@ -73,6 +82,11 @@ class WebToonBoxCell: UICollectionViewCell {
             $0.width.equalTo(160)
         }
         
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(35)
+            $0.leading.equalTo(webtoonImageView.snp.trailing).offset(11)
+        }
+        
         authorLabel.snp.makeConstraints {
             $0.leading.equalTo(webtoonImageView.snp.trailing).offset(11)
             $0.bottom.equalToSuperview().inset(6)
@@ -83,8 +97,8 @@ class WebToonBoxCell: UICollectionViewCell {
     // MARK: - Func
     
     func configure() {
-        self.addSubview(stackView)
-        stackView.snp.makeConstraints {
+        self.addSubview(tagStackView)
+        tagStackView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(5)
             $0.leading.equalTo(webtoonImageView.snp.trailing).offset(11)
             $0.width.lessThanOrEqualTo(100)

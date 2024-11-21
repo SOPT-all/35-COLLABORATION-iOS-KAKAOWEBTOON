@@ -70,24 +70,35 @@ class StorageViewController: UIViewController {
 
 extension StorageViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return 10
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let webtoonBoxCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: WebToonBoxCell.reuseIdentifier,
             for: indexPath
         ) as? WebToonBoxCell else {
             return UICollectionViewCell()
         }
+        webtoonBoxCell.configure()
         return webtoonBoxCell
     }
     
 }
 
 extension StorageViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 100)
     }
 }
