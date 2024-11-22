@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C6570B02CEC9B00001118B3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6C6570AF2CEC9B00001118B3 /* SnapKit */; };
+		6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570B12CECE6FD001118B3 /* HomeView.swift */; };
+		6C6570B42CECFCB0001118B3 /* AdSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570B32CECFCB0001118B3 /* AdSectionCell.swift */; };
+		6C6570B92CED99DD001118B3 /* AllToonsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570B82CED99DD001118B3 /* AllToonsSectionCell.swift */; };
+		6C6570BB2CEDA9AF001118B3 /* AllToonsSectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570BA2CEDA9AF001118B3 /* AllToonsSectionApp.swift */; };
+		6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */; };
 		8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */; };
 		8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */; };
 		8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F52CEA15EA00EBBCF4 /* ViewController.swift */; };
@@ -37,6 +43,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C6570B12CECE6FD001118B3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6C6570B32CECFCB0001118B3 /* AdSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSectionCell.swift; sourceTree = "<group>"; };
+		6C6570B82CED99DD001118B3 /* AllToonsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionCell.swift; sourceTree = "<group>"; };
+		6C6570BA2CEDA9AF001118B3 /* AllToonsSectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionApp.swift; sourceTree = "<group>"; };
+		6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionHeaderView.swift; sourceTree = "<group>"; };
 		8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOWEBTOON-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,21 +80,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E31F1E362CEBABD7004045F1 /* SnapKit in Frameworks */,
-				8757EA2D2CEC437000EBBCF4 /* Alamofire in Frameworks */,
-				8757EA302CEC43AE00EBBCF4 /* Moya in Frameworks */,
-				8757EA332CEC43BE00EBBCF4 /* Then in Frameworks */,
+				6C6570B02CEC9B00001118B3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C6570AE2CEC9B00001118B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C6570B72CECFDF4001118B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C6570BA2CEDA9AF001118B3 /* AllToonsSectionApp.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8757E9E52CEA15EA00EBBCF4 = {
 			isa = PBXGroup;
 			children = (
 				8757E9F02CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS */,
 				8757E9EF2CEA15EA00EBBCF4 /* Products */,
+				6C6570AE2CEC9B00001118B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,8 +263,8 @@
 		8757EA142CEA177800EBBCF4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6C6570B72CECFDF4001118B3 /* Model */,
 				8757EA1C2CEA17B900EBBCF4 /* Cell */,
-				8757EA1B2CEA17B300EBBCF4 /* Model */,
 				8757EA1A2CEA17AD00EBBCF4 /* View */,
 				8757EA192CEA17A200EBBCF4 /* ViewController */,
 			);
@@ -298,20 +322,17 @@
 		8757EA1A2CEA17AD00EBBCF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C6570B12CECE6FD001118B3 /* HomeView.swift */,
+				6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		8757EA1B2CEA17B300EBBCF4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		8757EA1C2CEA17B900EBBCF4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				6C6570B32CECFCB0001118B3 /* AdSectionCell.swift */,
+				6C6570B82CED99DD001118B3 /* AllToonsSectionCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -387,6 +408,7 @@
 		8757EA262CEA181000EBBCF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,6 +423,7 @@
 		8757EA282CEA181A00EBBCF4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -455,9 +478,7 @@
 			);
 			name = "KAKAOWEBTOON-iOS";
 			packageProductDependencies = (
-				8757EA2C2CEC437000EBBCF4 /* Alamofire */,
-				8757EA2F2CEC43AE00EBBCF4 /* Moya */,
-				8757EA322CEC43BE00EBBCF4 /* Then */,
+				6C6570AF2CEC9B00001118B3 /* SnapKit */,
 			);
 			productName = "KAKAOWEBTOON-iOS";
 			productReference = 8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */;
@@ -488,10 +509,7 @@
 			);
 			mainGroup = 8757E9E52CEA15EA00EBBCF4;
 			packageReferences = (
-				E31F1E342CEBABD7004045F1 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				8757EA2B2CEC437000EBBCF4 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				8757EA2E2CEC43AE00EBBCF4 /* XCRemoteSwiftPackageReference "Moya" */,
-				8757EA312CEC43BE00EBBCF4 /* XCRemoteSwiftPackageReference "Then" */,
+				6C6570AB2CEC9A34001118B3 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 8757E9EF2CEA15EA00EBBCF4 /* Products */;
 			projectDirPath = "";
@@ -523,6 +541,11 @@
 				E33DBBB82CEE46CD00E6AB94 /* HashTagView.swift in Sources */,
 				E31D73462CEF98120090822F /* ToolTabView.swift in Sources */,
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
+				6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */,
+				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
+				6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */,
+				6C6570B92CED99DD001118B3 /* AllToonsSectionCell.swift in Sources */,
+				6C6570B42CECFCB0001118B3 /* AdSectionCell.swift in Sources */,
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
 				E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
@@ -532,6 +555,7 @@
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
 				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
+				6C6570BB2CEDA9AF001118B3 /* AllToonsSectionApp.swift in Sources */,
 				E31F1D882CEB9564004045F1 /* ReuseIdentifiable.swift in Sources */,
 				8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */,
 				E31F1E312CEBA8D1004045F1 /* HomeViewController.swift in Sources */,
@@ -540,6 +564,7 @@
 				E3E4659F2CEF00AF002DE0D3 /* CategorySelectorView.swift in Sources */,
 				8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */,
 				8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */,
+				8757EA5C2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,7 +634,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -666,7 +691,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -691,6 +716,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -719,6 +745,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -756,33 +783,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8757EA2B2CEC437000EBBCF4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		6C6570AB2CEC9A34001118B3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.10.1;
-			};
-		};
-		8757EA2E2CEC43AE00EBBCF4 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.3;
-			};
-		};
-		8757EA312CEC43BE00EBBCF4 /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		E31F1E342CEBABD7004045F1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.7.1;
@@ -791,24 +794,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8757EA2C2CEC437000EBBCF4 /* Alamofire */ = {
+		6C6570AF2CEC9B00001118B3 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8757EA2B2CEC437000EBBCF4 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		8757EA2F2CEC43AE00EBBCF4 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8757EA2E2CEC43AE00EBBCF4 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		8757EA322CEC43BE00EBBCF4 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8757EA312CEC43BE00EBBCF4 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		E31F1E352CEBABD7004045F1 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E31F1E342CEBABD7004045F1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 6C6570AB2CEC9A34001118B3 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
