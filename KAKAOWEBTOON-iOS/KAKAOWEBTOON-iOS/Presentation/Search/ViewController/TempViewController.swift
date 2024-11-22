@@ -22,7 +22,7 @@ class TempViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .black3
+        self.view.backgroundColor = .primaryWhite
         self.view.addSubview(tempButton)
         tempButton.snp.makeConstraints {
             $0.center.equalToSuperview()
@@ -35,7 +35,7 @@ class TempViewController: UIViewController {
     
     @objc
     private func tempButtonTapped() {
-        let searchViewController = SearchViewController()
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
         searchViewController.modalPresentationStyle = .fullScreen
         self.present(searchViewController, animated: true, completion: nil)
     }
