@@ -35,7 +35,9 @@ class TempViewController: UIViewController {
     
     @objc
     private func tempButtonTapped() {
-        print(#function)
+        let searchViewController = SearchViewController()
+        searchViewController.modalPresentationStyle = .fullScreen
+        self.present(searchViewController, animated: true, completion: nil)
     }
 
 }
