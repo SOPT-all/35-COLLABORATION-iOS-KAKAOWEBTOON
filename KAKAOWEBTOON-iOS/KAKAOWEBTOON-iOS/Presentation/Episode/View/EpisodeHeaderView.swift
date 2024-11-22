@@ -26,6 +26,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         label.textColor = .black4
         label.backgroundColor = .yellow2
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         label.textAlignment = .center
         label.setupCornerRadius(4)
         return label
@@ -37,9 +38,9 @@ class EpisodeHeaderView: UICollectionReusableView {
         label.textColor = .primaryWhite
         label.backgroundColor = .black4
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         label.textAlignment = .center
-        label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor.grey3.cgColor
+        label.setupBorder(1, color: .grey3)
         label.setupCornerRadius(4)
         return label
     }()
@@ -48,6 +49,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         let label = UILabel()
         label.textColor = .primaryWhite
         label.font = UIFont.appleSDGothicNeo(.head_sb_22)
+        label.applyStyle(.head_sb_22)
         label.numberOfLines = 1
         return label
     }()
@@ -56,6 +58,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         let label = UILabel()
         label.textColor = .grey3
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         return label
     }()
     
@@ -69,6 +72,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         let label = UILabel()
         label.textColor = .grey3
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         return label
     }()
     
@@ -82,6 +86,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         let label = UILabel()
         label.textColor = .grey3
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         return label
     }()
     
@@ -95,6 +100,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         let label = UILabel()
         label.textColor = .grey3
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         return label
     }()
     
