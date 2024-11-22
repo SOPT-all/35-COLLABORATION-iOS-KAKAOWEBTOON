@@ -26,9 +26,9 @@ class EpisodeCell: UICollectionViewCell {
         label.text = "무료"
         label.textColor = .white
         label.backgroundColor = .clear
-        label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor.grey1.cgColor
+        label.setupBorder(1, color: .grey4)
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         label.textAlignment = .center
         label.setupCornerRadius(6)
         return label
@@ -44,6 +44,7 @@ class EpisodeCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .primaryWhite
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         label.textAlignment = .left
         return label
     }()
@@ -52,6 +53,7 @@ class EpisodeCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .grey2
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
+        label.applyStyle(.body5_r_12)
         label.textAlignment = .left
         return label
     }()
