@@ -40,7 +40,7 @@ class KWTabBarController: UITabBarController {
             switch self {
             case .timeTable: return UINavigationController(rootViewController: HomeViewController())
             case .ranking: return UIViewController()
-            case .gift: return UIViewController()
+            case .gift: return TempViewController()
             case .storage: return UINavigationController(rootViewController: StorageViewController())
             }
         }
