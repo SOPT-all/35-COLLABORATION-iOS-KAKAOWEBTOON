@@ -21,7 +21,8 @@
 		8757EA2D2CEC437000EBBCF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2C2CEC437000EBBCF4 /* Alamofire */; };
 		8757EA302CEC43AE00EBBCF4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2F2CEC43AE00EBBCF4 /* Moya */; };
 		8757EA332CEC43BE00EBBCF4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA322CEC43BE00EBBCF4 /* Then */; };
-		E31702C32CEF0E8A0028278A /* StorageHeaderRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */; };
+		E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* CategoryTabView.swift */; };
+		E31D73462CEF98120090822F /* ToolTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D73452CEF98120090822F /* ToolTabView.swift */; };
 		E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D7F2CEB929F004045F1 /* UIView+.swift */; };
 		E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D812CEB9359004045F1 /* UIStackView+.swift */; };
 		E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D832CEB93EA004045F1 /* UIFont+.swift */; };
@@ -37,7 +38,7 @@
 		E3C623AA2CECF63B00BD5047 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623A92CECF63B00BD5047 /* UIBarButtonItem+.swift */; };
 		E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */; };
 		E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */; };
-		E3E4659F2CEF00AF002DE0D3 /* StorageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E4659E2CEF00AF002DE0D3 /* StorageHeaderView.swift */; };
+		E3E4659F2CEF00AF002DE0D3 /* CategorySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E4659E2CEF00AF002DE0D3 /* CategorySelectorView.swift */; };
 		E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FB5E812CEC78570005F835 /* StorageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +55,8 @@
 		8757E9FA2CEA15EC00EBBCF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8757E9FD2CEA15EC00EBBCF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8757E9FF2CEA15EC00EBBCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHeaderRadioButton.swift; sourceTree = "<group>"; };
+		E31702C22CEF0E8A0028278A /* CategoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabView.swift; sourceTree = "<group>"; };
+		E31D73452CEF98120090822F /* ToolTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTabView.swift; sourceTree = "<group>"; };
 		E31F1D7F2CEB929F004045F1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E31F1D812CEB9359004045F1 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		E31F1D832CEB93EA004045F1 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		E3C623A92CECF63B00BD5047 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
 		E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
 		E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonBoxCell.swift; sourceTree = "<group>"; };
-		E3E4659E2CEF00AF002DE0D3 /* StorageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHeaderView.swift; sourceTree = "<group>"; };
+		E3E4659E2CEF00AF002DE0D3 /* CategorySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectorView.swift; sourceTree = "<group>"; };
 		E3FB5E812CEC78570005F835 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -375,8 +377,9 @@
 			isa = PBXGroup;
 			children = (
 				E3FB5E812CEC78570005F835 /* StorageView.swift */,
-				E3E4659E2CEF00AF002DE0D3 /* StorageHeaderView.swift */,
-				E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */,
+				E3E4659E2CEF00AF002DE0D3 /* CategorySelectorView.swift */,
+				E31702C22CEF0E8A0028278A /* CategoryTabView.swift */,
+				E31D73452CEF98120090822F /* ToolTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 		8757EA262CEA181000EBBCF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -419,6 +423,7 @@
 		8757EA282CEA181A00EBBCF4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 			files = (
 				E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */,
 				E33DBBB82CEE46CD00E6AB94 /* HashTagView.swift in Sources */,
+				E31D73462CEF98120090822F /* ToolTabView.swift in Sources */,
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
 				6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
@@ -543,7 +549,7 @@
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
 				E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
-				E31702C32CEF0E8A0028278A /* StorageHeaderRadioButton.swift in Sources */,
+				E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */,
 				E3C623AA2CECF63B00BD5047 /* UIBarButtonItem+.swift in Sources */,
 				E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
@@ -555,9 +561,10 @@
 				E31F1E312CEBA8D1004045F1 /* HomeViewController.swift in Sources */,
 				E33DBBB32CEE364700E6AB94 /* FreeTagView.swift in Sources */,
 				E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */,
-				E3E4659F2CEF00AF002DE0D3 /* StorageHeaderView.swift in Sources */,
+				E3E4659F2CEF00AF002DE0D3 /* CategorySelectorView.swift in Sources */,
 				8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */,
 				8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */,
+				8757EA5C2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

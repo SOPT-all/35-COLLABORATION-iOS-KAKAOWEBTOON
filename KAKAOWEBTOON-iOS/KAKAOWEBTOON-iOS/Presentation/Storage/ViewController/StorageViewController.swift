@@ -25,6 +25,7 @@ class StorageViewController: UIViewController {
         setupNavigationBar()
         setupDelegate()
         register()
+        setupGestures()
     }
     
     // MARK: - Private func
@@ -47,18 +48,40 @@ class StorageViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem.setupBarButton(
             type: .coin,
             target: self,
-            action: #selector(didTapButton)
+            action: #selector(buttonTapped)
         )
         navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
             buttonTypes: [.research, .menu],
             target: self,
-            actions: [#selector(didTapButton), #selector(didTapButton)]
+            actions: [#selector(buttonTapped), #selector(buttonTapped)]
         )
     }
     
+    private func setupGestures() {
+        let recentTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        storageView.storageHeaderView.recentTab.addGestureRecognizer(recentTapGesture)
+        
+        let saveTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        storageView.storageHeaderView.saveTab.addGestureRecognizer(saveTapGesture)
+        
+        let buyTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        storageView.storageHeaderView.buyTab.addGestureRecognizer(buyTapGesture)
+        
+        let downloadTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        storageView.storageHeaderView.downloadTab.addGestureRecognizer(downloadTapGesture)
+        
+        let commentTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        storageView.storageHeaderView.commentTab.addGestureRecognizer(commentTapGesture)
+    }
+    
     @objc
-    private func didTapButton() {
+    private func buttonTapped() {
         print(#function)
+    }
+    
+    @objc func CategoryTabSelected(_ sender: UITapGestureRecognizer) {
+        guard let categoryTabView = sender.view as? CategoryTabView else { return }
+        storageView.categoryTabToggle(categoryTabView)
     }
     
 }

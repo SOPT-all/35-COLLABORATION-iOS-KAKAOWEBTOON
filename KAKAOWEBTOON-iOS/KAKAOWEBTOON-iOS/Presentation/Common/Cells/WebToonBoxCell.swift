@@ -72,7 +72,7 @@ class WebToonBoxCell: UICollectionViewCell {
     }
     
     func setupStyle() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .black3
     }
     
     func setupLayout() {
@@ -97,6 +97,9 @@ class WebToonBoxCell: UICollectionViewCell {
     // MARK: - Func
     
     func configure() {
+        /*
+         Todo : Api 연결 데이터 바인딩
+         */
         self.addSubview(tagStackView)
         tagStackView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(5)
