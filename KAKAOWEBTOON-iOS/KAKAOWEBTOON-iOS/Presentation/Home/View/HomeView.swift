@@ -13,7 +13,6 @@ enum HomeSection: CaseIterable{
     case adSection
     case toonCategorySection
     case allToonsSection
-    case addSection
 }
 
 class HomeView: UIView {
@@ -23,6 +22,8 @@ class HomeView: UIView {
         view.backgroundColor = .clear
         return view
     }()
+    
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,11 +58,11 @@ class HomeView: UIView {
                 return self.toonCategorySection()
             case .allToonsSection:
                 return self.allToonsSection()
-            case .addSection:
-                return self.addSection()
             }
         }
     }
+    
+    // MARK: - Private Func
     
     private func adSection() -> NSCollectionLayoutSection {
         
@@ -139,24 +140,15 @@ class HomeView: UIView {
             elementKind: UICollectionView.elementKindSectionHeader, alignment: .top
         )
         
-        
-        section.boundarySupplementaryItems = [header]
-        
-        return section
-    }
-    
-    private func addSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: .init (
-                widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)
-            )
+        let footerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(165)
         )
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
-                widthDimension: .fractionalWidth(1), heightDimension: .absolute(400)), subitems: [item]
-            )
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom
+        )
         
-        let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [header, footer]
         
         return section
     }
