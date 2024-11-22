@@ -23,7 +23,10 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBar()
-        setupSearchBar()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.navigationController?.navigationBar.endEditing(true)
     }
     
     // MARK: - Private func
@@ -35,16 +38,7 @@ class SearchViewController: UIViewController {
             target: self,
             action: #selector(ButtonTapped)
         )
-    }
-    
-    private func setupSearchBar() {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Search Dj"
-        searchController.hidesNavigationBarDuringPresentation = false
-//        searchController.searchResultsUpdater = self
-        self.navigationItem.searchController = searchController
-        self.navigationItem.title = "Search"
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        navigationController?.navigationBar.setupSearchBar()
     }
     
     @objc
