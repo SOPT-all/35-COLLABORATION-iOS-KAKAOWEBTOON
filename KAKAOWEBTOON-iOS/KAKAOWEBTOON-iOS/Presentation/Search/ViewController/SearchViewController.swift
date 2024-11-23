@@ -18,10 +18,10 @@ class SearchViewController: UIViewController {
     override func loadView() {
         self.view = searchView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupNavigationBar()
         addButtonTargets()
         register()
@@ -41,7 +41,10 @@ class SearchViewController: UIViewController {
             target: self,
             action: #selector(ButtonTapped)
         )
-        navigationController?.navigationBar.setupSearchBar()
+        
+        if let searchTextField = navigationController?.navigationBar.setupSearchBar() {
+            searchTextField.delegate = self
+        }
     }
     
     private func addButtonTargets() {
@@ -103,7 +106,7 @@ class SearchViewController: UIViewController {
             searchView.filterTabView.filterSelected(.afterFree)
         }
     }
-
+    
 }
 
 // MARK: - Extensions
@@ -186,5 +189,16 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         referenceSizeForHeaderInSection section: Int
     ) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 44)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.navigationController?.navigationBar.endEditing(true)
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.navigationController?.navigationBar.endEditing(true)
+        return true
     }
 }
