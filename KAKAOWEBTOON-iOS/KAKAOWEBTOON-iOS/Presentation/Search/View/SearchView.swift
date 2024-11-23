@@ -19,6 +19,7 @@ class SearchView: UIView {
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 10
+        flowLayout.sectionHeadersPinToVisibleBounds = true
         let collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: flowLayout
