@@ -16,13 +16,12 @@ class AllToonsSectionCell: UICollectionViewCell {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.setupCornerRadius(<#T##radius: CGFloat##CGFloat#>)
+        imageView.setupCornerRadius(8)
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentView.backgroundColor = .gray
         
         setupHierarchy()
         setupLayout()

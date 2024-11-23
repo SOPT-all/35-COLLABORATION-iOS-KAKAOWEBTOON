@@ -107,7 +107,7 @@ class HomeView: UIView {
     private func allToonsSection() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .absolute((UIScreen.main.bounds.width-22-8)/3), heightDimension: .estimated(230)
+            widthDimension: .absolute((UIScreen.main.bounds.width-22-8)/3), heightDimension: .absolute(230)
         )
         
         let item = NSCollectionLayoutItem(
