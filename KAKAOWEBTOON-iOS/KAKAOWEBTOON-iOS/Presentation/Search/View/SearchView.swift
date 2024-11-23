@@ -25,7 +25,7 @@ class SearchView: UIView {
             collectionViewLayout: flowLayout
         )
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.backgroundColor = .primaryBlue
+        collectionView.backgroundColor = .black3
         return collectionView
     }()
     
