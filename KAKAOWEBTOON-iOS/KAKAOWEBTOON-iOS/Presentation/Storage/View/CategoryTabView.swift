@@ -1,5 +1,5 @@
 //
-//  StorageRadioButtonView.swift
+//  CategoryTabView.swift
 //  KAKAOWEBTOON-iOS
 //
 //  Created by 김승원 on 11/21/24.
@@ -7,22 +7,23 @@
 
 import UIKit
 
-class StorageRadioButtonView: UIView {
-    
-    /*
-     해야할 일 :
-     라디오 버튼 추후 구현
-     */
+import SnapKit
+
+class CategoryTabView: UIView {
     
     // MARK: - Properties
     
     private let title: String
+    var isSelected: Bool = false {
+        didSet {
+            toolTabTapped()
+        }
+    }
     
     // MARK: - UI Properties
     
-    private lazy var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = title
         label.font = .appleSDGothicNeo(.body2_sb_13)
         label.applyStyle(.body2_sb_13)
         label.textColor = .dg4
@@ -33,7 +34,8 @@ class StorageRadioButtonView: UIView {
     private let yellowUnderLine: UIView = {
         let view = UIView()
         view.backgroundColor = .yellow2
-        view.setupCornerRadius(5)
+        view.isHidden = true
+        view.setupCornerRadius(1)
         return view
     }()
     
@@ -59,10 +61,35 @@ class StorageRadioButtonView: UIView {
     }
     
     private func setupStyle() {
-        
+        self.backgroundColor = .black3
+        self.titleLabel.text = title
     }
     
     private func setupLayer() {
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(7)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(5)
+        }
         
+        yellowUnderLine.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom)
+            $0.centerX.equalToSuperview()
+            $0.horizontalEdges.equalTo(titleLabel)
+            $0.height.equalTo(2)
+        }
     }
+    
+    // MARK: - Funcs
+    
+    private func toolTabTapped() {
+        if isSelected {
+            titleLabel.textColor = .primaryWhite
+            yellowUnderLine.isHidden = false
+        } else {
+            titleLabel.textColor = .dg4
+            yellowUnderLine.isHidden = true
+        }
+    }
+    
 }
