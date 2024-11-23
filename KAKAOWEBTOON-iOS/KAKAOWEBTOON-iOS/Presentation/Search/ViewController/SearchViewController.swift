@@ -72,6 +72,20 @@ class SearchViewController: UIViewController {
             WebToonBoxCell.self,
             forCellWithReuseIdentifier: WebToonBoxCell.reuseIdentifier
         )
+        
+        searchView.resultCollectionView
+            .register(
+                ResultHeaderView.self,
+                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: ResultHeaderView.reuseIdentifier
+            )
+        
+        searchView.resultCollectionView
+            .register(
+                RecommandHeaderView.self,
+                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: RecommandHeaderView.reuseIdentifier
+            )
     }
     
     @objc
@@ -100,7 +114,11 @@ extension SearchViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 15
+        if section == 0 {
+            return 10
+        } else {
+            return 2
+        }
     }
     
     func collectionView(
@@ -117,6 +135,35 @@ extension SearchViewController: UICollectionViewDataSource {
         return webtoonBoxCell
     }
     
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            if indexPath.section == 0 {
+                guard let resultHeader = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: ResultHeaderView.reuseIdentifier,
+                    for: indexPath
+                ) as? ResultHeaderView else {
+                    return UICollectionReusableView()
+                }
+                return resultHeader
+                
+            } else {
+                guard let recommandHeader = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: RecommandHeaderView.reuseIdentifier,
+                    for: indexPath
+                ) as? RecommandHeaderView else {
+                    return UICollectionReusableView()
+                }
+                return recommandHeader
+            }
+        }
+        return UICollectionReusableView()
+    }
     
 }
 
@@ -127,5 +174,17 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 100)
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int
+    ) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 44)
     }
 }
