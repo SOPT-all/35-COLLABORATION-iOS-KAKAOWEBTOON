@@ -24,8 +24,10 @@ class StorageView: UIView {
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 10
         flowLayout.minimumInteritemSpacing = 0
-        flowLayout.sectionHeadersPinToVisibleBounds = true
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: flowLayout
+        )
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
