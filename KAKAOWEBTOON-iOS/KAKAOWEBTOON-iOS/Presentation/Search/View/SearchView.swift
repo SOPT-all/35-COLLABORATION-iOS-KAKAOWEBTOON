@@ -36,7 +36,7 @@ class SearchView: UIView {
     }
     
     private func setupStyle() {
-        self.backgroundColor = .primaryBlue
+        self.backgroundColor = .black3
     }
     
     private func setupLayout() {
