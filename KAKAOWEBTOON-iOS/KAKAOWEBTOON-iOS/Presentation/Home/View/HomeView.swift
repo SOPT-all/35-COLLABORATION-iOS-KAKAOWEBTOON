@@ -107,13 +107,12 @@ class HomeView: UIView {
     private func allToonsSection() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(115), heightDimension: .estimated(230)
+            widthDimension: .absolute((UIScreen.main.bounds.width-22-8)/3), heightDimension: .absolute(230)
         )
         
         let item = NSCollectionLayoutItem(
             layoutSize: itemSize
         )
-        item.contentInsets.leading = 4
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(230)
@@ -123,11 +122,13 @@ class HomeView: UIView {
             layoutSize: groupSize, subitems: [item, item, item]
         )
         
+        group.interItemSpacing = NSCollectionLayoutSpacing.fixed(4)
+        
         let section = NSCollectionLayoutSection(
             group: group
         )
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0, leading: 0, bottom: 0, trailing: 0
+            top: 0, leading: 11, bottom: 0, trailing: 11
         )
         section.interGroupSpacing = 4
         

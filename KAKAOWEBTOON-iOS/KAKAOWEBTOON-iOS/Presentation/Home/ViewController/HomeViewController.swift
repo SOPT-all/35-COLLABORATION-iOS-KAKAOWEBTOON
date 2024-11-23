@@ -112,7 +112,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             else {
                 return UICollectionViewCell()
             }
-            cell.configure(with: .init(title: "sss", image: .imgHomeCharcter))
+            cell.configure(with: .init(title: "sss", image: .imgHomeBackground))
             return cell
         }
     }
