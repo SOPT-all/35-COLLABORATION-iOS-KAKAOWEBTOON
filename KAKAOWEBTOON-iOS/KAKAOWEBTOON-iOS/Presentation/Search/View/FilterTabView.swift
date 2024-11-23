@@ -1,20 +1,18 @@
 //
-//  SearchView.swift
+//  FilterTabView.swift
 //  KAKAOWEBTOON-iOS
 //
-//  Created by 김승원 on 11/22/24.
+//  Created by 김승원 on 11/23/24.
 //
 
 import UIKit
 
-import SnapKit
-
-class SearchView: UIView {
+class FilterTabView: UIView {
     
     // MARK: - UI Properties
     
-    private let filterTabView = FilterTabView()
     
+
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -30,21 +28,16 @@ class SearchView: UIView {
     }
     
     // MARK: - Private func
-    
     private func setupHierarchy() {
-        self.addSubviews(filterTabView)
+        
     }
     
     private func setupStyle() {
-        self.backgroundColor = .primaryBlue
+        self.backgroundColor = .black3
     }
     
     private func setupLayout() {
-        filterTabView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-            $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(53)
-        }
+        
     }
     
 }
