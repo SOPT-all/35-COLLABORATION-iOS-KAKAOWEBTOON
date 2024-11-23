@@ -58,19 +58,34 @@ class StorageViewController: UIViewController {
     }
     
     private func setupGestures() {
-        let recentTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        let recentTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(CategoryTabSelected)
+        )
         storageView.storageHeaderView.recentTab.addGestureRecognizer(recentTapGesture)
         
-        let saveTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        let saveTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(CategoryTabSelected)
+        )
         storageView.storageHeaderView.saveTab.addGestureRecognizer(saveTapGesture)
         
-        let buyTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        let buyTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(CategoryTabSelected)
+        )
         storageView.storageHeaderView.buyTab.addGestureRecognizer(buyTapGesture)
         
-        let downloadTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        let downloadTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(CategoryTabSelected)
+        )
         storageView.storageHeaderView.downloadTab.addGestureRecognizer(downloadTapGesture)
         
-        let commentTapGesture = UITapGestureRecognizer(target: self, action: #selector(CategoryTabSelected))
+        let commentTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(CategoryTabSelected)
+        )
         storageView.storageHeaderView.commentTab.addGestureRecognizer(commentTapGesture)
     }
     
