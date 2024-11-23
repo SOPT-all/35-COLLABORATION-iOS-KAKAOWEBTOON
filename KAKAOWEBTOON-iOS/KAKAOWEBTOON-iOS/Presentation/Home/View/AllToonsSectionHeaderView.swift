@@ -11,7 +11,9 @@ import SnapKit
 
 class AllToonsSectionHeaderView: UICollectionReusableView {
     
-    static let Identifier = "AllToonsSectionHeaerView"
+    static let Identifier = "AllToonsSectionHeaderView"
+    
+    // MARK: - UI Properties
     
     let countLabel: UILabel = {
         let label = UILabel()
@@ -52,6 +54,8 @@ class AllToonsSectionHeaderView: UICollectionReusableView {
         return imageView
     }()
     
+    // MARK: - Life Cycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -72,6 +76,8 @@ class AllToonsSectionHeaderView: UICollectionReusableView {
             allArrayImageView
         ].forEach { addSubview($0)}
       }
+    
+    // MARK: - Private Func
     
     private func setupLayout() {
         
@@ -102,8 +108,4 @@ class AllToonsSectionHeaderView: UICollectionReusableView {
             $0.trailing.equalTo(sortArrayImageView.snp.leading).inset(-4)
         }
     }
-}
-
-#Preview{
-    AllToonsSectionHeaderView()
 }
