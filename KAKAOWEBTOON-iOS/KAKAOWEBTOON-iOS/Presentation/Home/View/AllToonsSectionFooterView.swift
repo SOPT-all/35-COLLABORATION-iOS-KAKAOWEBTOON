@@ -118,7 +118,6 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         adImageView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(5)
             $0.horizontalEdges.equalToSuperview().inset(11)
-//            $0.height.equalTo(adImageView.snp.width).multipliedBy(ratio)
         }
         
         serviceStackView.snp.makeConstraints{
