@@ -52,11 +52,15 @@ extension UINavigationBar {
         scrollEdgeAppearance = appearance
     }
     
-    func setupSearchBar() {
+}
+
+extension UINavigationBar {
+    
+    func setupSearchBar() -> UITextField {
         let searchBackView: UIView = {
             let view = UIView()
             view.backgroundColor = .black1
-            view.setupCornerRadius(8)
+            view.layer.cornerRadius = 8
             return view
         }()
         
@@ -87,6 +91,7 @@ extension UINavigationBar {
             $0.horizontalEdges.equalToSuperview().inset(12)
             $0.height.equalTo(25)
         }
+        
+        return searchTextField
     }
-    
 }
