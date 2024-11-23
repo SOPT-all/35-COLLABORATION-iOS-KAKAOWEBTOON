@@ -107,7 +107,7 @@ class HomeView: UIView {
     private func allToonsSection() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(115), heightDimension: .absolute(230)
+            widthDimension: .absolute(115), heightDimension: .estimated(230)
         )
         
         let item = NSCollectionLayoutItem(
@@ -116,7 +116,7 @@ class HomeView: UIView {
         item.contentInsets.leading = 4
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(230)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(230)
         )
         
         let group = NSCollectionLayoutGroup.horizontal(
@@ -132,7 +132,7 @@ class HomeView: UIView {
         section.interGroupSpacing = 4
         
         let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(28)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(28)
         )
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -141,7 +141,7 @@ class HomeView: UIView {
         )
         
         let footerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(165)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(173)
         )
         
         let footer = NSCollectionLayoutBoundarySupplementaryItem(

@@ -11,6 +11,8 @@ import SnapKit
 
 class AllToonsSectionFooterView: UICollectionReusableView {
     
+    // MARK: - Properties
+    
     static let Identifier = "AllToonsSectionFooterView"
     
     // MARK: - UI Properties
@@ -22,14 +24,9 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         return imageView
     }()
     
-    let lineImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = .icHomeLine
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    let ratio: CGFloat = 65 / 353
     
-    let privacyPolicyLabelLabel: UILabel = {
+    let privacyPolicyLabel: UILabel = {
         let label = UILabel()
         label.text = "개인정보처리방침"
         label.font = .appleSDGothicNeo(.body3_sb_12)
@@ -38,7 +35,7 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         return label
     }()
     
-    let termsOfServiceLabelLabel: UILabel = {
+    let termsOfServiceLabel: UILabel = {
         let label = UILabel()
         label.text = "이용약관"
         label.font = .appleSDGothicNeo(.body3_sb_12)
@@ -47,7 +44,7 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         return label
     }()
     
-    let customerSupportLabelLabel: UILabel = {
+    let customerSupportLabel: UILabel = {
         let label = UILabel()
         label.text = "고객센터"
         label.font = .appleSDGothicNeo(.body3_sb_12)
@@ -74,6 +71,25 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         return label
     }()
     
+    lazy var serviceStackView: UIStackView = {
+        let stackView = UIStackView(
+            arrangedSubviews:
+                [privacyPolicyLabel,
+                 UIImageView.createDivider(),
+                 termsOfServiceLabel,
+                 UIImageView.createDivider(),
+                 customerSupportLabel,
+                 UIImageView.createDivider(),
+                 businessInfoLabel
+                 ]
+        )
+        stackView.alignment = .center
+        stackView.spacing = 4
+        return stackView
+    }()
+    
+    
+    
     // MARK: - Life Cycle
     
     override init(frame: CGRect) {
@@ -90,11 +106,7 @@ class AllToonsSectionFooterView: UICollectionReusableView {
     func setupHierarchy() {
         [
             adImageView,
-            lineImageView,
-            privacyPolicyLabelLabel,
-            termsOfServiceLabelLabel,
-            customerSupportLabelLabel,
-            businessInfoLabel,
+            serviceStackView,
             copyRightLabel
         ].forEach { addSubview($0)}
       }
@@ -104,20 +116,21 @@ class AllToonsSectionFooterView: UICollectionReusableView {
     private func setupLayout() {
         
         adImageView.snp.makeConstraints{
-            $0.top.equalToSuperview()
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(11)
-            $0.height.equalTo(65)
+            $0.top.equalToSuperview().inset(5)
+            $0.horizontalEdges.equalToSuperview().inset(11)
+//            $0.height.equalTo(adImageView.snp.width).multipliedBy(ratio)
         }
         
-        privacyPolicyLabelLabel.snp.makeConstraints{
+        serviceStackView.snp.makeConstraints{
             $0.top.equalTo(adImageView.snp.bottom).offset(48)
-            $0.leading.equalToSuperview().offset(51)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(14)
         }
         
-        lineImageView.snp.makeConstraints{
-            $0.top.equalTo(adImageView.snp.bottom).offset(48)
-            $0.leading.equalTo(privacyPolicyLabelLabel.snp.trailing).offset(4)
+        copyRightLabel.snp.makeConstraints{
+            $0.top.equalTo(serviceStackView.snp.bottom).offset(8)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(24)
         }
     }
 }
