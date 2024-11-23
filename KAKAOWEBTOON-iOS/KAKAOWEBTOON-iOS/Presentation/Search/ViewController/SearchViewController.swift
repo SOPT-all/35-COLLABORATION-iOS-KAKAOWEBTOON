@@ -24,6 +24,8 @@ class SearchViewController: UIViewController {
 
         setupNavigationBar()
         addButtonTargets()
+        register()
+        setupDelegate()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -43,9 +45,33 @@ class SearchViewController: UIViewController {
     }
     
     private func addButtonTargets() {
-        searchView.filterTabView.allTab.addTarget(self, action: #selector(filterTabTapped), for: .touchUpInside)
-        searchView.filterTabView.nowTab.addTarget(self, action: #selector(filterTabTapped), for: .touchUpInside)
-        searchView.filterTabView.afterTab.addTarget(self, action: #selector(filterTabTapped), for: .touchUpInside)
+        searchView.filterTabView.allTab.addTarget(
+            self,
+            action: #selector(filterTabTapped),
+            for: .touchUpInside
+        )
+        searchView.filterTabView.nowTab.addTarget(
+            self,
+            action: #selector(filterTabTapped),
+            for: .touchUpInside
+        )
+        searchView.filterTabView.afterTab.addTarget(
+            self,
+            action: #selector(filterTabTapped),
+            for: .touchUpInside
+        )
+    }
+    
+    private func setupDelegate() {
+        searchView.resultCollectionView.delegate = self
+        searchView.resultCollectionView.dataSource = self
+    }
+    
+    private func register() {
+        searchView.resultCollectionView.register(
+            WebToonBoxCell.self,
+            forCellWithReuseIdentifier: WebToonBoxCell.reuseIdentifier
+        )
     }
     
     @objc
@@ -64,4 +90,42 @@ class SearchViewController: UIViewController {
         }
     }
 
+}
+
+// MARK: - Extensions
+
+extension SearchViewController: UICollectionViewDataSource {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return 15
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let webtoonBoxCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: WebToonBoxCell.reuseIdentifier,
+            for: indexPath
+        ) as? WebToonBoxCell else {
+            return UICollectionViewCell()
+        }
+        webtoonBoxCell.configure()
+        return webtoonBoxCell
+    }
+    
+    
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 100)
+    }
 }
