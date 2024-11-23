@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 enum KWNavigationBarType {
     
     case title(String)
@@ -48,6 +50,43 @@ extension UINavigationBar {
         standardAppearance = appearance
         compactAppearance = appearance
         scrollEdgeAppearance = appearance
+    }
+    
+    func setupSearchBar() {
+        let searchBackView: UIView = {
+            let view = UIView()
+            view.backgroundColor = .black1
+            view.setupCornerRadius(8)
+            return view
+        }()
+        
+        let searchTextField: UITextField = {
+            let textField = UITextField()
+            textField.backgroundColor = .black1
+            textField.placeholder = "작품, 작가, 장르를 입력하세요"
+            textField.textColor = .primaryWhite
+            textField.font = .appleSDGothicNeo(.title2_sb_16)
+            textField.setupPlaceholder(text: "작품, 작가, 장르를 입력하세요.")
+            textField.configureDefaultSettings()
+            textField.addCustomClearButton()
+            textField.clearButtonMode = .never
+            return textField
+        }()
+        
+        self.addSubview(searchBackView)
+        searchBackView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(12)
+            $0.trailing.equalToSuperview().inset(57)
+            $0.height.equalTo(40)
+        }
+        
+        searchBackView.addSubview(searchTextField)
+        searchTextField.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(12)
+            $0.height.equalTo(25)
+        }
     }
     
 }
