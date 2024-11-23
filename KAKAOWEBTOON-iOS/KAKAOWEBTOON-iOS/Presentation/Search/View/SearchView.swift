@@ -7,7 +7,13 @@
 
 import UIKit
 
+import SnapKit
+
 class SearchView: UIView {
+    
+    // MARK: - UI Properties
+    
+    let filterTabView = FilterTabView()
     
     // MARK: - Init
     
@@ -26,15 +32,19 @@ class SearchView: UIView {
     // MARK: - Private func
     
     private func setupHierarchy() {
-        
+        self.addSubviews(filterTabView)
     }
     
     private func setupStyle() {
-        self.backgroundColor = .primaryBlue
+        self.backgroundColor = .black3
     }
     
     private func setupLayout() {
-        
+        filterTabView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(53)
+        }
     }
     
 }

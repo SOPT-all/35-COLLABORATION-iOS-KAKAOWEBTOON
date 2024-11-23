@@ -37,6 +37,7 @@
 		E35F4D1B2CF0F70400D1CC30 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35F4D1A2CF0F70400D1CC30 /* UITextField+.swift */; };
 		E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892EF2CEB0D2200103A49 /* FontLiteral.swift */; };
 		E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892F12CEB204800103A49 /* UILabel+.swift */; };
+		E3A8F1212CF1D65600682675 /* FilterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8F1202CF1D65600682675 /* FilterTabView.swift */; };
 		E3C623AA2CECF63B00BD5047 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623A92CECF63B00BD5047 /* UIBarButtonItem+.swift */; };
 		E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */; };
 		E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */; };
@@ -76,6 +77,7 @@
 		E35F4D1A2CF0F70400D1CC30 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		E3A892EF2CEB0D2200103A49 /* FontLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiteral.swift; sourceTree = "<group>"; };
 		E3A892F12CEB204800103A49 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		E3A8F1202CF1D65600682675 /* FilterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTabView.swift; sourceTree = "<group>"; };
 		E3C623A92CECF63B00BD5047 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
 		E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
 		E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonBoxCell.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				E35D3BFF2CF0C1990082F8C9 /* SearchView.swift */,
+				E3A8F1202CF1D65600682675 /* FilterTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -504,7 +507,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					8757E9ED2CEA15EA00EBBCF4 = {
 						CreatedOnToolsVersion = 15.4;
@@ -555,6 +558,7 @@
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
 				E35D3C002CF0C1990082F8C9 /* SearchView.swift in Sources */,
 				6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */,
+				E3A8F1212CF1D65600682675 /* FilterTabView.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
 				E35D3BFC2CF0C05D0082F8C9 /* TempViewController.swift in Sources */,
 				6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */,
@@ -562,7 +566,6 @@
 				6C6570B42CECFCB0001118B3 /* AdSectionCell.swift in Sources */,
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
 				E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */,
-				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
 				E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */,
 				6CC357902CF1CD7D005FA125 /* AllToonsSectionFooterView.swift in Sources */,
 				E35F4D1B2CF0F70400D1CC30 /* UITextField+.swift in Sources */,

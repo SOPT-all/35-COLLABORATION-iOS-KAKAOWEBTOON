@@ -23,6 +23,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBar()
+        addButtonTargets()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -41,9 +42,26 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.setupSearchBar()
     }
     
+    private func addButtonTargets() {
+        searchView.filterTabView.allTab.addTarget(self, action: #selector(filterTabTapped), for: .touchUpInside)
+        searchView.filterTabView.nowTab.addTarget(self, action: #selector(filterTabTapped), for: .touchUpInside)
+        searchView.filterTabView.afterTab.addTarget(self, action: #selector(filterTabTapped), for: .touchUpInside)
+    }
+    
     @objc
     private func ButtonTapped() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc
+    private func filterTabTapped(_ sender: UIButton) {
+        if sender == searchView.filterTabView.allTab {
+            searchView.filterTabView.filterSelected(.all)
+        } else if sender == searchView.filterTabView.nowTab {
+            searchView.filterTabView.filterSelected(.nowFree)
+        } else {
+            searchView.filterTabView.filterSelected(.afterFree)
+        }
     }
 
 }
