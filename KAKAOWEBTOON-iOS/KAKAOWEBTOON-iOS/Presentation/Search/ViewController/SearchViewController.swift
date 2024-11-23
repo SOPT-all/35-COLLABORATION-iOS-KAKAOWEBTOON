@@ -120,7 +120,7 @@ extension SearchViewController: UICollectionViewDataSource {
         if section == 0 {
             return 10
         } else {
-            return 2
+            return 8
         }
     }
     
