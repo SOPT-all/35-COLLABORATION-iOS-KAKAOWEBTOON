@@ -13,17 +13,15 @@
 		6C6570B92CED99DD001118B3 /* AllToonsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570B82CED99DD001118B3 /* AllToonsSectionCell.swift */; };
 		6C6570BB2CEDA9AF001118B3 /* AllToonsSectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570BA2CEDA9AF001118B3 /* AllToonsSectionApp.swift */; };
 		6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */; };
+		87276BB92CF10537008D35CE /* EpisodeTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */; };
 		8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */; };
 		8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */; };
 		8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F52CEA15EA00EBBCF4 /* ViewController.swift */; };
 		8757E9FB2CEA15EC00EBBCF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8757E9FA2CEA15EC00EBBCF4 /* Assets.xcassets */; };
 		8757E9FE2CEA15EC00EBBCF4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8757E9FD2CEA15EC00EBBCF4 /* Base */; };
-		8757EA2D2CEC437000EBBCF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2C2CEC437000EBBCF4 /* Alamofire */; };
-		8757EA302CEC43AE00EBBCF4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA2F2CEC43AE00EBBCF4 /* Moya */; };
-		8757EA332CEC43BE00EBBCF4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 8757EA322CEC43BE00EBBCF4 /* Then */; };
+		8757EA5A2CEE118D00EBBCF4 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */; };
 		8757EA5C2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */; };
 		E31702C32CEF0E8A0028278A /* StorageHeaderRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */; };
-		8757EA5A2CEE118D00EBBCF4 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */; };
 		E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D7F2CEB929F004045F1 /* UIView+.swift */; };
 		E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D812CEB9359004045F1 /* UIStackView+.swift */; };
 		E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D832CEB93EA004045F1 /* UIFont+.swift */; };
@@ -31,7 +29,6 @@
 		E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1E2E2CEBA2B5004045F1 /* KWTabBarController.swift */; };
 		E31F1E312CEBA8D1004045F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1E302CEBA8D1004045F1 /* HomeViewController.swift */; };
 		E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1E322CEBA8F1004045F1 /* StorageViewController.swift */; };
-		E31F1E362CEBABD7004045F1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E31F1E352CEBABD7004045F1 /* SnapKit */; };
 		E33DBBB32CEE364700E6AB94 /* FreeTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DBBB22CEE364700E6AB94 /* FreeTagView.swift */; };
 		E33DBBB82CEE46CD00E6AB94 /* HashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DBBB72CEE46CD00E6AB94 /* HashTagView.swift */; };
 		E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A892EF2CEB0D2200103A49 /* FontLiteral.swift */; };
@@ -49,6 +46,7 @@
 		6C6570B82CED99DD001118B3 /* AllToonsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionCell.swift; sourceTree = "<group>"; };
 		6C6570BA2CEDA9AF001118B3 /* AllToonsSectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionApp.swift; sourceTree = "<group>"; };
 		6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionHeaderView.swift; sourceTree = "<group>"; };
+		87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTabBarView.swift; sourceTree = "<group>"; };
 		8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOWEBTOON-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,9 +54,9 @@
 		8757E9FA2CEA15EC00EBBCF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8757E9FD2CEA15EC00EBBCF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8757E9FF2CEA15EC00EBBCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeHeaderView.swift; sourceTree = "<group>"; };
 		E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHeaderRadioButton.swift; sourceTree = "<group>"; };
-		8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		E31F1D7F2CEB929F004045F1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E31F1D812CEB9359004045F1 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		E31F1D832CEB93EA004045F1 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -409,6 +407,7 @@
 		8757EA262CEA181000EBBCF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */,
 				8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */,
 			);
 			path = View;
@@ -556,6 +555,7 @@
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
 				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
+				87276BB92CF10537008D35CE /* EpisodeTabBarView.swift in Sources */,
 				6C6570BB2CEDA9AF001118B3 /* AllToonsSectionApp.swift in Sources */,
 				E31F1D882CEB9564004045F1 /* ReuseIdentifiable.swift in Sources */,
 				8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */,
