@@ -27,6 +27,8 @@
 		8757EA5A2CEE118D00EBBCF4 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */; };
 		8757EA5C2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */; };
 		E31702C32CEF0E8A0028278A /* StorageHeaderRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */; };
+		E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* CategoryTabView.swift */; };
+		E31D73462CEF98120090822F /* ToolTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D73452CEF98120090822F /* ToolTabView.swift */; };
 		E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D7F2CEB929F004045F1 /* UIView+.swift */; };
 		E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D812CEB9359004045F1 /* UIStackView+.swift */; };
 		E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D832CEB93EA004045F1 /* UIFont+.swift */; };
@@ -62,6 +64,8 @@
 		8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeHeaderView.swift; sourceTree = "<group>"; };
 		E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHeaderRadioButton.swift; sourceTree = "<group>"; };
+		E31702C22CEF0E8A0028278A /* CategoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabView.swift; sourceTree = "<group>"; };
+		E31D73452CEF98120090822F /* ToolTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTabView.swift; sourceTree = "<group>"; };
 		E31702C22CEF0E8A0028278A /* CategoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabView.swift; sourceTree = "<group>"; };
 		E31D73452CEF98120090822F /* ToolTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTabView.swift; sourceTree = "<group>"; };
 		E31F1D7F2CEB929F004045F1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
