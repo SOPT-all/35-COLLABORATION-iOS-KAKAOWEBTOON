@@ -89,6 +89,7 @@ playground.xcworkspace
 # .swiftpm
 
 *.resolved
+Package.resolved
 .build/
 
 # CocoaPods
@@ -141,3 +142,4 @@ iOSInjectionProject/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,xcode,cocoapods
 *.xcuserstate
+*.xcuserdatad
