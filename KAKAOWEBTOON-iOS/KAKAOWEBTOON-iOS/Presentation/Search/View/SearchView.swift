@@ -13,7 +13,7 @@ class SearchView: UIView {
     
     // MARK: - UI Properties
     
-    private let filterTabView = FilterTabView()
+    let filterTabView = FilterTabView()
     
     // MARK: - Init
     

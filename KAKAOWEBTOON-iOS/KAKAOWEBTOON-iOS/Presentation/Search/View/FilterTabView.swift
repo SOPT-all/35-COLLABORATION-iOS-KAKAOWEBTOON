@@ -106,24 +106,44 @@ class FilterTabView: UIView {
     }
     
     func filterSelected(_ type: FilterType) {
-        yellowLine.snp.removeConstraints() // 기존 제약 조건 제거
-        
         UIView.animate(withDuration: 0.2) {
-            self.yellowLine.snp.makeConstraints {
-                $0.height.equalTo(3)
-                $0.width.equalTo(UIScreen.main.bounds.width / 3)
-                switch type {
-                case .all:
+            self.yellowLine.snp.removeConstraints() // 기존 제약 조건 제거
+            switch type {
+            case .all:
+                self.allTab.setTitleColor(.primaryWhite, for: .normal)
+                self.nowTab.setTitleColor(.grey6, for: .normal)
+                self.afterTab.setTitleColor(.grey6, for: .normal)
+                
+                self.yellowLine.snp.makeConstraints {
+                    $0.height.equalTo(3)
+                    $0.width.equalTo(UIScreen.main.bounds.width / 3)
                     $0.centerX.equalToSuperview().multipliedBy(0.33)
-                case .nowFree:
-                    $0.centerX.equalToSuperview().multipliedBy(1)
-                case .afterFree:
-                    $0.centerX.equalToSuperview().multipliedBy(1.66)
+                    $0.bottom.equalToSuperview()
                 }
-                $0.bottom.equalToSuperview()
+            case .nowFree:
+                self.allTab.setTitleColor(.grey6, for: .normal)
+                self.nowTab.setTitleColor(.primaryWhite, for: .normal)
+                self.afterTab.setTitleColor(.grey6, for: .normal)
+                
+                self.yellowLine.snp.makeConstraints {
+                    $0.height.equalTo(3)
+                    $0.width.equalTo(UIScreen.main.bounds.width / 3)
+                    $0.centerX.equalToSuperview().multipliedBy(1)
+                    $0.bottom.equalToSuperview()
+                }
+            case .afterFree:
+                self.allTab.setTitleColor(.grey6, for: .normal)
+                self.nowTab.setTitleColor(.grey6, for: .normal)
+                self.afterTab.setTitleColor(.primaryWhite, for: .normal)
+                
+                self.yellowLine.snp.makeConstraints {
+                    $0.height.equalTo(3)
+                    $0.width.equalTo(UIScreen.main.bounds.width / 3)
+                    $0.centerX.equalToSuperview().multipliedBy(1.66)
+                    $0.bottom.equalToSuperview()
+                }
             }
-//            self.layoutIfNeeded() // 애니메이션 적용
+            self.layoutIfNeeded()
         }
     }
-    
 }
