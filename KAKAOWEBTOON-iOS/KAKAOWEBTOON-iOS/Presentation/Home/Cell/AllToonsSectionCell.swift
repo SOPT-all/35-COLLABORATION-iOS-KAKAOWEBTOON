@@ -16,6 +16,7 @@ class AllToonsSectionCell: UICollectionViewCell {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.setupCornerRadius(<#T##radius: CGFloat##CGFloat#>)
         return imageView
     }()
     
