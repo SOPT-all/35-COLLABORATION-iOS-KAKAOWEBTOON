@@ -54,7 +54,6 @@ class FilterTabView: UIView {
         setupHierarchy()
         setupStyle()
         setupLayout()
-        filterSelected(.afterFree)
     }
     
     required init?(coder: NSCoder) {
@@ -88,7 +87,7 @@ class FilterTabView: UIView {
         yellowLine.snp.makeConstraints {
             $0.height.equalTo(3)
             $0.width.equalTo(UIScreen.main.bounds.width / 3)
-            $0.centerX.equalToSuperview().multipliedBy(1)
+            $0.centerX.equalToSuperview().multipliedBy(0.33)
             $0.bottom.equalToSuperview()
         }
     }
