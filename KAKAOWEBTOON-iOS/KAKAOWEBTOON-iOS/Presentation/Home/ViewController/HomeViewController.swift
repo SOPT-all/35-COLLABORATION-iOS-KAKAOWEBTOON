@@ -5,6 +5,11 @@
 //  Created by 김승원 on 11/19/24.
 //
 
+/**TODO
+    - search VC연결
+    - toonList layout 재정비
+ **/
+
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -32,6 +37,22 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: - Private Func
     
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.setupNavigationBarStyle(.logo(.imgLogo01))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.setupBarButton(
+            type: .coin,
+            target: self,
+            action: #selector(didTapButton)
+        )
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
+            buttonTypes: [.research, .menu],
+            target: self,
+            actions: [#selector(didTapButton), #selector(didTapButton)]
+        )
+    }
+    
     private func setDelegate() {
         rootView.collectionView.dataSource = self
         rootView.collectionView.delegate = self
@@ -49,6 +70,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         rootView.collectionView.register(
             AllToonsSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AllToonsSectionHeaderView.Identifier
         )
+        
+        rootView.collectionView.register(
+            AllToonsSectionFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: AllToonsSectionFooterView.Identifier
+        )
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -65,9 +90,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .toonCategorySection:
             return 0
         case .allToonsSection:
-            return 9 //서버 넘어오면 model 받아서 indexPath.row로..
-        case .addSection:
-            return 0
+            return 9 //서버 넘어오면 model 받아서 indexPath.row로 !
         }
     }
     
@@ -89,10 +112,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             else {
                 return UICollectionViewCell()
             }
-            cell.configure(with: .init(title: "sss", image: .imgHomeCharcter))
+            cell.configure(with: .init(title: "sss", image: .imgHomeBackground))
             return cell
-        case .addSection:
-            return UICollectionViewCell()
         }
     }
     
@@ -109,47 +130,24 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         switch sectionType {
         case .allToonsSection:
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllToonsSectionHeaerView", for: indexPath) as! AllToonsSectionHeaderView
-            return header
-        default:
+            if kind == UICollectionView.elementKindSectionHeader {
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllToonsSectionHeaderView", for: indexPath) as! AllToonsSectionHeaderView
+                return header
+            } else if kind == UICollectionView.elementKindSectionFooter {
+                let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllToonsSectionFooterView", for: indexPath) as! AllToonsSectionFooterView
+                return footer
+            }
+        case .toonCategorySection:
+            return UICollectionReusableView()
+        case .adSection:
             return UICollectionReusableView()
         }
+        return UICollectionReusableView()
     }
     
-    // MARK: Set up NavigationBar
-    
-    private func setupNavigationBar() {
-        self.navigationController?.navigationBar.backgroundColor = .black3
-        
-        let leftCoinBarButton: UIBarButtonItem = {
-            let btn = UIBarButtonItem()
-            btn.image = .icCoin
-            btn.tintColor = .white
-            //btn.imageInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-            return btn
-        }()
-        let logoImage: UIImageView = {
-            let img = UIImageView()
-            img.image = .icHomeTooncardLogo
-            img.tintColor = .white
-            return img
-        }()
-        let rightMenuButton: UIBarButtonItem = {
-            let btn = UIBarButtonItem()
-            btn.image = .icMenu
-            btn.tintColor = .white
-            return btn
-        }()
-        let rightSearchButton: UIBarButtonItem = {
-            let btn = UIBarButtonItem()
-            btn.image = .icResearch
-            btn.tintColor = .white
-            return btn
-        }()
-    
-        navigationItem.leftBarButtonItem = leftCoinBarButton
-        navigationItem.titleView = logoImage
-        navigationItem.rightBarButtonItems = [rightMenuButton, rightSearchButton]
+    @objc
+    private func didTapButton() {
+        print(#function)
     }
 }
 

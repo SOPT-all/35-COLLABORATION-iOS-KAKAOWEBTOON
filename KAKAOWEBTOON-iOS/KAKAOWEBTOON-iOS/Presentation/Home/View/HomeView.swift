@@ -13,7 +13,6 @@ enum HomeSection: CaseIterable{
     case adSection
     case toonCategorySection
     case allToonsSection
-    case addSection
 }
 
 class HomeView: UIView {
@@ -23,6 +22,8 @@ class HomeView: UIView {
         view.backgroundColor = .clear
         return view
     }()
+    
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,11 +58,11 @@ class HomeView: UIView {
                 return self.toonCategorySection()
             case .allToonsSection:
                 return self.allToonsSection()
-            case .addSection:
-                return self.addSection()
             }
         }
     }
+    
+    // MARK: - Private Func
     
     private func adSection() -> NSCollectionLayoutSection {
         
@@ -106,32 +107,33 @@ class HomeView: UIView {
     private func allToonsSection() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(115), heightDimension: .absolute(230)
+            widthDimension: .absolute((UIScreen.main.bounds.width-22-8)/3), heightDimension: .absolute(230)
         )
         
         let item = NSCollectionLayoutItem(
             layoutSize: itemSize
         )
-        item.contentInsets.leading = 4
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(230)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(230)
         )
         
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize, subitems: [item, item, item]
         )
         
+        group.interItemSpacing = NSCollectionLayoutSpacing.fixed(4)
+        
         let section = NSCollectionLayoutSection(
             group: group
         )
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0, leading: 0, bottom: 0, trailing: 0
+            top: 0, leading: 11, bottom: 0, trailing: 11
         )
         section.interGroupSpacing = 4
         
         let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(28)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(28)
         )
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -139,24 +141,15 @@ class HomeView: UIView {
             elementKind: UICollectionView.elementKindSectionHeader, alignment: .top
         )
         
-        
-        section.boundarySupplementaryItems = [header]
-        
-        return section
-    }
-    
-    private func addSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: .init (
-                widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)
-            )
+        let footerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(173)
         )
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
-                widthDimension: .fractionalWidth(1), heightDimension: .absolute(400)), subitems: [item]
-            )
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom
+        )
         
-        let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [header, footer]
         
         return section
     }
