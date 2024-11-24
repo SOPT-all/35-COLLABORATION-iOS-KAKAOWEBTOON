@@ -11,10 +11,6 @@ import SnapKit
 
 class AllToonsSectionFooterView: UICollectionReusableView {
     
-    // MARK: - Properties
-    
-    static let Identifier = "AllToonsSectionFooterView"
-    
     // MARK: - UI Properties
     
     let adImageView: UIImageView = {

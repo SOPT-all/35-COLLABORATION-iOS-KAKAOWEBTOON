@@ -89,17 +89,37 @@ class HomeView: UIView {
     }
     
     private func toonCategorySection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: .init (
-                widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)
-            )
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(21),
+            heightDimension: .absolute(14)
         )
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
-                widthDimension: .fractionalWidth(1), heightDimension: .absolute(400)), subitems: [item]
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(97)),
+                subitems: [item]
             )
         
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(97)
+        )
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader, alignment: .top
+        )
+        header.pinToVisibleBounds = true
+        
         let section = NSCollectionLayoutSection(group: group)
+        
+        section.boundarySupplementaryItems = [header]
         
         return section
     }
