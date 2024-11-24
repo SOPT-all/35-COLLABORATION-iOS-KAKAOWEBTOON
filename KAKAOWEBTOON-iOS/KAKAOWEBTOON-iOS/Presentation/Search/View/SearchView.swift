@@ -51,6 +51,8 @@ class SearchView: UIView {
     
     private func setupStyle() {
         self.backgroundColor = .black3
+        filterTabView.isHidden = true
+        resultCollectionView.isHidden = true
     }
     
     private func setupLayout() {
