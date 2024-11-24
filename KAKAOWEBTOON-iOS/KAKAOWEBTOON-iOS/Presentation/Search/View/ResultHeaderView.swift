@@ -12,6 +12,7 @@ import SnapKit
 class ResultHeaderView: UICollectionReusableView {
     
     // MARK: - UI Properties
+    
     private let resultCountLabel: UILabel = {
         let label = UILabel()
         label.text = "웹툰 0"
@@ -38,7 +39,7 @@ class ResultHeaderView: UICollectionReusableView {
         return label
     }()
     
-    // MARK: - Init
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)

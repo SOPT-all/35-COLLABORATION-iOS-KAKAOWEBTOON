@@ -60,7 +60,7 @@ extension UINavigationBar {
         let searchBackView: UIView = {
             let view = UIView()
             view.backgroundColor = .black1
-            view.layer.cornerRadius = 8
+            view.setupCornerRadius(8)
             return view
         }()
         

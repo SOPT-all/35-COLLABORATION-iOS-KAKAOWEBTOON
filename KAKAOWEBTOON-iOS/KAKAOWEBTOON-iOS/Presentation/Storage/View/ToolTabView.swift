@@ -54,7 +54,7 @@ class ToolTabView: UIView {
         return stackView
     }()
 
-    // MARK: - Init
+    // MARK: - Life Cycle
     
     init(_ type: ToolTabType) {
         self.type = type

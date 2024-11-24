@@ -29,7 +29,7 @@ class SearchView: UIView {
         return collectionView
     }()
     
-    // MARK: - Init
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)

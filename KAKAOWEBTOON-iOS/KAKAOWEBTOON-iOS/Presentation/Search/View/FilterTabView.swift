@@ -46,7 +46,7 @@ class FilterTabView: UIView {
         return view
     }()
     
-    // MARK: - Init
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)

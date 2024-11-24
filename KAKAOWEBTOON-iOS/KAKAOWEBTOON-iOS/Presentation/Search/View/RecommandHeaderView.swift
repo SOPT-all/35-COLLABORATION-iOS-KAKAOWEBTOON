@@ -22,7 +22,7 @@ class RecommandHeaderView: UICollectionReusableView {
         return label
     }()
     
-    // MARK: - Init
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)

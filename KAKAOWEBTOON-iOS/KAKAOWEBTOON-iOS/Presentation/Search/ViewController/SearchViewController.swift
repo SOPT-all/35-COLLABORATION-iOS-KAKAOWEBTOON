@@ -113,6 +113,10 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -177,10 +181,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 100)
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
     }
     
     func collectionView(

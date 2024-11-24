@@ -39,7 +39,7 @@ class CategoryTabView: UIView {
         return view
     }()
     
-    // MARK: - Init
+    // MARK: - Life Cycle
     
     init(_ title: String) {
         self.title = title
