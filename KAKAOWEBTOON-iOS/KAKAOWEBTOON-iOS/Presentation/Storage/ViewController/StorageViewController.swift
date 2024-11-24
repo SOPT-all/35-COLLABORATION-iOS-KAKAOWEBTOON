@@ -89,6 +89,8 @@ class StorageViewController: UIViewController {
         storageView.storageHeaderView.commentTab.addGestureRecognizer(commentTapGesture)
     }
     
+    // MARK: - @objc func
+    
     @objc
     private func buttonTapped() {
         print(#function)
