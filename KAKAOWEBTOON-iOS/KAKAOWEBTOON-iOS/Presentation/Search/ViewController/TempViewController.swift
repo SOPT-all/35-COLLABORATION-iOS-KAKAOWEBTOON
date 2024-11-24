@@ -11,6 +11,10 @@ import SnapKit
 
 class TempViewController: UIViewController {
     
+    /*
+     해야할 일: 추후 홈화면 -> 검색뷰 연결 후 삭제 필요
+     */
+    
     private let tempButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Search View", for: .normal)
