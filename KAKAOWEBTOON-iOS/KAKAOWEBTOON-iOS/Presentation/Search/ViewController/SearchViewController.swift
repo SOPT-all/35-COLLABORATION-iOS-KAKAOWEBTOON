@@ -177,6 +177,7 @@ extension SearchViewController: UICollectionViewDataSource {
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -196,11 +197,26 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.navigationController?.navigationBar.endEditing(true)
     }
+    
 }
 
 extension SearchViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.navigationController?.navigationBar.endEditing(true)
+        
+        /*
+         해야할 일: 검색 api 연결시 collectionView 데이터 바인딩으로 검색 플로우 구현 필요
+         */
+        if textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true {
+            searchView.filterTabView.isHidden = true
+            searchView.resultCollectionView.isHidden = true
+        } else {
+            searchView.filterTabView.isHidden = false
+            searchView.resultCollectionView.isHidden = false
+        }
         return true
     }
+    
 }
+
