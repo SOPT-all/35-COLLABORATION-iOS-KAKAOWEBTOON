@@ -16,16 +16,19 @@
 		6CC357902CF1CD7D005FA125 /* AllToonsSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3578F2CF1CD7D005FA125 /* AllToonsSectionFooterView.swift */; };
 		6CC357982CF1DB62005FA125 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC357972CF1DB5C005FA125 /* UIImageView+.swift */; };
 		87276BB92CF10537008D35CE /* EpisodeTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */; };
+		87276C0D2CF4492A008D35CE /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C0C2CF44924008D35CE /* BaseTargetType.swift */; };
+		87276C0F2CF44943008D35CE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C0E2CF44940008D35CE /* BaseService.swift */; };
+		87276C112CF44955008D35CE /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C102CF4494E008D35CE /* MoyaPlugin.swift */; };
+		87276C132CF44969008D35CE /* NetworkServce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C122CF44965008D35CE /* NetworkServce.swift */; };
+		87276C152CF4497D008D35CE /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C142CF44976008D35CE /* NetworkResult.swift */; };
+		87276C172CF44994008D35CE /* ErrorResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C162CF44990008D35CE /* ErrorResponseDTO.swift */; };
+		87276C1A2CF44C4E008D35CE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 87276C192CF44C4E008D35CE /* Moya */; };
+		87276C1D2CF44CC0008D35CE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 87276C1C2CF44CC0008D35CE /* Kingfisher */; };
 		8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */; };
 		8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */; };
 		8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F52CEA15EA00EBBCF4 /* ViewController.swift */; };
 		8757E9FB2CEA15EC00EBBCF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8757E9FA2CEA15EC00EBBCF4 /* Assets.xcassets */; };
 		8757E9FE2CEA15EC00EBBCF4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8757E9FD2CEA15EC00EBBCF4 /* Base */; };
-		E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* CategoryTabView.swift */; };
-		E31D73462CEF98120090822F /* ToolTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D73452CEF98120090822F /* ToolTabView.swift */; };
-		8757EA5A2CEE118D00EBBCF4 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */; };
-		8757EA5C2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */; };
-		E31702C32CEF0E8A0028278A /* StorageHeaderRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */; };
 		E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31702C22CEF0E8A0028278A /* CategoryTabView.swift */; };
 		E31D73462CEF98120090822F /* ToolTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D73452CEF98120090822F /* ToolTabView.swift */; };
 		E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1D7F2CEB929F004045F1 /* UIView+.swift */; };
@@ -62,6 +65,12 @@
 		6CC3578F2CF1CD7D005FA125 /* AllToonsSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionFooterView.swift; sourceTree = "<group>"; };
 		6CC357972CF1DB5C005FA125 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTabBarView.swift; sourceTree = "<group>"; };
+		87276C0C2CF44924008D35CE /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		87276C0E2CF44940008D35CE /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		87276C102CF4494E008D35CE /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
+		87276C122CF44965008D35CE /* NetworkServce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServce.swift; sourceTree = "<group>"; };
+		87276C142CF44976008D35CE /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		87276C162CF44990008D35CE /* ErrorResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseDTO.swift; sourceTree = "<group>"; };
 		8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOWEBTOON-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,11 +78,7 @@
 		8757E9FA2CEA15EC00EBBCF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8757E9FD2CEA15EC00EBBCF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8757E9FF2CEA15EC00EBBCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8757EA592CEE118D00EBBCF4 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeHeaderView.swift; sourceTree = "<group>"; };
-		E31702C22CEF0E8A0028278A /* StorageHeaderRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHeaderRadioButton.swift; sourceTree = "<group>"; };
-		E31702C22CEF0E8A0028278A /* CategoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabView.swift; sourceTree = "<group>"; };
-		E31D73452CEF98120090822F /* ToolTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTabView.swift; sourceTree = "<group>"; };
 		E31702C22CEF0E8A0028278A /* CategoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabView.swift; sourceTree = "<group>"; };
 		E31D73452CEF98120090822F /* ToolTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTabView.swift; sourceTree = "<group>"; };
 		E31F1D7F2CEB929F004045F1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -106,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87276C1D2CF44CC0008D35CE /* Kingfisher in Frameworks */,
+				87276C1A2CF44C4E008D35CE /* Moya in Frameworks */,
 				6C6570B02CEC9B00001118B3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +254,12 @@
 		8757EA0F2CEA175100EBBCF4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				87276C162CF44990008D35CE /* ErrorResponseDTO.swift */,
+				87276C142CF44976008D35CE /* NetworkResult.swift */,
+				87276C122CF44965008D35CE /* NetworkServce.swift */,
+				87276C0E2CF44940008D35CE /* BaseService.swift */,
+				87276C102CF4494E008D35CE /* MoyaPlugin.swift */,
+				87276C0C2CF44924008D35CE /* BaseTargetType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -514,6 +527,8 @@
 			name = "KAKAOWEBTOON-iOS";
 			packageProductDependencies = (
 				6C6570AF2CEC9B00001118B3 /* SnapKit */,
+				87276C192CF44C4E008D35CE /* Moya */,
+				87276C1C2CF44CC0008D35CE /* Kingfisher */,
 			);
 			productName = "KAKAOWEBTOON-iOS";
 			productReference = 8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */;
@@ -545,6 +560,8 @@
 			mainGroup = 8757E9E52CEA15EA00EBBCF4;
 			packageReferences = (
 				6C6570AB2CEC9A34001118B3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				87276C182CF44ABF008D35CE /* XCRemoteSwiftPackageReference "Moya" */,
+				87276C1B2CF44CC0008D35CE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 8757E9EF2CEA15EA00EBBCF4 /* Products */;
 			projectDirPath = "";
@@ -579,12 +596,15 @@
 				E35D3C002CF0C1990082F8C9 /* SearchView.swift in Sources */,
 				6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */,
 				E3A8F1212CF1D65600682675 /* FilterTabView.swift in Sources */,
+				87276C172CF44994008D35CE /* ErrorResponseDTO.swift in Sources */,
 				E31F1E332CEBA8F1004045F1 /* StorageViewController.swift in Sources */,
 				E35D3BFC2CF0C05D0082F8C9 /* TempViewController.swift in Sources */,
 				6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */,
 				6C6570B92CED99DD001118B3 /* AllToonsSectionCell.swift in Sources */,
 				6C6570B42CECFCB0001118B3 /* AdSectionCell.swift in Sources */,
+				87276C0F2CF44943008D35CE /* BaseService.swift in Sources */,
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
+				87276C112CF44955008D35CE /* MoyaPlugin.swift in Sources */,
 				E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */,
 				E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */,
 				6CC357902CF1CD7D005FA125 /* AllToonsSectionFooterView.swift in Sources */,
@@ -593,6 +613,8 @@
 				E3A8F1232CF1FD0E00682675 /* ResultHeaderView.swift in Sources */,
 				E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
+				87276C0D2CF4492A008D35CE /* BaseTargetType.swift in Sources */,
+				87276C132CF44969008D35CE /* NetworkServce.swift in Sources */,
 				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
 				87276BB92CF10537008D35CE /* EpisodeTabBarView.swift in Sources */,
@@ -606,6 +628,7 @@
 				E37B618F2CF2000000E99954 /* RecommandHeaderView.swift in Sources */,
 				E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */,
 				E3E4659F2CEF00AF002DE0D3 /* CategorySelectorView.swift in Sources */,
+				87276C152CF4497D008D35CE /* NetworkResult.swift in Sources */,
 				8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */,
 				8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */,
 			);
@@ -834,6 +857,22 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		87276C182CF44ABF008D35CE /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		87276C1B2CF44CC0008D35CE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -841,6 +880,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6C6570AB2CEC9A34001118B3 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		87276C192CF44C4E008D35CE /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87276C182CF44ABF008D35CE /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		87276C1C2CF44CC0008D35CE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87276C1B2CF44CC0008D35CE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
