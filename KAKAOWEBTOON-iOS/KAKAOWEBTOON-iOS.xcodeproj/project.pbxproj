@@ -16,7 +16,6 @@
 		6CC357902CF1CD7D005FA125 /* AllToonsSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3578F2CF1CD7D005FA125 /* AllToonsSectionFooterView.swift */; };
 		6CC357982CF1DB62005FA125 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC357972CF1DB5C005FA125 /* UIImageView+.swift */; };
 		87276BB92CF10537008D35CE /* EpisodeTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */; };
-		87276C0D2CF4492A008D35CE /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C0C2CF44924008D35CE /* BaseTargetType.swift */; };
 		87276C0F2CF44943008D35CE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C0E2CF44940008D35CE /* BaseService.swift */; };
 		87276C112CF44955008D35CE /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C102CF4494E008D35CE /* MoyaPlugin.swift */; };
 		87276C132CF44969008D35CE /* NetworkServce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C122CF44965008D35CE /* NetworkServce.swift */; };
@@ -65,7 +64,6 @@
 		6CC3578F2CF1CD7D005FA125 /* AllToonsSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionFooterView.swift; sourceTree = "<group>"; };
 		6CC357972CF1DB5C005FA125 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTabBarView.swift; sourceTree = "<group>"; };
-		87276C0C2CF44924008D35CE /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		87276C0E2CF44940008D35CE /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		87276C102CF4494E008D35CE /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
 		87276C122CF44965008D35CE /* NetworkServce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServce.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 				87276C122CF44965008D35CE /* NetworkServce.swift */,
 				87276C0E2CF44940008D35CE /* BaseService.swift */,
 				87276C102CF4494E008D35CE /* MoyaPlugin.swift */,
-				87276C0C2CF44924008D35CE /* BaseTargetType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -613,7 +610,6 @@
 				E3A8F1232CF1FD0E00682675 /* ResultHeaderView.swift in Sources */,
 				E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */,
 				E31F1D802CEB929F004045F1 /* UIView+.swift in Sources */,
-				87276C0D2CF4492A008D35CE /* BaseTargetType.swift in Sources */,
 				87276C132CF44969008D35CE /* NetworkServce.swift in Sources */,
 				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
@@ -653,6 +649,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_URL = "https://www.sopt.o-r.kr";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -716,6 +713,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_URL = "https://www.sopt.o-r.kr";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
