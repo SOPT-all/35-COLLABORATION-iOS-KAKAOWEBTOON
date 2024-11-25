@@ -11,32 +11,25 @@ import SnapKit
 
 class ToonCategoryHeaderView: UICollectionReusableView {
     
+    // MARK: - Properties
+    
+    var kindButtons: [ToonCategoryView] = []
+    
     // MARK: - UI Properties
     
-    let newButton = UIButton.createKindButton(type: .new)
-    let doneButton = UIButton.createKindButton(type: .done)
-    let monButton = UIButton.createKindButton(type: .mon)
-    let theButton = UIButton.createKindButton(type: .the)
-    let wedButton = UIButton.createKindButton(type: .wed)
-    let thuButton = UIButton.createKindButton(type: .thu)
-    let firButton = UIButton.createKindButton(type: .fir)
-    let satButton = UIButton.createKindButton(type: .sat)
-    let sunButton = UIButton.createKindButton(type: .sun)
+    let newButton = ToonCategoryView(type: .new)
+    let doneButton = ToonCategoryView(type: .done)
+    let monButton = ToonCategoryView(type: .mon)
+    let theButton = ToonCategoryView(type: .the)
+    let wedButton = ToonCategoryView(type: .wed)
+    let thuButton = ToonCategoryView(type: .thu)
+    let friButton = ToonCategoryView(type: .fri)
+    let satButton = ToonCategoryView(type: .sat)
+    let sunButton = ToonCategoryView(type: .sun)
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(
-            arrangedSubviews: [
-                newButton,
-                monButton,
-                theButton,
-                theButton,
-                wedButton,
-                thuButton,
-                firButton,
-                satButton,
-                sunButton,
-                doneButton
-            ]
+            arrangedSubviews: kindButtons
         )
         stackView.alignment = .fill
         stackView.axis = .horizontal
@@ -50,6 +43,7 @@ class ToonCategoryHeaderView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        addViewsToArray()
         setupHierarchy()
         setupStyle()
         setupLayout()
@@ -63,6 +57,7 @@ class ToonCategoryHeaderView: UICollectionReusableView {
     
     private func setupHierarchy() {
         self.addSubview(stackView)
+        
     }
     
     private func setupStyle() {
@@ -77,10 +72,23 @@ class ToonCategoryHeaderView: UICollectionReusableView {
         }
     }
     
-    // MARK: -  @objc Func
-    @objc
-    private func kindButtonTapped() {
-        
+    private func addViewsToArray() {
+        kindButtons.append(newButton)
+        kindButtons.append(monButton)
+        kindButtons.append(theButton)
+        kindButtons.append(wedButton)
+        kindButtons.append(thuButton)
+        kindButtons.append(friButton)
+        kindButtons.append(satButton)
+        kindButtons.append(sunButton)
+        kindButtons.append(doneButton)
+    }
+    
+    // MARK: - Public Func
+    
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event) {
+        kindButtons.forEach { button in
+            button.addTarget(target, action: action, for: event)
+        }
     }
 }
-

@@ -91,33 +91,45 @@ class HomeView: UIView {
     private func toonCategorySection() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(21),
-            heightDimension: .absolute(14)
+            widthDimension: .estimated(70),
+            heightDimension: .estimated(30)
         )
         
         let item = NSCollectionLayoutItem(
             layoutSize: itemSize
         )
         
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(2.0),
+            heightDimension: .absolute(48)
+        )
+        
         let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: .init(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(97)),
+            layoutSize: groupSize,
                 subitems: [item]
             )
         
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(97)
+            heightDimension: .absolute(51)
         )
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader, alignment: .top
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
         )
         header.pinToVisibleBounds = true
         
         let section = NSCollectionLayoutSection(group: group)
+        
+        section.orthogonalScrollingBehavior = .continuous
+        
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0, leading: 11, bottom: 0, trailing: 11
+        )
         
         section.boundarySupplementaryItems = [header]
         

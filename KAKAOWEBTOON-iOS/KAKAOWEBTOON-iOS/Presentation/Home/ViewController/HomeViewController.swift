@@ -5,11 +5,6 @@
 //  Created by 김승원 on 11/19/24.
 //
 
-/**TODO
-    - search VC연결
-    - toonList layout 재정비
- **/
-
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -19,6 +14,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: - UI Properties
     
     private let rootView = HomeView()
+    private var selectedButton: ToonCategoryView?
+    private var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
     
     // MARK: - Life Cycle
     
@@ -70,6 +67,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         )
         
         rootView.collectionView.register(
+            ToonCategorySectionCell.self,
+            forCellWithReuseIdentifier: ToonCategorySectionCell.reuseIdentifier
+        )
+        
+        rootView.collectionView.register(
             AllToonsSectionHeaderView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: AllToonsSectionHeaderView.reuseIdentifier
@@ -100,7 +102,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .adSection:
             return 1
         case .toonCategorySection:
-            return 0
+            return genreApps.count
         case .allToonsSection:
             return 9 //서버 넘어오면 model 받아서 indexPath.row로 !
         }
@@ -118,12 +120,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
             return cell
         case .toonCategorySection:
-            guard let cell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: ToonCategorySectionCell.reuseIdentifier, for: indexPath) as?
-            ToonCategorySectionCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToonCategorySectionCell.reuseIdentifier, for: indexPath) as? ToonCategorySectionCell
             else {
                 return UICollectionViewCell()
             }
+            let app = genreApps[indexPath.row]
+            cell.configure(with: app)
+            return cell
         case .allToonsSection:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllToonsSectionCell.reuseIdentifier, for: indexPath) as? AllToonsSectionCell 
             else {
@@ -158,6 +161,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .toonCategorySection:
             let header =
             collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ToonCategoryHeaderView", for: indexPath) as! ToonCategoryHeaderView
+            header.addTarget(self, action: #selector(tooncategoryButtonTapped(_:)), for: .touchUpInside)
             return header
         case .adSection:
             return UICollectionReusableView()
@@ -169,9 +173,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     private func didTapButton() {
         print(#function)
     }
-}
-
-#Preview
-{
-    UINavigationController(rootViewController: HomeViewController())
+    
+    @objc
+    private func tooncategoryButtonTapped(_ sender: UIButton) {
+        selectedButton?.isSelected = false
+        
+        if let selectedCategory = (rootView.collectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).first{
+            $0 is ToonCategoryHeaderView
+        } as? ToonCategoryHeaderView)?.kindButtons.first(where: { $0.kindButton == sender }) {
+            selectedButton = selectedCategory
+            selectedButton?.isSelected = true
+        }
+    }
 }
