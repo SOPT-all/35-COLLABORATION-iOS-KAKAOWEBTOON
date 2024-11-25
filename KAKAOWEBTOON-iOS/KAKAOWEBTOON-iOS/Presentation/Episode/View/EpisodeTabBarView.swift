@@ -11,9 +11,12 @@ import SnapKit
 
 class EpisodeTabBarView: UICollectionReusableView {
     
-    // MARK: - UI Properties
+    // MARK: - Properties
     
     private let tabTitles = ["회차", "정보", "이용권", "댓글"]
+    
+    // MARK: - UI Properties
+
     private var buttons: [UIButton] = []
     private let episodeTabBarStackView: UIStackView = {
         let view = UIStackView()
