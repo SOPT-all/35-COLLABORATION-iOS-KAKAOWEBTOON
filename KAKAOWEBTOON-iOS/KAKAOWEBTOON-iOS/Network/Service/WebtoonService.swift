@@ -29,7 +29,7 @@ extension WebtoonService {
                 let networkResult = self.judgeStatus(by: statusCode, data, GetRecentWebtoonResponseDTO.self)
                 completion(networkResult)
                 
-            case .failure(let error):
+            case .failure:
                 completion(.networkFail)
             }
         }

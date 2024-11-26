@@ -13,6 +13,12 @@ class StorageViewController: UIViewController {
     
     private let storageView = StorageView()
     private let webtoonService = WebtoonService.shared
+    private var getRecentWebtoonResponseDTO: GetRecentWebtoonResponseDTO? {
+        didSet {
+            guard let getRecentWebtoonResponseDTO else { return }
+            storageView.storageCollectionView.reloadData()
+        }
+    }
     
     // MARK: - Life Cycle
     
@@ -32,10 +38,21 @@ class StorageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        fetchRecentWebtoonData()
+    }
+    
+    // MARK: - Private func
+    
+    private func fetchRecentWebtoonData() {
         webtoonService.getRecentWebtoonData { result in
             switch result {
-            case .success:
-                print("통신 성공")
+            case .success(let response):
+                guard let getRecentWebtoonResponseDTO = response as? GetRecentWebtoonResponseDTO else {
+                    fatalError()
+                }
+                DispatchQueue.main.async {
+                    self.getRecentWebtoonResponseDTO = getRecentWebtoonResponseDTO
+                }
                 
             case .requestErr:
                 fatalError()
@@ -56,8 +73,6 @@ class StorageViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Private func
     
     private func register() {
         storageView.storageCollectionView
@@ -140,7 +155,9 @@ extension StorageViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 10
+        guard let getRecentWebtoonResponseDTO = getRecentWebtoonResponseDTO else { return 0 }
+        
+        return getRecentWebtoonResponseDTO.data.webtoons.count
     }
     
     func collectionView(
