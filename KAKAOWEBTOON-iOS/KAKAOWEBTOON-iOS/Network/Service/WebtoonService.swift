@@ -11,7 +11,7 @@ import Moya
 
 final class WebtoonService {
     static let shared = WebtoonService()
-    private var episodeProvider = MoyaProvider<WebtoonTargetType>(plugins: [MoyaPlugin()])
+    private var webtoonProvider = MoyaProvider<WebtoonTargetType>(plugins: [MoyaPlugin()])
     
     private init() {}
 }
@@ -19,6 +19,21 @@ final class WebtoonService {
 extension WebtoonService {
     ///여기에 각자 맡은 api func 만들기
     
+    func getRecentWebtoonData(completion: @escaping (NetworkResult<Any>) -> Void) {
+        webtoonProvider.request(.getRecentWebtoonData) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, GetRecentWebtoonResponseDTO.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
     
     public func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
         

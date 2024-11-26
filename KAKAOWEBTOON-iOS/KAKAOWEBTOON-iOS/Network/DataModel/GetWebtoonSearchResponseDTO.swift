@@ -22,4 +22,8 @@ struct Webtoon: Codable {
     let image: String
     let genre: String
     let promotion: String
+    
+    var tagType: FreeTagViewType {
+        return FreeTagViewType(rawValue: promotion) ?? .free
+    }
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 class WebToonBoxCell: UICollectionViewCell {
     
@@ -21,11 +22,8 @@ class WebToonBoxCell: UICollectionViewCell {
         return imageView
     }()
     
-    lazy var freeTagView = FreeTagView(.free)
-    lazy var hashTagView = HashTagView("코믹/일상")
-    
     private lazy var tagStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [freeTagView, hashTagView])
+        let stackView = UIStackView()
         stackView.distribution = .equalSpacing
         stackView.alignment = .fill
         stackView.spacing = 3
@@ -33,7 +31,7 @@ class WebToonBoxCell: UICollectionViewCell {
         return stackView
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "웹툰 제목"
         label.font = .appleSDGothicNeo(.title1_eb_17)
@@ -42,7 +40,7 @@ class WebToonBoxCell: UICollectionViewCell {
         return label
     }()
     
-    let authorLabel: UILabel = {
+    private let authorLabel: UILabel = {
         let label = UILabel()
         label.text = "작가"
         label.font = .appleSDGothicNeo(.body7_eb_12)
@@ -50,7 +48,7 @@ class WebToonBoxCell: UICollectionViewCell {
         label.textColor = .grey4
         return label
     }()
-
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -96,15 +94,27 @@ class WebToonBoxCell: UICollectionViewCell {
     
     // MARK: - Func
     
-    func configure() {
-        /*
-         Todo : Api 연결 데이터 바인딩
-         */
+    func configure(_ webtoon: Webtoon) {
+        let urlString = webtoon.image
+        let url = URL(string: urlString)
+        let freeTagView = FreeTagView(webtoon.tagType)
+        let hashTagView = HashTagView(webtoon.genre)
+        
+        self.webtoonImageView.kf.indicatorType = .activity
+        self.webtoonImageView.kf.setImage(with: url)
+        self.titleLabel.text = webtoon.title
+        self.authorLabel.text = webtoon.author
+        
+        tagStackView.arrangedSubviews.forEach { subview in
+            tagStackView.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
+        }
+        tagStackView.addArrangeSubViews(freeTagView, hashTagView)
+        
         self.addSubview(tagStackView)
         tagStackView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(5)
             $0.leading.equalTo(webtoonImageView.snp.trailing).offset(11)
-            $0.width.lessThanOrEqualTo(100)
             $0.height.equalTo(17)
         }
     }
