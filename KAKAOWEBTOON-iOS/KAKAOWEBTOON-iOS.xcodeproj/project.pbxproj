@@ -31,6 +31,7 @@
 		87276C312CF51BA5008D35CE /* GetEpisodeDetailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C302CF51B9B008D35CE /* GetEpisodeDetailResponseDTO.swift */; };
 		87276C332CF51BD8008D35CE /* GetEpisodeHeaderRepsponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C322CF51BCE008D35CE /* GetEpisodeHeaderRepsponseDTO.swift */; };
 		87276C352CF5DAC0008D35CE /* EpisodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C342CF5DABB008D35CE /* EpisodeService.swift */; };
+		87276C372CF5DB95008D35CE /* WebtoonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C362CF5DB8F008D35CE /* WebtoonService.swift */; };
 		8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */; };
 		8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */; };
 		8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F52CEA15EA00EBBCF4 /* ViewController.swift */; };
@@ -85,6 +86,7 @@
 		87276C302CF51B9B008D35CE /* GetEpisodeDetailResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEpisodeDetailResponseDTO.swift; sourceTree = "<group>"; };
 		87276C322CF51BCE008D35CE /* GetEpisodeHeaderRepsponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEpisodeHeaderRepsponseDTO.swift; sourceTree = "<group>"; };
 		87276C342CF5DABB008D35CE /* EpisodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeService.swift; sourceTree = "<group>"; };
+		87276C362CF5DB8F008D35CE /* WebtoonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebtoonService.swift; sourceTree = "<group>"; };
 		8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOWEBTOON-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 		8757EA112CEA175E00EBBCF4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				87276C362CF5DB8F008D35CE /* WebtoonService.swift */,
 				87276C342CF5DABB008D35CE /* EpisodeService.swift */,
 			);
 			path = Service;
@@ -612,6 +615,7 @@
 			files = (
 				E31F1D842CEB93EA004045F1 /* UIFont+.swift in Sources */,
 				E33DBBB82CEE46CD00E6AB94 /* HashTagView.swift in Sources */,
+				87276C372CF5DB95008D35CE /* WebtoonService.swift in Sources */,
 				87276C2B2CF5198E008D35CE /* GetWebtoonSearchResponseDTO.swift in Sources */,
 				E31D73462CEF98120090822F /* ToolTabView.swift in Sources */,
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,

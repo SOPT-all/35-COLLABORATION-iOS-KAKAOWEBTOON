@@ -1,5 +1,5 @@
 //
-//  EpisodeService.swift
+//  WebtoonService.swift
 //  KAKAOWEBTOON-iOS
 //
 //  Created by  정지원 on 11/26/24.
@@ -9,14 +9,14 @@ import Foundation
 
 import Moya
 
-final class EpisodeService {
-    static let shared = EpisodeService()
-    private var episodeProvider = MoyaProvider<EpisodeTargetType>(plugins: [MoyaPlugin()])
+final class WebtoonService {
+    static let shared = WebtoonService()
+    private var episodeProvider = MoyaProvider<WebtoonTargetType>(plugins: [MoyaPlugin()])
     
     private init() {}
 }
 
-extension EpisodeService {
+extension WebtoonService {
     ///여기에 각자 맡은 api func 만들기
     
     
