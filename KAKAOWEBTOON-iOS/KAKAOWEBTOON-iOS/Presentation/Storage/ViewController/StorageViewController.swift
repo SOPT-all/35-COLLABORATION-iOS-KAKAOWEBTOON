@@ -12,6 +12,7 @@ class StorageViewController: UIViewController {
     // MARK: - Properties
     
     private let storageView = StorageView()
+    private let webtoonService = WebtoonService.shared
     
     // MARK: - Life Cycle
     
@@ -26,6 +27,34 @@ class StorageViewController: UIViewController {
         setupDelegate()
         register()
         setupGestures()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        webtoonService.getRecentWebtoonData { result in
+            switch result {
+            case .success:
+                print("통신 성공")
+                
+            case .requestErr:
+                fatalError()
+            case .apiArr:
+                fatalError()
+            case .pathErr:
+                fatalError()
+            case .registerErr:
+                fatalError()
+            case .networkFail:
+                fatalError()
+            case .decodeErr:
+                fatalError()
+            case .unAuthentication:
+                fatalError()
+            case .unAuthorization:
+                fatalError()
+            }
+        }
     }
     
     // MARK: - Private func
