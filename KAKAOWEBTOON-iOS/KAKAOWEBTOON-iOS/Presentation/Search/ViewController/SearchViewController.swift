@@ -140,7 +140,7 @@ extension SearchViewController: UICollectionViewDataSource {
         ) as? WebToonBoxCell else {
             return UICollectionViewCell()
         }
-        webtoonBoxCell.configure()
+//        webtoonBoxCell.configure()
         return webtoonBoxCell
     }
     

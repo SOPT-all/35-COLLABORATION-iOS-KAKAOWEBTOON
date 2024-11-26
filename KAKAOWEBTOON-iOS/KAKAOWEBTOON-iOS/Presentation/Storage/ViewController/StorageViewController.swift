@@ -15,7 +15,6 @@ class StorageViewController: UIViewController {
     private let webtoonService = WebtoonService.shared
     private var getRecentWebtoonResponseDTO: GetRecentWebtoonResponseDTO? {
         didSet {
-            guard let getRecentWebtoonResponseDTO else { return }
             storageView.storageCollectionView.reloadData()
         }
     }
@@ -156,7 +155,6 @@ extension StorageViewController: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
     ) -> Int {
         guard let getRecentWebtoonResponseDTO = getRecentWebtoonResponseDTO else { return 0 }
-        
         return getRecentWebtoonResponseDTO.data.webtoons.count
     }
     
@@ -170,7 +168,8 @@ extension StorageViewController: UICollectionViewDataSource {
         ) as? WebToonBoxCell else {
             return UICollectionViewCell()
         }
-        webtoonBoxCell.configure()
+        guard let getRecentWebtoonResponseDTO else { return UICollectionViewCell() }
+        webtoonBoxCell.configure(getRecentWebtoonResponseDTO.data.webtoons[indexPath.row])
         return webtoonBoxCell
     }
     
