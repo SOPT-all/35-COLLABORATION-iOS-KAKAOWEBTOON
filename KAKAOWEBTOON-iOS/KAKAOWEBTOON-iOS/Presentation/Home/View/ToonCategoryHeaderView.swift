@@ -9,32 +9,70 @@ import UIKit
 
 import SnapKit
 
+enum kindType: Int {
+    case new
+    case mon
+    case the
+    case wed
+    case thu
+    case fri
+    case sat
+    case sun
+    case done
+    
+    var day: String {
+        switch self {
+        case .new:
+            return "신작"
+        case .done:
+            return "완결"
+        case .mon:
+            return "월"
+        case .the:
+            return "화"
+        case .wed:
+            return "수"
+        case .thu:
+            return "목"
+        case .fri:
+            return "금"
+        case .sat:
+            return "토"
+        case .sun:
+            return "일"
+        }
+    }
+}
+
 class ToonCategoryHeaderView: UICollectionReusableView {
+    
+    static let reuseIdentifier = "ToonCategoryHeaderView"
     
     // MARK: - Properties
     
-    var kindButtons: [ToonCategoryView] = []
-    
+    var kindButtons: [UIButton] = []
+    private var selectedButton = UIButton()
+
     // MARK: - UI Properties
     
-    let newButton = ToonCategoryView(type: .new)
-    let doneButton = ToonCategoryView(type: .done)
-    let monButton = ToonCategoryView(type: .mon)
-    let theButton = ToonCategoryView(type: .the)
-    let wedButton = ToonCategoryView(type: .wed)
-    let thuButton = ToonCategoryView(type: .thu)
-    let friButton = ToonCategoryView(type: .fri)
-    let satButton = ToonCategoryView(type: .sat)
-    let sunButton = ToonCategoryView(type: .sun)
+    let newButton = UIButton()
+    let doneButton = UIButton()
+    let monButton = UIButton()
+    let theButton = UIButton()
+    let wedButton = UIButton()
+    let thuButton = UIButton()
+    let friButton = UIButton()
+    let satButton = UIButton()
+    let sunButton = UIButton()
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(
             arrangedSubviews: kindButtons
         )
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 12
+        stackView.distribution = .fillEqually
+        stackView.spacing = 6
         return stackView
     }()
     
@@ -47,6 +85,8 @@ class ToonCategoryHeaderView: UICollectionReusableView {
         setupHierarchy()
         setupStyle()
         setupLayout()
+        buttonConfiguration()
+        addTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -56,8 +96,7 @@ class ToonCategoryHeaderView: UICollectionReusableView {
     // MARK: - Private Func
     
     private func setupHierarchy() {
-        self.addSubview(stackView)
-        
+        self.addSubviews(stackView)
     }
     
     private func setupStyle() {
@@ -69,26 +108,71 @@ class ToonCategoryHeaderView: UICollectionReusableView {
             $0.top.equalToSuperview().offset(16)
             $0.leading.equalToSuperview().offset(30)
             $0.trailing.equalToSuperview().inset(30)
+            $0.height.equalTo(35)
         }
     }
     
     private func addViewsToArray() {
-        kindButtons.append(newButton)
-        kindButtons.append(monButton)
-        kindButtons.append(theButton)
-        kindButtons.append(wedButton)
-        kindButtons.append(thuButton)
-        kindButtons.append(friButton)
-        kindButtons.append(satButton)
-        kindButtons.append(sunButton)
-        kindButtons.append(doneButton)
+        kindButtons = [
+            newButton,
+            monButton,
+            theButton,
+            wedButton,
+            thuButton,
+            friButton,
+            satButton,
+            sunButton,
+            doneButton
+        ]
     }
     
-    // MARK: - Public Func
-    
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event) {
-        kindButtons.forEach { button in
-            button.addTarget(target, action: action, for: event)
+    private func addTarget() {
+        kindButtons.forEach{ btn in
+            btn.addTarget(self, action: #selector(categoryTapped(_:)), for: .touchUpInside)
         }
+    }
+    
+    private func buttonConfiguration() {
+        kindButtons.enumerated().forEach { index, button in
+            var config = UIButton.Configuration.plain()
+            config.baseForegroundColor = .grey5
+            config.image = nil
+            config.imagePlacement = .bottom
+            config.imagePadding = 2
+            config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 2, bottom: 8, trailing: 2)
+            let attributedTitle = AttributedString(
+                kindType(rawValue: index)?.day ?? "",
+                attributes: AttributeContainer([
+                    .font: UIFont.appleSDGothicNeo(.body1_r_14),
+                    .paragraphStyle: {
+                        let style = NSMutableParagraphStyle()
+                        style.lineBreakMode = .byClipping
+                        style.alignment = .center
+                        return style
+                    }()
+                ])
+            )
+            config.attributedTitle = attributedTitle
+            button.sizeToFit()
+            button.titleLabel?.applyStyle(.body1_r_14)
+            button.configuration = config
+        }
+    }
+    
+    // MARK: - @objc Func
+    
+    @objc
+    func categoryTapped(_ sender: UIButton) {
+        kindButtons.forEach{ btn in
+            var config = btn.configuration
+            config?.baseForegroundColor = .grey5
+            config?.image = nil
+            btn.configuration = config
+        }
+        var selectedConfig = sender.configuration
+        selectedConfig?.baseForegroundColor = .yellow2
+        selectedConfig?.image = UIImage(resource: .imgUnderLine)
+        sender.configuration = selectedConfig
+        selectedButton = sender
     }
 }

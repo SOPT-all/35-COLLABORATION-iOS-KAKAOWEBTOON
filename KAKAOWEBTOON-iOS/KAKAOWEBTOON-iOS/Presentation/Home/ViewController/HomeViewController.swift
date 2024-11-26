@@ -14,7 +14,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: - UI Properties
     
     private let rootView = HomeView()
-    private var selectedButton: ToonCategoryView?
     var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
     
     // MARK: - Life Cycle
@@ -90,6 +89,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         )
     }
     
+//    private func setupGesture(for headerView: ToonCategoryHeaderView) {
+//        headerView.kindButtons.forEach{ button in
+//            let tappedButton = UITapGestureRecognizer(
+//                target: self, action: #selector(didTapView(_:))
+//            )
+//            button.addGestureRecognizer(tappedButton)
+//        }
+//    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
             return HomeSection.allCases.count
         }
@@ -161,7 +169,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .toonCategorySection:
             let header =
             collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ToonCategoryHeaderView", for: indexPath) as! ToonCategoryHeaderView
-            header.addTarget(self, action: #selector(tooncategoryButtonTapped(_:)), for: .touchUpInside)
             return header
         case .adSection:
             return UICollectionReusableView()
@@ -175,17 +182,4 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     private func didTapButton() {
         print(#function)
     }
-    
-    @objc
-    private func tooncategoryButtonTapped(_ sender: UIButton) {
-        selectedButton?.isSelected = false
-        
-        if let selectedCategory = (rootView.collectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).first{
-            $0 is ToonCategoryHeaderView
-        } as? ToonCategoryHeaderView)?.kindButtons.first(where: { $0.kindButton == sender }) {
-            selectedButton = selectedCategory
-            selectedButton?.isSelected = true
-        }
-    }
-    
 }

@@ -14,8 +14,22 @@ class SearchView: UIView {
     // MARK: - UI Properties
     
     let filterTabView = FilterTabView()
+    let resultCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.sectionHeadersPinToVisibleBounds = true
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: flowLayout
+        )
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .black3
+        return collectionView
+    }()
     
-    // MARK: - Init
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,11 +46,13 @@ class SearchView: UIView {
     // MARK: - Private func
     
     private func setupHierarchy() {
-        self.addSubviews(filterTabView)
+        self.addSubviews(filterTabView, resultCollectionView)
     }
     
     private func setupStyle() {
         self.backgroundColor = .black3
+        filterTabView.isHidden = true
+        resultCollectionView.isHidden = true
     }
     
     private func setupLayout() {
@@ -44,6 +60,11 @@ class SearchView: UIView {
             $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(53)
+        }
+        
+        resultCollectionView.snp.makeConstraints {
+            $0.top.equalTo(filterTabView.snp.bottom)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
     
