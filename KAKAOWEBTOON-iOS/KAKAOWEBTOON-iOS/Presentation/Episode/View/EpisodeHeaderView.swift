@@ -2,7 +2,7 @@
 //  EpisodeHeaderView.swift
 //  KAKAOWEBTOON-iOS
 //
-//  Created by  정지원 on 11/21/24.
+//  Created by  정지원 on 11/25/24.
 //
 
 import UIKit
@@ -190,6 +190,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         genreLabelView.snp.makeConstraints { make in
             make.trailing.equalTo(viewCountLabelView.snp.leading).offset(-9)
                         make.top.equalTo(authorLabel.snp.bottom).offset(7)
+            make.bottom.equalToSuperview().inset(15)
         }
         
         genreIconImageView.snp.makeConstraints { make in
@@ -205,6 +206,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         viewCountLabelView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(authorLabel.snp.bottom).offset(7)
+            make.bottom.equalToSuperview().inset(15)
         }
         
         viewIconImageView.snp.makeConstraints { make in
@@ -220,6 +222,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         goodCountLabelView.snp.makeConstraints { make in
             make.leading.equalTo(viewCountLabelView.snp.trailing).offset(9)
             make.top.equalTo(authorLabel.snp.bottom).offset(7)
+            make.bottom.equalToSuperview().inset(15)
         }
         
         goodIconImageView.snp.makeConstraints { make in

@@ -119,13 +119,12 @@ class EpisodeCell: UICollectionViewCell {
         }
         
         episodeTitleLabel.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().inset(8)
-            make.trailing.equalToSuperview().inset(31)
+            make.top.leading.equalToSuperview().inset(8)
         }
         
         episodeDateLabel.snp.makeConstraints { make in
             make.top.equalTo(episodeTitleLabel.snp.bottom).offset(2)
-            make.horizontalEdges.equalTo(episodeTitleLabel.snp.leading)
+            make.leading.equalTo(episodeTitleLabel.snp.leading)
         }
         
         progressBarBackground.snp.makeConstraints { make in
