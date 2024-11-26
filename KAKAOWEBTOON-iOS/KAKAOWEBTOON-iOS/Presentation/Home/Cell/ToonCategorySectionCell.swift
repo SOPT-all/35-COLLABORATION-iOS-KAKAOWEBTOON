@@ -13,16 +13,15 @@ class ToonCategorySectionCell: UICollectionViewCell {
     
     static let identifier = "ToonCategorySectionCell"
     
-    lazy var genreButton: UIButton = {
-        let btn = UIButton()
-        //        btn.setTitle(type.rawValue, for: .normal)
-        btn.titleLabel?.font = .appleSDGothicNeo(.body5_r_12)
-        btn.setTitleColor(.dg1, for: .normal)
-        btn.backgroundColor = .black2
-        btn.sizeToFit()
-        btn.layer.cornerRadius = 8
-        btn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
-        return btn
+    private var isSizeCalculated = false
+    
+    private var genreLabel: UILabel = {
+        let label = UILabel()
+        label.font = .appleSDGothicNeo(.body5_r_12)
+        label.textColor = .dg1
+        label.applyStyle(.body5_r_12)
+        label.setupCornerRadius(8)
+        return label
     }()
     
     // MARK: - Init
@@ -31,6 +30,7 @@ class ToonCategorySectionCell: UICollectionViewCell {
         super.init(frame: frame)
         
         setupHierarchy()
+        setupStyle()
         setupLayout()
     }
     
@@ -41,30 +41,25 @@ class ToonCategorySectionCell: UICollectionViewCell {
     // MARK: - Public Func
     
     func configure(with app: ToonGenreApp) {
-        genreButton.setTitle(app.genre, for: .normal)
+        genreLabel.text = app.genre
     }
     
     // MARK: - Private Func
     
     private func setupHierarchy() {
-        contentView.addSubview(genreButton)
+        contentView.addSubview(genreLabel)
+    }
+    
+    private func setupStyle() {
+        self.backgroundColor = .black2
+        self.setupCornerRadius(8)
     }
     
     private func setupLayout() {
-        genreButton.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(8)
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(8)
+        genreLabel.snp.makeConstraints{
+            $0.verticalEdges.equalToSuperview().inset(8)
+            $0.horizontalEdges.equalToSuperview().inset(12)
         }
-    }
-    
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        layoutAttributes.size = contentView.systemLayoutSizeFitting(
-            CGSize(width: layoutAttributes.size.width, height: UIView.layoutFittingCompressedSize.height),
-            withHorizontalFittingPriority: .required, // 셀 너비는 반드시 맞춤
-            verticalFittingPriority: .fittingSizeLevel // 셀 높이는 필요에 따라
-        )
-        return layoutAttributes
     }
 }
 

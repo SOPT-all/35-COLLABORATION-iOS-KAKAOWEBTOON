@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private let rootView = HomeView()
     private var selectedButton: ToonCategoryView?
-    private var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
+    var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
     
     // MARK: - Life Cycle
     
@@ -169,6 +169,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return UICollectionReusableView()
     }
     
+    // MARK: - objc Function
+    
     @objc
     private func didTapButton() {
         print(#function)
@@ -185,4 +187,5 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             selectedButton?.isSelected = true
         }
     }
+    
 }

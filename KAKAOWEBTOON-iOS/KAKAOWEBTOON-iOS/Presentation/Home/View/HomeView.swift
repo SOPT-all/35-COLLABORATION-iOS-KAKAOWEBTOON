@@ -91,25 +91,26 @@ class HomeView: UIView {
     private func toonCategorySection() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .estimated(70),
-            heightDimension: .estimated(30)
+            widthDimension: .estimated(50),
+            heightDimension: .absolute(30)
         )
         
         let item = NSCollectionLayoutItem(
             layoutSize: itemSize
         )
         
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
-        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(2.0),
-            heightDimension: .absolute(48)
+            heightDimension: .absolute(46)
         )
         
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
                 subitems: [item]
             )
+        
+        group.interItemSpacing = NSCollectionLayoutSpacing.fixed(8)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
         
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
@@ -185,8 +186,4 @@ class HomeView: UIView {
         
         return section
     }
-}
-
-#Preview{
-    HomeView()
 }
