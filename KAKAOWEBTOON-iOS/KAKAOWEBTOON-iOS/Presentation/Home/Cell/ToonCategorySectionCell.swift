@@ -11,9 +11,13 @@ import SnapKit
 
 class ToonCategorySectionCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
     static let identifier = "ToonCategorySectionCell"
     
     private var isSizeCalculated = false
+    
+    // MARK: - UI Properties
     
     private var genreLabel: UILabel = {
         let label = UILabel()
