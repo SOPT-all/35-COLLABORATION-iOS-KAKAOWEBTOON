@@ -89,15 +89,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         )
     }
     
-//    private func setupGesture(for headerView: ToonCategoryHeaderView) {
-//        headerView.kindButtons.forEach{ button in
-//            let tappedButton = UITapGestureRecognizer(
-//                target: self, action: #selector(didTapView(_:))
-//            )
-//            button.addGestureRecognizer(tappedButton)
-//        }
-//    }
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
             return HomeSection.allCases.count
         }
@@ -133,7 +124,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 return UICollectionViewCell()
             }
             let app = genreApps[indexPath.row]
-            cell.configure(with: app)
+            cell.configure(with: app, index: indexPath.row)
             return cell
         case .allToonsSection:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllToonsSectionCell.reuseIdentifier, for: indexPath) as? AllToonsSectionCell 

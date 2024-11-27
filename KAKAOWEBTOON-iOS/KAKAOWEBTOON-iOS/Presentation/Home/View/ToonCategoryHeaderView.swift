@@ -46,8 +46,6 @@ enum kindType: Int {
 
 class ToonCategoryHeaderView: UICollectionReusableView {
     
-    static let reuseIdentifier = "ToonCategoryHeaderView"
-    
     // MARK: - Properties
     
     var kindButtons: [UIButton] = []

@@ -40,7 +40,11 @@ class ToonCategorySectionCell: UICollectionViewCell {
     
     // MARK: - Public Func
     
-    func configure(with app: ToonGenreApp) {
+    func configure(with app: ToonGenreApp, index: Int) {
+        if index == 0 {
+            self.backgroundColor = .yellow2
+            self.genreLabel.textColor = .black3
+        }
         genreLabel.text = app.genre
     }
     

@@ -11,7 +11,9 @@ import SnapKit
 
 class AllToonsSectionFooterView: UICollectionReusableView {
     
-    static let reuseIdentifier = "AllToonsSectionFooterView"
+    // MARK: - Properties
+    
+    let ratio: CGFloat = 65 / 353
     
     // MARK: - UI Properties
     
@@ -21,8 +23,6 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
-    let ratio: CGFloat = 65 / 353
     
     let privacyPolicyLabel: UILabel = {
         let label = UILabel()
