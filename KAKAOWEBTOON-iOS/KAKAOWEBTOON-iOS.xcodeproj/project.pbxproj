@@ -65,6 +65,7 @@
 		E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */; };
 		E3C72D532CEDD1B400ADFC8E /* WebToonBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */; };
 		E3E4659F2CEF00AF002DE0D3 /* CategorySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E4659E2CEF00AF002DE0D3 /* CategorySelectorView.swift */; };
+		E3F5AE3A2CF70171000F41C5 /* RecommandWebtoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5AE392CF70171000F41C5 /* RecommandWebtoon.swift */; };
 		E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FB5E812CEC78570005F835 /* StorageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		E3C623AD2CED039800BD5047 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
 		E3C72D522CEDD1B400ADFC8E /* WebToonBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonBoxCell.swift; sourceTree = "<group>"; };
 		E3E4659E2CEF00AF002DE0D3 /* CategorySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectorView.swift; sourceTree = "<group>"; };
+		E3F5AE392CF70171000F41C5 /* RecommandWebtoon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandWebtoon.swift; sourceTree = "<group>"; };
 		E3FB5E812CEC78570005F835 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -438,6 +440,7 @@
 		8757EA1F2CEA17CF00EBBCF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3F5AE392CF70171000F41C5 /* RecommandWebtoon.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				6C6570B92CED99DD001118B3 /* AllToonsSectionCell.swift in Sources */,
 				6C6570B42CECFCB0001118B3 /* AdSectionCell.swift in Sources */,
 				87276C0F2CF44943008D35CE /* BaseService.swift in Sources */,
+				E3F5AE3A2CF70171000F41C5 /* RecommandWebtoon.swift in Sources */,
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
 				87276C112CF44955008D35CE /* MoyaPlugin.swift in Sources */,
 				6CC3579A2CF25EF0005FA125 /* ToonCategoryHeaderView.swift in Sources */,

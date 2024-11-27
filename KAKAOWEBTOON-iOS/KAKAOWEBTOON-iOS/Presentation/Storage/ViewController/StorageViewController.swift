@@ -155,8 +155,7 @@ extension StorageViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        guard let getRecentWebtoonResponseDTO = getRecentWebtoonResponseDTO else { return 0 }
-        return getRecentWebtoonResponseDTO.data.webtoons.count
+        return getRecentWebtoonResponseDTO?.data.webtoons.count ?? 0
     }
     
     func collectionView(

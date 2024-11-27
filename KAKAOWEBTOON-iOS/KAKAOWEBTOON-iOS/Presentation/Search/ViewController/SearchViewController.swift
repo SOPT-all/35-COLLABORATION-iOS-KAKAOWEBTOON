@@ -12,6 +12,12 @@ class SearchViewController: UIViewController {
     // MARK: - Properties
     
     private let searchView = SearchView()
+    private let webtoonService = WebtoonService.shared
+    private var getWebtoonSearchResponseDTO: GetWebtoonSearchResponseDTO? {
+        didSet {
+            searchView.resultCollectionView.reloadData()
+        }
+    }
     
     // MARK: - Life Cycle
     
@@ -124,9 +130,9 @@ extension SearchViewController: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
     ) -> Int {
         if section == 0 {
-            return 10
+            return getWebtoonSearchResponseDTO?.data.webtoons.count ?? 0
         } else {
-            return 8
+            return RecommandWebtoon.mockData.count
         }
     }
     
@@ -140,7 +146,16 @@ extension SearchViewController: UICollectionViewDataSource {
         ) as? WebToonBoxCell else {
             return UICollectionViewCell()
         }
-//        webtoonBoxCell.configure()
+        if indexPath.section == 0 {
+            if let getWebtoonSearchResponseDTO = getWebtoonSearchResponseDTO {
+                let webtoons = getWebtoonSearchResponseDTO.data.webtoons
+                if indexPath.row < webtoons.count {
+                    webtoonBoxCell.configure(webtoons[indexPath.row])
+                }
+            }
+        } else {
+            webtoonBoxCell.configure(RecommandWebtoon.mockData[indexPath.row])
+        }
         return webtoonBoxCell
     }
     
@@ -157,6 +172,12 @@ extension SearchViewController: UICollectionViewDataSource {
                     for: indexPath
                 ) as? ResultHeaderView else {
                     return UICollectionReusableView()
+                }
+                if let getWebtoonSearchResponseDTO = getWebtoonSearchResponseDTO {
+                    let webtoons = getWebtoonSearchResponseDTO.data.webtoons
+                    resultHeader.configure(webtoons.count)
+                } else {
+                    resultHeader.configure(0)
                 }
                 return resultHeader
                 
@@ -204,16 +225,40 @@ extension SearchViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.navigationController?.navigationBar.endEditing(true)
-        
-        /*
-         해야할 일: 검색 api 연결시 collectionView 데이터 바인딩으로 검색 플로우 구현 필요
-         */
         if textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true {
-            searchView.filterTabView.isHidden = true
-            searchView.resultCollectionView.isHidden = true
+            self.getWebtoonSearchResponseDTO = nil
         } else {
             searchView.filterTabView.isHidden = false
             searchView.resultCollectionView.isHidden = false
+            guard let text = textField.text else { return true }
+            webtoonService.getWebtoonSearchData(title: text) { result in
+                switch result {
+                case .success(let response):
+                    guard let getWebtoonSearchResponseDTO = response as? GetWebtoonSearchResponseDTO else {
+                        fatalError()
+                    }
+                    DispatchQueue.main.async {
+                        self.getWebtoonSearchResponseDTO = getWebtoonSearchResponseDTO
+                    }
+                    
+                case .requestErr:
+                    fatalError()
+                case .unAuthentication:
+                    fatalError()
+                case .unAuthorization:
+                    fatalError()
+                case .apiArr:
+                    fatalError()
+                case .pathErr:
+                    fatalError()
+                case .registerErr:
+                    fatalError()
+                case .networkFail:
+                    fatalError()
+                case .decodeErr:
+                    fatalError()
+                }
+            }
         }
         return true
     }

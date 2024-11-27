@@ -80,4 +80,10 @@ class ResultHeaderView: UICollectionReusableView {
             $0.trailing.equalTo(downChevronImageView.snp.leading).offset(-3)
         }
     }
+    
+    // MARK: - Funcs
+    
+    func configure(_ count: Int) {
+        self.resultCountLabel.text = "웹툰 \(count)"
+    }
 }
