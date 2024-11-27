@@ -29,10 +29,10 @@ extension RecommandWebtoon {
             promotion: "연재무료"
         ),
         Webtoon(
-            title: "청춘극장",
-            author: "이은재",
-            image: "https://i.ibb.co/xCF0VNF/img-storage-toon07.png",
-            genre: "드라마",
+            title: "아이오에스파이패밀리",
+            author: "6팀 에스파",
+            image: "https://newsimg.sedaily.com/2022/07/10/268GU9UQSV_1.jpg",
+            genre: "액션/코미디",
             promotion: "up"
         ),
         Webtoon(
@@ -43,18 +43,18 @@ extension RecommandWebtoon {
             promotion: "3다무"
         ),
         Webtoon(
+            title: "청춘극장",
+            author: "이은재",
+            image: "https://i.ibb.co/xCF0VNF/img-storage-toon07.png",
+            genre: "드라마",
+            promotion: "up"
+        ),
+        Webtoon(
             title: "ONE",
             author: "이은재",
             image: "https://i.ibb.co/qNmzh5V/img-storage-toon05.png",
             genre: "판타지/무협",
             promotion: "연재무료"
-        ),
-        Webtoon(
-            title: "아이오에스파이패밀리",
-            author: "6팀 에스파",
-            image: "https://newsimg.sedaily.com/2022/07/10/268GU9UQSV_1.jpg",
-            genre: "액션/코미디",
-            promotion: "up"
         ),
     ]
     
