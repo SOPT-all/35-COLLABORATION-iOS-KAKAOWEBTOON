@@ -8,10 +8,10 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 class AllToonsSectionCell: UICollectionViewCell {
     
-//    private let titleLabel = UILabel(frame: .zero)
     private let imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
@@ -33,23 +33,19 @@ class AllToonsSectionCell: UICollectionViewCell {
     }
     
     private func setupHierarchy() {
-//        self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(imageView)
     }
     
     private func setupLayout() {
-//        titleLabel.snp.makeConstraints{
-//            $0.centerX.equalToSuperview()
-//            $0.centerY.equalToSuperview()
-//            $0.leading.trailing.bottom.equalToSuperview()
-//        }
         imageView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
     }
     
-    func configure(with app: AllToonsSectionApp) {
-//        titleLabel.text = app.title
-        imageView.image = app.image
+    func configure(with dailyWebtoon: DailyWebtoon) {
+        let urlString = dailyWebtoon.image
+        let url = URL(string: urlString)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: url)
     }
 }

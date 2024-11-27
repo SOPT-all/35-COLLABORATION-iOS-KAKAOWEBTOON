@@ -13,6 +13,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private let rootView = HomeView()
     var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
+    private let webtoonService = WebtoonService.shared
+    private var getDailyWebtoonResponseDTO: GetDailyWebtoonResponseDTO? {
+        didSet {
+            rootView.collectionView.reloadData()
+        }
+    }
     
     // MARK: - Life Cycle
     
@@ -29,7 +35,43 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         setupNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchDailyWebtoonList()
+    }
+    
     // MARK: - Private Func
+    
+    private func fetchDailyWebtoonList() {
+        webtoonService.getDailyWebtoonList(day: "wed") { result in
+            switch result {
+            case .success(let response):
+                guard let getDailyWebtoonResponseDTO = response as? GetDailyWebtoonResponseDTO else {
+                    fatalError()
+                }
+                DispatchQueue.main.async {
+                    self.getDailyWebtoonResponseDTO = getDailyWebtoonResponseDTO
+                }
+            case .requestErr:
+                fatalError()
+            case .unAuthentication:
+                fatalError()
+            case .unAuthorization:
+                fatalError()
+            case .apiArr:
+                fatalError()
+            case .pathErr:
+                fatalError()
+            case .registerErr:
+                fatalError()
+            case .networkFail:
+                fatalError()
+            case .decodeErr:
+                fatalError()
+            }
+        }
+    }
     
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.setupNavigationBarStyle(.logo(.imgLogo01))
@@ -103,7 +145,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .toonCategorySection:
             return genreApps.count
         case .allToonsSection:
-            return 9 //서버 넘어오면 model 받아서 indexPath.row로 !
+            return getDailyWebtoonResponseDTO?.data.webtoons.count ?? 0
         }
     }
     
@@ -131,7 +173,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             else {
                 return UICollectionViewCell()
             }
-            cell.configure(with: .init(title: "sss", image: .imgHomeBackground))
+            guard let getDailyWebtoonResponseDTO else {
+                return UICollectionViewCell()
+            }
+            cell.configure(with: getDailyWebtoonResponseDTO.data.webtoons[indexPath.row])
             return cell
         }
         return UICollectionViewCell()
