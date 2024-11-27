@@ -98,7 +98,7 @@ class ToonCategoryHeaderView: UICollectionReusableView {
     }
     
     private func setupStyle() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .black3
     }
     
     private func setupLayout() {

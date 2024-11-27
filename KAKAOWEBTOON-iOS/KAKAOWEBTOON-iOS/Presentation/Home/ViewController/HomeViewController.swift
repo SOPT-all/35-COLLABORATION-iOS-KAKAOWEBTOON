@@ -11,8 +11,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: - Properties
     
-    // MARK: - UI Properties
-    
     private let rootView = HomeView()
     var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
     
@@ -88,6 +86,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             withReuseIdentifier: ToonCategoryHeaderView.reuseIdentifier
         )
     }
+    
+    // MARK: - Public Func
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
             return HomeSection.allCases.count
@@ -174,3 +174,4 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         print(#function)
     }
 }
+

@@ -67,22 +67,26 @@ class HomeView: UIView {
     private func adSection() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(193)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200)
         )
         
         let item = NSCollectionLayoutItem(
             layoutSize: itemSize
         )
         
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(214)
+        )
+        
         let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: itemSize, subitems: [item]
+            layoutSize: groupSize, subitems: [item]
             )
         
         let section = NSCollectionLayoutSection(
             group: group
         )
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 29, leading: 11, bottom: 0, trailing: 11
+            top: 8, leading: 11, bottom: 0, trailing: 11
         )
         
         return section
@@ -122,7 +126,6 @@ class HomeView: UIView {
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top
         )
-        header.pinToVisibleBounds = true
         
         let section = NSCollectionLayoutSection(group: group)
         
@@ -132,6 +135,7 @@ class HomeView: UIView {
             top: 0, leading: 11, bottom: 0, trailing: 11
         )
         
+        header.pinToVisibleBounds = true
         section.boundarySupplementaryItems = [header]
         
         return section
