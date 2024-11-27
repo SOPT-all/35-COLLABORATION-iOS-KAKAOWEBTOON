@@ -1,5 +1,5 @@
 //
-//  RecommandWebtoonData.swift
+//  RecommandWebtoon.swift
 //  KAKAOWEBTOON-iOS
 //
 //  Created by 김승원 on 11/27/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct RecommandWebtoonData {
+struct RecommandWebtoon {
     let webtoons: [Webtoon]
 }
 
-extension RecommandWebtoonData {
+extension RecommandWebtoon {
     
     static let mockData: [Webtoon] = [
         Webtoon(
@@ -48,6 +48,13 @@ extension RecommandWebtoonData {
             image: "https://i.ibb.co/qNmzh5V/img-storage-toon05.png",
             genre: "판타지/무협",
             promotion: "연재무료"
+        ),
+        Webtoon(
+            title: "아이오에스파이패밀리",
+            author: "6팀 에스파",
+            image: "https://newsimg.sedaily.com/2022/07/10/268GU9UQSV_1.jpg",
+            genre: "액션/코미디",
+            promotion: "up"
         ),
     ]
     

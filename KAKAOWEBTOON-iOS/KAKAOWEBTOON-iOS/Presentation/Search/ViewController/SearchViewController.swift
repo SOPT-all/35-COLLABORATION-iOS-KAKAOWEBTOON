@@ -132,7 +132,7 @@ extension SearchViewController: UICollectionViewDataSource {
         if section == 0 {
             return getWebtoonSearchResponseDTO?.data.webtoons.count ?? 0
         } else {
-            return 5 /* 해야할 일 : 더미데이터 작업 필요 */
+            return RecommandWebtoon.mockData.count
         }
     }
     
@@ -146,11 +146,15 @@ extension SearchViewController: UICollectionViewDataSource {
         ) as? WebToonBoxCell else {
             return UICollectionViewCell()
         }
-        if let getWebtoonSearchResponseDTO = getWebtoonSearchResponseDTO {
-            let webtoons = getWebtoonSearchResponseDTO.data.webtoons
-            if indexPath.row < webtoons.count {
-                webtoonBoxCell.configure(webtoons[indexPath.row])
+        if indexPath.section == 0 {
+            if let getWebtoonSearchResponseDTO = getWebtoonSearchResponseDTO {
+                let webtoons = getWebtoonSearchResponseDTO.data.webtoons
+                if indexPath.row < webtoons.count {
+                    webtoonBoxCell.configure(webtoons[indexPath.row])
+                }
             }
+        } else {
+            webtoonBoxCell.configure(RecommandWebtoon.mockData[indexPath.row])
         }
         return webtoonBoxCell
     }
@@ -221,10 +225,6 @@ extension SearchViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.navigationController?.navigationBar.endEditing(true)
-        
-        /*
-         해야할 일: 검색 api 연결시 collectionView 데이터 바인딩으로 검색 플로우 구현 필요
-         */
         if textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true {
             self.getWebtoonSearchResponseDTO = nil
         } else {
