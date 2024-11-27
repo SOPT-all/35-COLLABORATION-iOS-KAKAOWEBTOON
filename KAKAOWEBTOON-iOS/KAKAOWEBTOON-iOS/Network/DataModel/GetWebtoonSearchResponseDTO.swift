@@ -19,7 +19,7 @@ struct WebtoonData: Codable {
 struct Webtoon: Codable {
     let title: String
     let author: String
-    let image: String
+    let image: String?
     let genre: String
     let promotion: String
     
