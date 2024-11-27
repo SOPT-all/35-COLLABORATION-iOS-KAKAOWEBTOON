@@ -139,7 +139,8 @@ class StorageViewController: UIViewController {
         print(#function)
     }
     
-    @objc func CategoryTabSelected(_ sender: UITapGestureRecognizer) {
+    @objc
+    func CategoryTabSelected(_ sender: UITapGestureRecognizer) {
         guard let categoryTabView = sender.view as? CategoryTabView else { return }
         storageView.categoryTabToggle(categoryTabView)
     }

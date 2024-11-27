@@ -11,8 +11,6 @@ import SnapKit
 
 class AllToonsSectionHeaderView: UICollectionReusableView {
     
-    static let Identifier = "AllToonsSectionHeaderView"
-    
     // MARK: - UI Properties
     
     let countLabel: UILabel = {

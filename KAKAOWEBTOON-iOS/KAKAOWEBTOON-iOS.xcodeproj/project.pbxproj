@@ -15,6 +15,9 @@
 		6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */; };
 		6CC357902CF1CD7D005FA125 /* AllToonsSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3578F2CF1CD7D005FA125 /* AllToonsSectionFooterView.swift */; };
 		6CC357982CF1DB62005FA125 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC357972CF1DB5C005FA125 /* UIImageView+.swift */; };
+		6CC3579A2CF25EF0005FA125 /* ToonCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC357992CF25EDD005FA125 /* ToonCategoryHeaderView.swift */; };
+		6CC357A02CF31023005FA125 /* ToonCategorySectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3579F2CF3100C005FA125 /* ToonCategorySectionCell.swift */; };
+		6CC357A42CF3A2ED005FA125 /* ToonGenreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC357A32CF3A2D2005FA125 /* ToonGenreApp.swift */; };
 		87276BB92CF10537008D35CE /* EpisodeTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */; };
 		87276C0F2CF44943008D35CE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C0E2CF44940008D35CE /* BaseService.swift */; };
 		87276C112CF44955008D35CE /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C102CF4494E008D35CE /* MoyaPlugin.swift */; };
@@ -74,6 +77,9 @@
 		6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionHeaderView.swift; sourceTree = "<group>"; };
 		6CC3578F2CF1CD7D005FA125 /* AllToonsSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllToonsSectionFooterView.swift; sourceTree = "<group>"; };
 		6CC357972CF1DB5C005FA125 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		6CC357992CF25EDD005FA125 /* ToonCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonCategoryHeaderView.swift; sourceTree = "<group>"; };
+		6CC3579F2CF3100C005FA125 /* ToonCategorySectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonCategorySectionCell.swift; sourceTree = "<group>"; };
+		6CC357A32CF3A2D2005FA125 /* ToonGenreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonGenreApp.swift; sourceTree = "<group>"; };
 		87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTabBarView.swift; sourceTree = "<group>"; };
 		87276C0E2CF44940008D35CE /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		87276C102CF4494E008D35CE /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 		6C6570B72CECFDF4001118B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6CC357A32CF3A2D2005FA125 /* ToonGenreApp.swift */,
 				6C6570BA2CEDA9AF001118B3 /* AllToonsSectionApp.swift */,
 			);
 			path = Model;
@@ -392,6 +399,7 @@
 		8757EA1A2CEA17AD00EBBCF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6CC357992CF25EDD005FA125 /* ToonCategoryHeaderView.swift */,
 				6CC3578F2CF1CD7D005FA125 /* AllToonsSectionFooterView.swift */,
 				6C6570B12CECE6FD001118B3 /* HomeView.swift */,
 				6C6570BC2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift */,
@@ -402,6 +410,7 @@
 		8757EA1C2CEA17B900EBBCF4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				6CC3579F2CF3100C005FA125 /* ToonCategorySectionCell.swift */,
 				6C6570B32CECFCB0001118B3 /* AdSectionCell.swift */,
 				6C6570B82CED99DD001118B3 /* AllToonsSectionCell.swift */,
 			);
@@ -631,7 +640,9 @@
 				E33DBBB82CEE46CD00E6AB94 /* HashTagView.swift in Sources */,
 				87276C372CF5DB95008D35CE /* WebtoonService.swift in Sources */,
 				87276C2B2CF5198E008D35CE /* GetWebtoonSearchResponseDTO.swift in Sources */,
+				6CC357A42CF3A2ED005FA125 /* ToonGenreApp.swift in Sources */,
 				E31D73462CEF98120090822F /* ToolTabView.swift in Sources */,
+				6CC357A02CF31023005FA125 /* ToonCategorySectionCell.swift in Sources */,
 				E31F1D822CEB9359004045F1 /* UIStackView+.swift in Sources */,
 				E35D3C002CF0C1990082F8C9 /* SearchView.swift in Sources */,
 				6C6570B22CECE6FD001118B3 /* HomeView.swift in Sources */,
@@ -649,6 +660,7 @@
 				E3F5AE3A2CF70171000F41C5 /* RecommandWebtoon.swift in Sources */,
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
 				87276C112CF44955008D35CE /* MoyaPlugin.swift in Sources */,
+				6CC3579A2CF25EF0005FA125 /* ToonCategoryHeaderView.swift in Sources */,
 				E3C623AE2CED039800BD5047 /* UINavigationBar+.swift in Sources */,
 				E31702C32CEF0E8A0028278A /* CategoryTabView.swift in Sources */,
 				6CC357902CF1CD7D005FA125 /* AllToonsSectionFooterView.swift in Sources */,

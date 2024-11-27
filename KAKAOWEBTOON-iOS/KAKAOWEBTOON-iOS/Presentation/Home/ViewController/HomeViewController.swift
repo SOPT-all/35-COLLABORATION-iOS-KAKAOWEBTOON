@@ -5,20 +5,14 @@
 //  Created by 김승원 on 11/19/24.
 //
 
-/**TODO
-    - search VC연결
-    - toonList layout 재정비
- **/
-
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // MARK: - Properties
     
-    // MARK: - UI Properties
-    
     private let rootView = HomeView()
+    var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
     
     // MARK: - Life Cycle
     
@@ -60,21 +54,40 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private func register() {
         rootView.collectionView.register(
-            AdSectionCell.self, forCellWithReuseIdentifier: AdSectionCell.reuseIdentifier
+            AdSectionCell.self,
+            forCellWithReuseIdentifier: AdSectionCell.reuseIdentifier
         )
         
         rootView.collectionView.register(
-            AllToonsSectionCell.self, forCellWithReuseIdentifier: AllToonsSectionCell.reuseIdentifier
+            AllToonsSectionCell.self,
+            forCellWithReuseIdentifier: AllToonsSectionCell.reuseIdentifier
         )
         
         rootView.collectionView.register(
-            AllToonsSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AllToonsSectionHeaderView.Identifier
+            ToonCategorySectionCell.self,
+            forCellWithReuseIdentifier: ToonCategorySectionCell.reuseIdentifier
         )
         
         rootView.collectionView.register(
-            AllToonsSectionFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: AllToonsSectionFooterView.Identifier
+            AllToonsSectionHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: AllToonsSectionHeaderView.reuseIdentifier
+        )
+        
+        rootView.collectionView.register(
+            AllToonsSectionFooterView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+            withReuseIdentifier: AllToonsSectionFooterView.reuseIdentifier
+        )
+        
+        rootView.collectionView.register(
+            ToonCategoryHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: ToonCategoryHeaderView.reuseIdentifier
         )
     }
+    
+    // MARK: - Public Func
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
             return HomeSection.allCases.count
@@ -88,7 +101,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .adSection:
             return 1
         case .toonCategorySection:
-            return 0
+            return genreApps.count
         case .allToonsSection:
             return 9 //서버 넘어오면 model 받아서 indexPath.row로 !
         }
@@ -106,7 +119,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
             return cell
         case .toonCategorySection:
-            return UICollectionViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToonCategorySectionCell.reuseIdentifier, for: indexPath) as? ToonCategorySectionCell
+            else {
+                return UICollectionViewCell()
+            }
+            let app = genreApps[indexPath.row]
+            cell.configure(with: app, index: indexPath.row)
+            return cell
         case .allToonsSection:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllToonsSectionCell.reuseIdentifier, for: indexPath) as? AllToonsSectionCell 
             else {
@@ -115,6 +134,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             cell.configure(with: .init(title: "sss", image: .imgHomeBackground))
             return cell
         }
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -138,12 +158,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 return footer
             }
         case .toonCategorySection:
-            return UICollectionReusableView()
+            let header =
+            collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ToonCategoryHeaderView", for: indexPath) as! ToonCategoryHeaderView
+            return header
         case .adSection:
             return UICollectionReusableView()
         }
         return UICollectionReusableView()
     }
+    
+    // MARK: - objc Function
     
     @objc
     private func didTapButton() {
@@ -151,7 +175,3 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 }
 
-#Preview
-{
-    UINavigationController(rootViewController: HomeViewController())
-}
