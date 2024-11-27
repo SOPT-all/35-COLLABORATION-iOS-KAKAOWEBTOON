@@ -37,6 +37,7 @@ class WebToonBoxCell: UICollectionViewCell {
         label.font = .appleSDGothicNeo(.title1_eb_17)
         label.applyStyle(.title1_eb_17)
         label.textColor = .primaryWhite
+        label.numberOfLines = 1
         return label
     }()
     
@@ -83,6 +84,7 @@ class WebToonBoxCell: UICollectionViewCell {
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(35)
             $0.leading.equalTo(webtoonImageView.snp.trailing).offset(11)
+            $0.trailing.equalToSuperview().inset(10)
         }
         
         authorLabel.snp.makeConstraints {
@@ -95,13 +97,17 @@ class WebToonBoxCell: UICollectionViewCell {
     // MARK: - Func
     
     func configure(_ webtoon: Webtoon) {
-        let urlString = webtoon.image
-        let url = URL(string: urlString)
+        if let urlString = webtoon.image {
+            let url = URL(string: urlString)
+            self.webtoonImageView.kf.indicatorType = .activity
+            self.webtoonImageView.kf.setImage(with: url)
+        } else {
+            self.webtoonImageView.image = .icNil
+        }
+        
         let freeTagView = FreeTagView(webtoon.tagType)
         let hashTagView = HashTagView(webtoon.genre)
         
-        self.webtoonImageView.kf.indicatorType = .activity
-        self.webtoonImageView.kf.setImage(with: url)
         self.titleLabel.text = webtoon.title
         self.authorLabel.text = webtoon.author
         
