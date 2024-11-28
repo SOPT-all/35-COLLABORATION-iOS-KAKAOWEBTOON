@@ -180,5 +180,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         searchViewController.modalPresentationStyle = .fullScreen
         self.present(searchViewController, animated: true, completion: nil)
     }
+    
 }
 

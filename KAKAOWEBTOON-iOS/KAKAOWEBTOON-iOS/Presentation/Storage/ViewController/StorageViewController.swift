@@ -96,7 +96,7 @@ class StorageViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
             buttonTypes: [.research, .menu],
             target: self,
-            actions: [#selector(buttonTapped), #selector(buttonTapped)]
+            actions: [#selector(searchButtonTapped), #selector(buttonTapped)]
         )
     }
     
@@ -143,6 +143,13 @@ class StorageViewController: UIViewController {
     func CategoryTabSelected(_ sender: UITapGestureRecognizer) {
         guard let categoryTabView = sender.view as? CategoryTabView else { return }
         storageView.categoryTabToggle(categoryTabView)
+    }
+    
+    @objc
+    private func searchButtonTapped() {
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
+        searchViewController.modalPresentationStyle = .fullScreen
+        self.present(searchViewController, animated: true, completion: nil)
     }
     
 }
