@@ -73,7 +73,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     }
-    
+
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.setupNavigationBarStyle(.logo(.imgLogo01))
         

@@ -48,6 +48,9 @@ class ToonCategorySectionCell: UICollectionViewCell {
         if index == 0 {
             self.backgroundColor = .yellow2
             self.genreLabel.textColor = .black3
+        } else {
+            self.backgroundColor = .black2
+            self.genreLabel.textColor = .dg1
         }
         genreLabel.text = app.genre
     }
