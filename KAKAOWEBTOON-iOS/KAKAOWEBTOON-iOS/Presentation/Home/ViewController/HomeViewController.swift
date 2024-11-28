@@ -43,7 +43,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
             buttonTypes: [.research, .menu],
             target: self,
-            actions: [#selector(didTapButton), #selector(didTapButton)]
+            actions: [#selector(searchButtonTapped), #selector(didTapButton)]
         )
     }
     
@@ -173,5 +173,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     private func didTapButton() {
         print(#function)
     }
+    
+    @objc
+    private func searchButtonTapped() {
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
+        searchViewController.modalPresentationStyle = .fullScreen
+        self.present(searchViewController, animated: true, completion: nil)
+    }
+    
 }
 
