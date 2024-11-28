@@ -23,6 +23,36 @@ class AdSectionCell: UICollectionViewCell {
         return UIImageView(image: .imgHomeCharcter)
     }()
     
+    private let labelView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .primaryBlue
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 12
+        view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
+        return view
+    }()
+    
+    private let toonNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "어쿠스틱라이프 28화"
+        label.font = .appleSDGothicNeo(.body1_r_14)
+        label.textColor = .white
+        return label
+    }()
+    
+    private let moreLabel: UILabel = {
+        let label = UILabel()
+        label.text = "이어보기"
+        label.font = .appleSDGothicNeo(.body1_r_14)
+        label.textColor = .white
+        return label
+    }()
+    
+    private let moreImage: UIImageView = {
+        let img = UIImageView()
+        return UIImageView(image: .icArrowRight)
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -34,7 +64,14 @@ class AdSectionCell: UICollectionViewCell {
     }
     
     private func setUI() {
-        self.contentView.addSubviews(adSectionImage, adPersonImage)
+        self.contentView.addSubviews(
+            adSectionImage,
+            adPersonImage,
+            labelView,
+            toonNameLabel,
+            moreLabel,
+            moreImage
+        )
     }
     
     private func setLayout() {
@@ -46,5 +83,24 @@ class AdSectionCell: UICollectionViewCell {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview()
         }
+        labelView.snp.makeConstraints{
+            $0.bottom.equalTo(adPersonImage.snp.bottom)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(adSectionImage)
+            $0.height.equalTo(41)
+        }
+        toonNameLabel.snp.makeConstraints{
+            $0.centerY.equalTo(labelView)
+            $0.leading.equalToSuperview().offset(12)
+        }
+        moreImage.snp.makeConstraints{
+            $0.centerY.equalTo(labelView)
+            $0.trailing.equalToSuperview().inset(12)
+        }
+        moreLabel.snp.makeConstraints{
+            $0.centerY.equalTo(labelView)
+            $0.trailing.equalTo(moreImage.snp.leading).inset(-4)
+        }
     }
 }
+

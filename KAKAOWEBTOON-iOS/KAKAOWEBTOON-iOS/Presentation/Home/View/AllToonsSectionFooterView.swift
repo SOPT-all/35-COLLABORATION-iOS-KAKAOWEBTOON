@@ -115,7 +115,7 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         
         adImageView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(5)
-            $0.horizontalEdges.equalToSuperview().inset(11)
+            $0.horizontalEdges.equalToSuperview()
         }
         
         serviceStackView.snp.makeConstraints{
@@ -131,4 +131,5 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         }
     }
 }
+
 
