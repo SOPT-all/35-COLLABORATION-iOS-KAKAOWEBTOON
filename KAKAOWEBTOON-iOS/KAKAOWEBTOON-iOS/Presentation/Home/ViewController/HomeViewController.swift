@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: - Properties
     
     private let rootView = HomeView()
+    private var selectedButton: String = "mon"
     var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
     private let webtoonService = WebtoonService.shared
     private var getDailyWebtoonResponseDTO: GetDailyWebtoonResponseDTO? {
@@ -44,7 +45,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: - Private Func
     
     private func fetchDailyWebtoonList() {
-        webtoonService.getDailyWebtoonList(day: "wed") { result in
+        webtoonService.getDailyWebtoonList(day: selectedButton) { result in
             switch result {
             case .success(let response):
                 guard let getDailyWebtoonResponseDTO = response as? GetDailyWebtoonResponseDTO else {
@@ -124,7 +125,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         rootView.collectionView.register(
             ToonCategoryHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            forSupplementaryViewOfKind: "stickyHeader",
             withReuseIdentifier: ToonCategoryHeaderView.reuseIdentifier
         )
     }
@@ -205,6 +206,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .toonCategorySection:
             let header =
             collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ToonCategoryHeaderView", for: indexPath) as! ToonCategoryHeaderView
+            header.requestButtonDelegate = self
+            
+            header.kindButtons.forEach{ btn in
+                btn.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
+            }
+            
             return header
         case .adSection:
             return UICollectionReusableView()
@@ -212,11 +219,23 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return UICollectionReusableView()
     }
     
+
+    
     // MARK: - objc Function
     
     @objc
     private func didTapButton() {
         print(#function)
     }
+    
+    @objc func buttonDidTapped() {
+        fetchDailyWebtoonList()
+    }
 }
 
+extension HomeViewController: buttonTextDelegate {
+    func buttonDelegate(buttonText: String) {
+        selectedButton = buttonText
+        print(selectedButton ?? "", "🥰")
+    }
+}
