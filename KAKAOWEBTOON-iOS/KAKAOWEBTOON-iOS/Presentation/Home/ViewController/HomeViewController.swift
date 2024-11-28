@@ -198,6 +198,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .allToonsSection:
             if kind == UICollectionView.elementKindSectionHeader {
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllToonsSectionHeaderView", for: indexPath) as! AllToonsSectionHeaderView
+                let toonCount = getDailyWebtoonResponseDTO?.data.webtoons.count ?? 0
+                header.toonCount(with: toonCount)
                 return header
             } else if kind == UICollectionView.elementKindSectionFooter {
                 let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllToonsSectionFooterView", for: indexPath) as! AllToonsSectionFooterView
