@@ -176,7 +176,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @objc
     private func searchButtonTapped() {
-        
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
+        searchViewController.modalPresentationStyle = .fullScreen
+        self.present(searchViewController, animated: true, completion: nil)
     }
 }
 
