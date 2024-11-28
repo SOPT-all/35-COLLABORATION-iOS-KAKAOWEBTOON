@@ -9,10 +9,10 @@ import UIKit
 
 import SnapKit
 
-enum kindType: Int {
+enum kindType: Int, CaseIterable {
     case new
     case mon
-    case the
+    case tue
     case wed
     case thu
     case fri
@@ -28,7 +28,7 @@ enum kindType: Int {
             return "완결"
         case .mon:
             return "월"
-        case .the:
+        case .tue:
             return "화"
         case .wed:
             return "수"
@@ -42,6 +42,33 @@ enum kindType: Int {
             return "일"
         }
     }
+    
+    var requestDay: String {
+        switch self {
+        case .new:
+            return "new"
+        case .mon:
+            return "mon"
+        case .tue:
+            return "tue"
+        case .wed:
+            return "wed"
+        case .thu:
+            return "thu"
+        case .fri:
+            return "fri"
+        case .sat:
+            return "sat"
+        case .sun:
+            return "sun"
+        case .done:
+            return "done"
+        }
+    }
+}
+
+protocol buttonTextDelegate: AnyObject {
+    func buttonDelegate(buttonText: String)
 }
 
 class ToonCategoryHeaderView: UICollectionReusableView {
@@ -50,6 +77,7 @@ class ToonCategoryHeaderView: UICollectionReusableView {
     
     var kindButtons: [UIButton] = []
     private var selectedButton = UIButton()
+    weak var requestButtonDelegate: buttonTextDelegate?
 
     // MARK: - UI Properties
     
@@ -83,8 +111,8 @@ class ToonCategoryHeaderView: UICollectionReusableView {
         setupHierarchy()
         setupStyle()
         setupLayout()
-        buttonConfiguration()
         addTarget()
+        buttonConfiguration()
     }
     
     required init?(coder: NSCoder) {
@@ -172,5 +200,11 @@ class ToonCategoryHeaderView: UICollectionReusableView {
         selectedConfig?.image = UIImage(resource: .imgUnderLine)
         sender.configuration = selectedConfig
         selectedButton = sender
+        
+        if let buttonText = selectedButton.titleLabel?.text {
+            if let kind = kindType.allCases.first(where: { $0.day == buttonText }) {
+                requestButtonDelegate?.buttonDelegate(buttonText: kind.requestDay)
+            }
+        }
     }
 }

@@ -35,6 +35,21 @@ extension WebtoonService {
         }
     }
     
+    func getDailyWebtoonList(day: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        webtoonProvider.request(.getDailyWebtoonList(day: day)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, GetDailyWebtoonResponseDTO.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     func getWebtoonSearchData(title: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         webtoonProvider.request(.getWebtoonSearchData(title: title)) { result in
             switch result {

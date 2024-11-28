@@ -123,7 +123,7 @@ class HomeView: UIView {
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
+            elementKind: "stickyHeader",
             alignment: .top
         )
         
