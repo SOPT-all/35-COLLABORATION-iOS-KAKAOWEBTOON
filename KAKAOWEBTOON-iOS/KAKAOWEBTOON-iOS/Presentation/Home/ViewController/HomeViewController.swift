@@ -180,7 +180,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             cell.configure(with: getDailyWebtoonResponseDTO.data.webtoons[indexPath.row])
             return cell
         }
-        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -244,7 +243,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
 extension HomeViewController: buttonTextDelegate {
     func buttonDelegate(buttonText: String) {
-        selectedButton = buttonText
-        print(selectedButton ?? "", "🥰")
+        if buttonText == kindType.new.requestDay {
+            selectedButton = kindType.wed.requestDay
+        } else if buttonText == kindType.done.requestDay {
+            selectedButton = kindType.thu.requestDay
+        } else {
+            selectedButton = buttonText
+        }
     }
 }
