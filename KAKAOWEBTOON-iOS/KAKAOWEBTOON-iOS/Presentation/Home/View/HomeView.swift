@@ -67,39 +67,76 @@ class HomeView: UIView {
     private func adSection() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(193)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200)
         )
         
         let item = NSCollectionLayoutItem(
             layoutSize: itemSize
         )
         
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(214)
+        )
+        
         let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: itemSize, subitems: [item]
+            layoutSize: groupSize, subitems: [item]
             )
         
         let section = NSCollectionLayoutSection(
             group: group
         )
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 29, leading: 11, bottom: 0, trailing: 11
+            top: 8, leading: 11, bottom: 0, trailing: 11
         )
         
         return section
     }
     
     private func toonCategorySection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: .init (
-                widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)
-            )
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(50),
+            heightDimension: .absolute(30)
         )
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
-                widthDimension: .fractionalWidth(1), heightDimension: .absolute(400)), subitems: [item]
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(2.0),
+            heightDimension: .absolute(46)
+        )
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+                subitems: [item]
             )
         
+        group.interItemSpacing = NSCollectionLayoutSpacing.fixed(8)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
+        
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(51)
+        )
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: "stickyHeader",
+            alignment: .top
+        )
+        
         let section = NSCollectionLayoutSection(group: group)
+        
+        section.orthogonalScrollingBehavior = .continuous
+        
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0, leading: 11, bottom: 0, trailing: 11
+        )
+        
+        header.pinToVisibleBounds = true
+        section.boundarySupplementaryItems = [header]
         
         return section
     }
@@ -153,8 +190,4 @@ class HomeView: UIView {
         
         return section
     }
-}
-
-#Preview{
-    HomeView()
 }

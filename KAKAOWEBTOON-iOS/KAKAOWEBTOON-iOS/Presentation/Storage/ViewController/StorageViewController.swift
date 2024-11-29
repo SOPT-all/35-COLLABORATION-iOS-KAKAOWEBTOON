@@ -12,6 +12,12 @@ class StorageViewController: UIViewController {
     // MARK: - Properties
     
     private let storageView = StorageView()
+    private let webtoonService = WebtoonService.shared
+    private var getRecentWebtoonResponseDTO: GetRecentWebtoonResponseDTO? {
+        didSet {
+            storageView.storageCollectionView.reloadData()
+        }
+    }
     
     // MARK: - Life Cycle
     
@@ -28,7 +34,44 @@ class StorageViewController: UIViewController {
         setupGestures()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchRecentWebtoonData()
+    }
+    
     // MARK: - Private func
+    
+    private func fetchRecentWebtoonData() {
+        webtoonService.getRecentWebtoonData { result in
+            switch result {
+            case .success(let response):
+                guard let getRecentWebtoonResponseDTO = response as? GetRecentWebtoonResponseDTO else {
+                    fatalError()
+                }
+                DispatchQueue.main.async {
+                    self.getRecentWebtoonResponseDTO = getRecentWebtoonResponseDTO
+                }
+                
+            case .requestErr:
+                fatalError()
+            case .apiArr:
+                fatalError()
+            case .pathErr:
+                fatalError()
+            case .registerErr:
+                fatalError()
+            case .networkFail:
+                fatalError()
+            case .decodeErr:
+                fatalError()
+            case .unAuthentication:
+                fatalError()
+            case .unAuthorization:
+                fatalError()
+            }
+        }
+    }
     
     private func register() {
         storageView.storageCollectionView
@@ -53,7 +96,7 @@ class StorageViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
             buttonTypes: [.research, .menu],
             target: self,
-            actions: [#selector(buttonTapped), #selector(buttonTapped)]
+            actions: [#selector(searchButtonTapped), #selector(buttonTapped)]
         )
     }
     
@@ -96,9 +139,17 @@ class StorageViewController: UIViewController {
         print(#function)
     }
     
-    @objc func CategoryTabSelected(_ sender: UITapGestureRecognizer) {
+    @objc
+    func CategoryTabSelected(_ sender: UITapGestureRecognizer) {
         guard let categoryTabView = sender.view as? CategoryTabView else { return }
         storageView.categoryTabToggle(categoryTabView)
+    }
+    
+    @objc
+    private func searchButtonTapped() {
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
+        searchViewController.modalPresentationStyle = .fullScreen
+        self.present(searchViewController, animated: true, completion: nil)
     }
     
 }
@@ -111,7 +162,7 @@ extension StorageViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 10
+        return getRecentWebtoonResponseDTO?.data.webtoons.count ?? 0
     }
     
     func collectionView(
@@ -124,7 +175,8 @@ extension StorageViewController: UICollectionViewDataSource {
         ) as? WebToonBoxCell else {
             return UICollectionViewCell()
         }
-        webtoonBoxCell.configure()
+        guard let getRecentWebtoonResponseDTO else { return UICollectionViewCell() }
+        webtoonBoxCell.configure(getRecentWebtoonResponseDTO.data.webtoons[indexPath.row])
         return webtoonBoxCell
     }
     

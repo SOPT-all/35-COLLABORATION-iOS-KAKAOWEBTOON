@@ -19,7 +19,11 @@ struct WebtoonData: Codable {
 struct Webtoon: Codable {
     let title: String
     let author: String
-    let image: String
+    let image: String?
     let genre: String
     let promotion: String
+    
+    var tagType: FreeTagViewType {
+        return FreeTagViewType(rawValue: promotion) ?? .free
+    }
 }

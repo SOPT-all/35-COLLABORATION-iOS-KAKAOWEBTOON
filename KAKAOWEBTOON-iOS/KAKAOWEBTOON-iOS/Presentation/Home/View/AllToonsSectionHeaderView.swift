@@ -11,17 +11,15 @@ import SnapKit
 
 class AllToonsSectionHeaderView: UICollectionReusableView {
     
-    static let Identifier = "AllToonsSectionHeaderView"
-    
     // MARK: - UI Properties
     
     let countLabel: UILabel = {
         let label = UILabel()
-        label.text = "총 28개"
+        label.text = "총 0개"
         label.font = .appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
         label.textColor = .white
-        return label //이미지 내려주시면 id값 카운트해서 개수 변경
+        return label
     }()
     
     let sortLabel: UILabel = {
@@ -76,6 +74,10 @@ class AllToonsSectionHeaderView: UICollectionReusableView {
             allArrayImageView
         ].forEach { addSubview($0)}
       }
+    
+    func toonCount(with toonCount: Int) {
+        countLabel.text = "총 \(toonCount)개"
+    }
     
     // MARK: - Private Func
     

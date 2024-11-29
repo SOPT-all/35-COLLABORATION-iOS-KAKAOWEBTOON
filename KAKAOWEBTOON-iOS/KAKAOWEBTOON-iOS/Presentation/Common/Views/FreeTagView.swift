@@ -9,41 +9,16 @@ import UIKit
 
 import SnapKit
 
-enum FreeTagViewType: String {
-    
-    case free = "연재 무료"
-    case three = "3다무"
-    case up = "UP"
-    case none
-    
-    var backgroundColor: UIColor {
-        switch self {
-        case .free, .none: return .yellow2
-        case .three: return .primaryWhite
-        case .up: return .primaryRed
-        }
-    }
-    
-    var textColor: UIColor {
-        switch self {
-        case .free, .three, .none: return .black4
-        case .up: return .primaryWhite
-        }
-    }
-    
-}
-
 class FreeTagView: UIView {
     
     // MARK: - Properties
     
-    private let type: FreeTagViewType
+    private var type: FreeTagViewType
     
     // MARK: - UI Properties
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = type.rawValue
         label.font = .appleSDGothicNeo(.caption4_eb_10)
         label.applyStyle(.caption4_eb_10)
         label.textColor = type.textColor
@@ -82,12 +57,17 @@ class FreeTagView: UIView {
     
     private func setupHeirarchy() {
         switch type {
-        case .free, .up:
+        case .free:
+            self.titleLabel.text = "연재 무료"
+            self.addSubview(titleLabel)
+        case .up:
+            self.titleLabel.text = "UP"
             self.addSubview(titleLabel)
         case .three:
+            self.titleLabel.text = "3다무"
             self.addSubviews(clockBackView, titleLabel)
             clockBackView.addSubview(clockIcon)
-        case .none:
+        case .clock:
             self.addSubview(clockBackView)
             clockBackView.addSubview(clockIcon)
         }
@@ -124,7 +104,7 @@ class FreeTagView: UIView {
                 $0.trailing.equalToSuperview().inset(4)
             }
             
-        case .none:
+        case .clock:
             clockBackView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
                 $0.size.equalTo(17)
@@ -136,5 +116,5 @@ class FreeTagView: UIView {
             }
         }
     }
-    
+ 
 }

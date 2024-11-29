@@ -13,13 +13,5 @@ struct GetRecentWebtoonResponseDTO: Codable {
 }
 
 struct RecentWebtoonData: Codable {
-    let webtoons: [RecentWebtoon]
-}
-
-struct RecentWebtoon: Codable {
-    let title: String
-    let author: String
-    let image: String
-    let genre: String
-    let promotion: String
+    let webtoons: [Webtoon]
 }

@@ -13,7 +13,7 @@ class AllToonsSectionFooterView: UICollectionReusableView {
     
     // MARK: - Properties
     
-    static let Identifier = "AllToonsSectionFooterView"
+    let ratio: CGFloat = 65 / 353
     
     // MARK: - UI Properties
     
@@ -23,8 +23,6 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
-    let ratio: CGFloat = 65 / 353
     
     let privacyPolicyLabel: UILabel = {
         let label = UILabel()
@@ -117,7 +115,7 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         
         adImageView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(5)
-            $0.horizontalEdges.equalToSuperview().inset(11)
+            $0.horizontalEdges.equalToSuperview()
         }
         
         serviceStackView.snp.makeConstraints{
@@ -133,4 +131,5 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         }
     }
 }
+
 

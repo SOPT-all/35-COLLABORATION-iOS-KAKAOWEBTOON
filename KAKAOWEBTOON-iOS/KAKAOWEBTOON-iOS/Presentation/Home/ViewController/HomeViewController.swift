@@ -5,20 +5,21 @@
 //  Created by 김승원 on 11/19/24.
 //
 
-/**TODO
-    - search VC연결
-    - toonList layout 재정비
- **/
-
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // MARK: - Properties
     
-    // MARK: - UI Properties
-    
     private let rootView = HomeView()
+    private var selectedButton: String = "mon"
+    var genreApps: [ToonGenreApp] = ToonGenreApp.toonGenreApps
+    private let webtoonService = WebtoonService.shared
+    private var getDailyWebtoonResponseDTO: GetDailyWebtoonResponseDTO? {
+        didSet {
+            rootView.collectionView.reloadData()
+        }
+    }
     
     // MARK: - Life Cycle
     
@@ -35,8 +36,44 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         setupNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchDailyWebtoonList()
+    }
+    
     // MARK: - Private Func
     
+    private func fetchDailyWebtoonList() {
+        webtoonService.getDailyWebtoonList(day: selectedButton) { result in
+            switch result {
+            case .success(let response):
+                guard let getDailyWebtoonResponseDTO = response as? GetDailyWebtoonResponseDTO else {
+                    fatalError()
+                }
+                DispatchQueue.main.async {
+                    self.getDailyWebtoonResponseDTO = getDailyWebtoonResponseDTO
+                }
+            case .requestErr:
+                fatalError()
+            case .unAuthentication:
+                fatalError()
+            case .unAuthorization:
+                fatalError()
+            case .apiArr:
+                fatalError()
+            case .pathErr:
+                fatalError()
+            case .registerErr:
+                fatalError()
+            case .networkFail:
+                fatalError()
+            case .decodeErr:
+                fatalError()
+            }
+        }
+    }
+
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.setupNavigationBarStyle(.logo(.imgLogo01))
         
@@ -49,7 +86,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
             buttonTypes: [.research, .menu],
             target: self,
-            actions: [#selector(didTapButton), #selector(didTapButton)]
+            actions: [#selector(searchButtonTapped), #selector(didTapButton)]
         )
     }
     
@@ -60,21 +97,40 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private func register() {
         rootView.collectionView.register(
-            AdSectionCell.self, forCellWithReuseIdentifier: AdSectionCell.reuseIdentifier
+            AdSectionCell.self,
+            forCellWithReuseIdentifier: AdSectionCell.reuseIdentifier
         )
         
         rootView.collectionView.register(
-            AllToonsSectionCell.self, forCellWithReuseIdentifier: AllToonsSectionCell.reuseIdentifier
+            AllToonsSectionCell.self,
+            forCellWithReuseIdentifier: AllToonsSectionCell.reuseIdentifier
         )
         
         rootView.collectionView.register(
-            AllToonsSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AllToonsSectionHeaderView.Identifier
+            ToonCategorySectionCell.self,
+            forCellWithReuseIdentifier: ToonCategorySectionCell.reuseIdentifier
         )
         
         rootView.collectionView.register(
-            AllToonsSectionFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: AllToonsSectionFooterView.Identifier
+            AllToonsSectionHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: AllToonsSectionHeaderView.reuseIdentifier
+        )
+        
+        rootView.collectionView.register(
+            AllToonsSectionFooterView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+            withReuseIdentifier: AllToonsSectionFooterView.reuseIdentifier
+        )
+        
+        rootView.collectionView.register(
+            ToonCategoryHeaderView.self,
+            forSupplementaryViewOfKind: "stickyHeader",
+            withReuseIdentifier: ToonCategoryHeaderView.reuseIdentifier
         )
     }
+    
+    // MARK: - Public Func
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
             return HomeSection.allCases.count
@@ -88,9 +144,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .adSection:
             return 1
         case .toonCategorySection:
-            return 0
+            return genreApps.count
         case .allToonsSection:
-            return 9 //서버 넘어오면 model 받아서 indexPath.row로 !
+            return getDailyWebtoonResponseDTO?.data.webtoons.count ?? 0
         }
     }
     
@@ -106,15 +162,25 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
             return cell
         case .toonCategorySection:
-            return UICollectionViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToonCategorySectionCell.reuseIdentifier, for: indexPath) as? ToonCategorySectionCell
+            else {
+                return UICollectionViewCell()
+            }
+            let app = genreApps[indexPath.row]
+            cell.configure(with: app, index: indexPath.row)
+            return cell
         case .allToonsSection:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllToonsSectionCell.reuseIdentifier, for: indexPath) as? AllToonsSectionCell 
             else {
                 return UICollectionViewCell()
             }
-            cell.configure(with: .init(title: "sss", image: .imgHomeBackground))
+            guard let getDailyWebtoonResponseDTO else {
+                return UICollectionViewCell()
+            }
+            cell.configure(with: getDailyWebtoonResponseDTO.data.webtoons[indexPath.row])
             return cell
         }
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -132,26 +198,53 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .allToonsSection:
             if kind == UICollectionView.elementKindSectionHeader {
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllToonsSectionHeaderView", for: indexPath) as! AllToonsSectionHeaderView
+                let toonCount = getDailyWebtoonResponseDTO?.data.webtoons.count ?? 0
+                header.toonCount(with: toonCount)
                 return header
             } else if kind == UICollectionView.elementKindSectionFooter {
                 let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllToonsSectionFooterView", for: indexPath) as! AllToonsSectionFooterView
                 return footer
             }
         case .toonCategorySection:
-            return UICollectionReusableView()
+            let header =
+            collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ToonCategoryHeaderView", for: indexPath) as! ToonCategoryHeaderView
+            header.requestButtonDelegate = self
+            
+            header.kindButtons.forEach{ btn in
+                btn.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
+            }
+            
+            return header
         case .adSection:
             return UICollectionReusableView()
         }
         return UICollectionReusableView()
     }
     
+
+    
+    // MARK: - objc Function
+    
     @objc
     private func didTapButton() {
         print(#function)
     }
+    
+    @objc func buttonDidTapped() {
+        fetchDailyWebtoonList()
+    }
+  
+    @objc
+    private func searchButtonTapped() {
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
+        searchViewController.modalPresentationStyle = .fullScreen
+        self.present(searchViewController, animated: true, completion: nil)
+    }
 }
 
-#Preview
-{
-    UINavigationController(rootViewController: HomeViewController())
+extension HomeViewController: buttonTextDelegate {
+    func buttonDelegate(buttonText: String) {
+        selectedButton = buttonText
+        print(selectedButton ?? "", "🥰")
+    }
 }
