@@ -135,7 +135,7 @@ class HomeView: UIView {
             top: 0, leading: 11, bottom: 0, trailing: 11
         )
         
-        header.pinToVisibleBounds = true
+//        header.pinToVisibleBounds = true
         section.boundarySupplementaryItems = [header]
         
         return section
