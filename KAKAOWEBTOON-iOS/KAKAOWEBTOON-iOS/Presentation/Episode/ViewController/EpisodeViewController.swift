@@ -11,6 +11,9 @@ import SnapKit
 class EpisodeViewController: UIViewController {
     
     // MARK: - Properties
+    
+    private var webtoon: DailyWebtoon?
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -35,13 +38,27 @@ class EpisodeViewController: UIViewController {
         EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
         EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0)
     ]
-        
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         setupLayout()
+        setupNavigationBar()
+    }
+    
+    func configure(with webtoon: DailyWebtoon) {
+        self.webtoon = webtoon
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.setupNavigationBarStyle(.title(""))
+        navigationItem.rightBarButtonItem = UIBarButtonItem.setupBarButtons(
+            buttonTypes: [.heart, .seeMore],
+            target: nil,
+            actions: []
+        )
     }
     
     private func setupCollectionView() {
@@ -142,38 +159,31 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: (UIScreen.main.bounds.width - 22) / 3, height: 123)
-//    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     
     func collectionView(_ collectionView: UICollectionView,
-                            layout collectionViewLayout: UICollectionViewLayout,
-                            minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 0 // 세로 간격 0
-        }
-
-        func collectionView(_ collectionView: UICollectionView,
-                            layout collectionViewLayout: UICollectionViewLayout,
-                            minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 0 // 가로 간격 0
-        }
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     
     func collectionView(_ collectionView: UICollectionView,
-                           layout collectionViewLayout: UICollectionViewLayout,
-                           insetForSectionAt section: Int) -> UIEdgeInsets {
-           // 모든 섹션에 대해 상하좌우 11px의 내부 여백 설정
-           return UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
-       }
-
-       func collectionView(_ collectionView: UICollectionView,
-                           layout collectionViewLayout: UICollectionViewLayout,
-                           sizeForItemAt indexPath: IndexPath) -> CGSize {
-           // 한 줄에 3개의 셀을 배치
-           let itemsPerRow: CGFloat = 3
-//           let totalSpacing = (itemsPerRow - 1) * 0 + 11 // 가로 간격은 0, 좌우 여백은 11px
-           let width = (collectionView.bounds.width - 22) / itemsPerRow
-           return CGSize(width: width, height: width * 128 / 117) // 비율을 조정해 높이 설정
-       }
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemsPerRow: CGFloat = 3
+        let width = (collectionView.bounds.width - 22) / itemsPerRow
+        return CGSize(width: width, height: width * 128 / 117)
+    }
 }
 
 extension EpisodeViewController: UIScrollViewDelegate {
