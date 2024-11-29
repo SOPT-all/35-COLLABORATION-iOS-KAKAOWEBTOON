@@ -16,8 +16,7 @@ class EpisodeViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.sectionHeadersPinToVisibleBounds = true // section1 고정
         layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 50)
-        layout.minimumLineSpacing = 16
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.minimumLineSpacing = 17
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
 
@@ -123,7 +122,7 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 48) / 2, height: 218) // 2개씩 표시
+        return CGSize(width: (UIScreen.main.bounds.width - 22) / 3, height: 123) // 2개씩 표시
     }
 }
 
