@@ -113,6 +113,7 @@ class ToonCategoryHeaderView: UICollectionReusableView {
         setupLayout()
         addTarget()
         buttonConfiguration()
+        beginState()
     }
     
     required init?(coder: NSCoder) {
@@ -183,6 +184,13 @@ class ToonCategoryHeaderView: UICollectionReusableView {
             button.titleLabel?.applyStyle(.body1_r_14)
             button.configuration = config
         }
+    }
+    
+    private func beginState() {
+        var beginConfig = monButton.configuration
+        beginConfig?.baseForegroundColor = .yellow2
+        beginConfig?.image = UIImage(resource: .imgUnderLine)
+        monButton.configuration = beginConfig
     }
     
     // MARK: - @objc Func

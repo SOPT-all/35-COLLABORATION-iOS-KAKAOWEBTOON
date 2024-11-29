@@ -208,7 +208,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             let header =
             collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ToonCategoryHeaderView", for: indexPath) as! ToonCategoryHeaderView
             header.requestButtonDelegate = self
-            
             header.kindButtons.forEach{ btn in
                 btn.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
             }
