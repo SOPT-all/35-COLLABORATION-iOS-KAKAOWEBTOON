@@ -15,6 +15,7 @@ class EpisodeCell: UICollectionViewCell {
     
     private let episodeCellImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(resource: .imgEpisodeEx)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.setupCornerRadius(8)
@@ -24,9 +25,9 @@ class EpisodeCell: UICollectionViewCell {
     private let episodeBadgeLabel: UILabel = {
         let label = UILabel()
         label.text = "무료"
-        label.textColor = .white
+        label.textColor = .black4
         label.backgroundColor = .clear
-        label.setupBorder(1, color: .grey4)
+        label.setupBorder(1, color: .grey1)
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
         label.textAlignment = .center
@@ -103,7 +104,8 @@ class EpisodeCell: UICollectionViewCell {
     private func setupLayout() {
         episodeCellImageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(117.0 / 218.0)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(contentView.frame.height - 47)
         }
         
         episodeBadgeLabel.snp.makeConstraints { make in
@@ -115,17 +117,16 @@ class EpisodeCell: UICollectionViewCell {
         episodeCellLabelView.snp.makeConstraints { make in
             make.top.equalTo(episodeCellImageView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(101.0 / 218.0)
+            make.height.equalTo(47)
         }
         
         episodeTitleLabel.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().inset(8)
-            make.trailing.equalToSuperview().inset(31)
+            make.top.leading.equalToSuperview().inset(8)
         }
         
         episodeDateLabel.snp.makeConstraints { make in
-            make.top.equalTo(episodeTitleLabel.snp.bottom).offset(2)
-            make.horizontalEdges.equalTo(episodeTitleLabel.snp.leading)
+            make.bottom.equalToSuperview().inset(8)
+            make.leading.equalTo(episodeTitleLabel.snp.leading)
         }
         
         progressBarBackground.snp.makeConstraints { make in

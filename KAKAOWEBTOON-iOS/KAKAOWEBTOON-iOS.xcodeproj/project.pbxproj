@@ -25,6 +25,9 @@
 		87276C172CF44994008D35CE /* ErrorResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C162CF44990008D35CE /* ErrorResponseDTO.swift */; };
 		87276C1A2CF44C4E008D35CE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 87276C192CF44C4E008D35CE /* Moya */; };
 		87276C1D2CF44CC0008D35CE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 87276C1C2CF44CC0008D35CE /* Kingfisher */; };
+		87276C1F2CF44ED6008D35CE /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C1E2CF44ED6008D35CE /* EpisodeViewController.swift */; };
+		87276C232CF45081008D35CE /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C222CF45081008D35CE /* EpisodeCell.swift */; };
+		87276C252CF4545D008D35CE /* EpisodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C242CF4544F008D35CE /* EpisodeHeaderView.swift */; };
 		87276C272CF50AC6008D35CE /* WebtoonTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C262CF50ABD008D35CE /* WebtoonTargetType.swift */; };
 		87276C292CF510DD008D35CE /* EpisodeTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C282CF510D6008D35CE /* EpisodeTargetType.swift */; };
 		87276C2B2CF5198E008D35CE /* GetWebtoonSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C2A2CF51981008D35CE /* GetWebtoonSearchResponseDTO.swift */; };
@@ -34,6 +37,9 @@
 		87276C332CF51BD8008D35CE /* GetEpisodeHeaderRepsponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C322CF51BCE008D35CE /* GetEpisodeHeaderRepsponseDTO.swift */; };
 		87276C352CF5DAC0008D35CE /* EpisodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C342CF5DABB008D35CE /* EpisodeService.swift */; };
 		87276C372CF5DB95008D35CE /* WebtoonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C362CF5DB8F008D35CE /* WebtoonService.swift */; };
+		87276C392CF5DDCE008D35CE /* EpisodeDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C382CF5DDC4008D35CE /* EpisodeDetailHeaderView.swift */; };
+		87276C4F2CF98E8D008D35CE /* EpisodeCellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C4E2CF98E85008D35CE /* EpisodeCellHeaderView.swift */; };
+		87276C512CF9D022008D35CE /* EpisodeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87276C502CF9D022008D35CE /* EpisodeHeaderCell.swift */; };
 		8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */; };
 		8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */; };
 		8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757E9F52CEA15EA00EBBCF4 /* ViewController.swift */; };
@@ -83,6 +89,9 @@
 		87276C122CF44965008D35CE /* NetworkServce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServce.swift; sourceTree = "<group>"; };
 		87276C142CF44976008D35CE /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		87276C162CF44990008D35CE /* ErrorResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseDTO.swift; sourceTree = "<group>"; };
+		87276C1E2CF44ED6008D35CE /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		87276C222CF45081008D35CE /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		87276C242CF4544F008D35CE /* EpisodeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeHeaderView.swift; sourceTree = "<group>"; };
 		87276C262CF50ABD008D35CE /* WebtoonTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebtoonTargetType.swift; sourceTree = "<group>"; };
 		87276C282CF510D6008D35CE /* EpisodeTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTargetType.swift; sourceTree = "<group>"; };
 		87276C2A2CF51981008D35CE /* GetWebtoonSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWebtoonSearchResponseDTO.swift; sourceTree = "<group>"; };
@@ -92,6 +101,9 @@
 		87276C322CF51BCE008D35CE /* GetEpisodeHeaderRepsponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEpisodeHeaderRepsponseDTO.swift; sourceTree = "<group>"; };
 		87276C342CF5DABB008D35CE /* EpisodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeService.swift; sourceTree = "<group>"; };
 		87276C362CF5DB8F008D35CE /* WebtoonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebtoonService.swift; sourceTree = "<group>"; };
+		87276C382CF5DDC4008D35CE /* EpisodeDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailHeaderView.swift; sourceTree = "<group>"; };
+		87276C4E2CF98E85008D35CE /* EpisodeCellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellHeaderView.swift; sourceTree = "<group>"; };
+		87276C502CF9D022008D35CE /* EpisodeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeHeaderCell.swift; sourceTree = "<group>"; };
 		8757E9EE2CEA15EA00EBBCF4 /* KAKAOWEBTOON-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOWEBTOON-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8757E9F12CEA15EA00EBBCF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8757E9F32CEA15EA00EBBCF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +111,6 @@
 		8757E9FA2CEA15EC00EBBCF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8757E9FD2CEA15EC00EBBCF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8757E9FF2CEA15EC00EBBCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeHeaderView.swift; sourceTree = "<group>"; };
 		E31702C22CEF0E8A0028278A /* CategoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabView.swift; sourceTree = "<group>"; };
 		E31D73452CEF98120090822F /* ToolTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTabView.swift; sourceTree = "<group>"; };
 		E31F1D7F2CEB929F004045F1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -482,6 +493,7 @@
 		8757EA252CEA180A00EBBCF4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				87276C1E2CF44ED6008D35CE /* EpisodeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -489,8 +501,10 @@
 		8757EA262CEA181000EBBCF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				87276C4E2CF98E85008D35CE /* EpisodeCellHeaderView.swift */,
+				87276C382CF5DDC4008D35CE /* EpisodeDetailHeaderView.swift */,
+				87276C242CF4544F008D35CE /* EpisodeHeaderView.swift */,
 				87276BB82CF1052D008D35CE /* EpisodeTabBarView.swift */,
-				8757EA5B2CEE4EAD00EBBCF4 /* EpisodeHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -505,6 +519,8 @@
 		8757EA282CEA181A00EBBCF4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				87276C502CF9D022008D35CE /* EpisodeHeaderCell.swift */,
+				87276C222CF45081008D35CE /* EpisodeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -648,9 +664,11 @@
 				87276C312CF51BA5008D35CE /* GetEpisodeDetailResponseDTO.swift in Sources */,
 				6C6570BD2CEE39CB001118B3 /* AllToonsSectionHeaderView.swift in Sources */,
 				6C6570B92CED99DD001118B3 /* AllToonsSectionCell.swift in Sources */,
+				87276C252CF4545D008D35CE /* EpisodeHeaderView.swift in Sources */,
 				6C6570B42CECFCB0001118B3 /* AdSectionCell.swift in Sources */,
 				87276C0F2CF44943008D35CE /* BaseService.swift in Sources */,
 				E3F5AE3A2CF70171000F41C5 /* RecommandWebtoon.swift in Sources */,
+				87276C4F2CF98E8D008D35CE /* EpisodeCellHeaderView.swift in Sources */,
 				E3FB5E822CEC78570005F835 /* StorageView.swift in Sources */,
 				87276C112CF44955008D35CE /* MoyaPlugin.swift in Sources */,
 				6CC3579A2CF25EF0005FA125 /* ToonCategoryHeaderView.swift in Sources */,
@@ -670,9 +688,11 @@
 				E31F1E2F2CEBA2B5004045F1 /* KWTabBarController.swift in Sources */,
 				E3A892F02CEB0D2200103A49 /* FontLiteral.swift in Sources */,
 				87276BB92CF10537008D35CE /* EpisodeTabBarView.swift in Sources */,
+				87276C1F2CF44ED6008D35CE /* EpisodeViewController.swift in Sources */,
 				E31F1D882CEB9564004045F1 /* ReuseIdentifiable.swift in Sources */,
 				8757E9F62CEA15EA00EBBCF4 /* ViewController.swift in Sources */,
 				E31F1E312CEBA8D1004045F1 /* HomeViewController.swift in Sources */,
+				87276C232CF45081008D35CE /* EpisodeCell.swift in Sources */,
 				6CC357982CF1DB62005FA125 /* UIImageView+.swift in Sources */,
 				E35D3BFE2CF0C17C0082F8C9 /* SearchViewController.swift in Sources */,
 				E33DBBB32CEE364700E6AB94 /* FreeTagView.swift in Sources */,
@@ -680,7 +700,9 @@
 				E37B618F2CF2000000E99954 /* RecommandHeaderView.swift in Sources */,
 				E3A892F22CEB204800103A49 /* UILabel+.swift in Sources */,
 				E3E4659F2CEF00AF002DE0D3 /* CategorySelectorView.swift in Sources */,
+				87276C392CF5DDCE008D35CE /* EpisodeDetailHeaderView.swift in Sources */,
 				87276C152CF4497D008D35CE /* NetworkResult.swift in Sources */,
+				87276C512CF9D022008D35CE /* EpisodeHeaderCell.swift in Sources */,
 				8757E9F22CEA15EA00EBBCF4 /* AppDelegate.swift in Sources */,
 				8757E9F42CEA15EA00EBBCF4 /* SceneDelegate.swift in Sources */,
 			);
