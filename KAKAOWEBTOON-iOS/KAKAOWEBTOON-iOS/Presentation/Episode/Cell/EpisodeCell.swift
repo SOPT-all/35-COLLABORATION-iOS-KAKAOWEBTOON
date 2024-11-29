@@ -25,9 +25,9 @@ class EpisodeCell: UICollectionViewCell {
     private let episodeBadgeLabel: UILabel = {
         let label = UILabel()
         label.text = "무료"
-        label.textColor = .white
+        label.textColor = .black4
         label.backgroundColor = .clear
-        label.setupBorder(1, color: .grey4)
+        label.setupBorder(1, color: .grey1)
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
         label.textAlignment = .center
