@@ -146,7 +146,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         case .toonCategorySection:
             return genreApps.count
         case .allToonsSection:
-            return getDailyWebtoonResponseDTO?.data.webtoons.count ?? 0
+            let count = getDailyWebtoonResponseDTO?.data.webtoons.count ?? 0
+            let roundedCount = ((count + 2) / 3) * 3
+            return roundedCount
         }
     }
     
@@ -170,14 +172,24 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             cell.configure(with: app, index: indexPath.row)
             return cell
         case .allToonsSection:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllToonsSectionCell.reuseIdentifier, for: indexPath) as? AllToonsSectionCell 
-            else {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: AllToonsSectionCell.reuseIdentifier,
+                for: indexPath
+            ) as? AllToonsSectionCell else {
                 return UICollectionViewCell()
             }
+            
             guard let getDailyWebtoonResponseDTO else {
                 return UICollectionViewCell()
             }
-            cell.configure(with: getDailyWebtoonResponseDTO.data.webtoons[indexPath.row])
+            
+            let webtoons = getDailyWebtoonResponseDTO.data.webtoons
+            if indexPath.row < webtoons.count {
+                cell.configure(with: webtoons[indexPath.row])
+                return cell
+            }
+
+            cell.configureDefaultImage()
             return cell
         }
     }
