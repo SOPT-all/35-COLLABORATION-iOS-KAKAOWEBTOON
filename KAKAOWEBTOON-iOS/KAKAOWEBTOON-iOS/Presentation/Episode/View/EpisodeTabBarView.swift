@@ -38,6 +38,8 @@ class EpisodeTabBarView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.backgroundColor = .black3
+        
         setupHierarchy()
         setupLayout()
         setupTargets()
@@ -74,7 +76,7 @@ class EpisodeTabBarView: UICollectionReusableView {
         }
         
         underlineView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(3)
+            make.bottom.equalToSuperview().inset(5)
             make.height.equalTo(2)
             make.width.equalTo(0)
             make.centerX.equalToSuperview()

@@ -17,7 +17,7 @@ class EpisodeViewController: UIViewController {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionHeadersPinToVisibleBounds = true // section1 고정
+        layout.sectionHeadersPinToVisibleBounds = true
         layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 50)
         layout.minimumLineSpacing = 17
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -76,9 +76,7 @@ class EpisodeViewController: UIViewController {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: EpisodeTabBarView.reuseIdentifier)
         collectionView.register(EpisodeCell.self, forCellWithReuseIdentifier: EpisodeCell.reuseIdentifier)
-        collectionView.register(EpisodeCellHeaderView.self,
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: EpisodeCellHeaderView.reuseIdentifier)
+        collectionView.register(EpisodeHeaderCell.self, forCellWithReuseIdentifier: EpisodeHeaderCell.reuseIdentifier)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -89,7 +87,7 @@ class EpisodeViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-}
+    }
     
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
@@ -98,13 +96,13 @@ class EpisodeViewController: UIViewController {
 
 extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3 // section0, section1, section2
+        return 2 // section0, section2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 2:
-            return episodes.count // section2의 아이템 수
+        case 1:
+            return episodes.count + 1 // 첫 번째 아이템에 HeaderView 포함
         default:
             return 0
         }
@@ -112,58 +110,58 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCell.reuseIdentifier, for: indexPath) as! EpisodeCell
-        let episode = episodes[indexPath.item]
-        cell.configure(
-            with: episode.title,
-            date: episode.date,
-            image: UIImage(resource: .imgEpisodeEx),
-            progress: 0
-        )
-        return cell
+        if indexPath.section == 1 {
+            if indexPath.item == 0 {
+                // 첫 번째 아이템: HeaderView
+                let headerCell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeHeaderCell.reuseIdentifier, for: indexPath) as! EpisodeHeaderCell
+                return headerCell
+            } else {
+                // 나머지 아이템: EpisodeCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCell.reuseIdentifier, for: indexPath) as! EpisodeCell
+                let episode = episodes[indexPath.item - 1] // -1은 HeaderView 보정
+                cell.configure(
+                    with: episode.title,
+                    date: episode.date,
+                    image: UIImage(resource: .imgEpisodeEx),
+                    progress: 0
+                )
+                return cell
+            }
+        }
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            switch indexPath.section {
-            case 0:
+            if indexPath.section == 0 {
                 let header = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
                     withReuseIdentifier: EpisodeHeaderView.reuseIdentifier,
                     for: indexPath
                 ) as! EpisodeHeaderView
                 return header
-            case 1:
+            } else if indexPath.section == 1 {
                 let tabBar = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
                     withReuseIdentifier: EpisodeTabBarView.reuseIdentifier,
                     for: indexPath
                 ) as! EpisodeTabBarView
                 return tabBar
-            case 2:
-                let header = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: UICollectionView.elementKindSectionHeader,
-                    withReuseIdentifier: EpisodeCellHeaderView.reuseIdentifier,
-                    for: indexPath
-                ) as! EpisodeCellHeaderView
-                return header
-            default:
-                return UICollectionReusableView()
             }
         }
         return UICollectionReusableView()
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case 0:
             return CGSize(width: UIScreen.main.bounds.width, height: 330)
         case 1:
-            return CGSize(width: UIScreen.main.bounds.width, height: 37)
-        case 2:
-            return CGSize(width: collectionView.bounds.width, height: 46)
+            return CGSize(width: UIScreen.main.bounds.width, height: 37) // TabBar
         default:
             return .zero
         }
@@ -184,19 +182,27 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
+        switch section {
+        case 1:
+            // Section 1도 Section 0과 동일한 인셋 적용
+            return UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
+        default:
+            return .zero
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemsPerRow: CGFloat = 3
-        let width = (collectionView.bounds.width - 22) / itemsPerRow
-        return CGSize(width: width, height: width * 128 / 117)
+        if indexPath.section == 1 && indexPath.item == 0 {
+            // 첫 번째 아이템: HeaderView 크기
+            return CGSize(width: collectionView.bounds.width, height: 46)
+        }
+        else {
+            let itemsPerRow: CGFloat = 3
+            let width = (collectionView.bounds.width - 23) / itemsPerRow
+            return CGSize(width: width, height: width * 128 / 117)
+        }
     }
 }
 
-extension EpisodeViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    }
-}
