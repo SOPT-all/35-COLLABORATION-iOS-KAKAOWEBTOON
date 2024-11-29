@@ -219,7 +219,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return UICollectionReusableView()
     }
     
-
     
     // MARK: - objc Function
     
