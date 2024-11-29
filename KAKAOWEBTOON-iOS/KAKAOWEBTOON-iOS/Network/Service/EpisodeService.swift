@@ -18,6 +18,23 @@ final class EpisodeService {
 
 extension EpisodeService {
     ///여기에 각자 맡은 api func 만들기
+    
+    func getEpisodeHeaderData(webtoonId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        episodeProvider.request(.getEpisodeHeaderData(webtoonId: webtoonId)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, GetEpisodeDetailResponseDTO.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     func getEpisodeDetailData(webtoonId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         episodeProvider.request(.getEpisodeDetailData(webtoonId: webtoonId)) { result in
             switch result {
