@@ -48,4 +48,8 @@ class AllToonsSectionCell: UICollectionViewCell {
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: url)
     }
+    
+    func configureDefaultImage() {
+        imageView.image = .imgTooncardBlank
+    }
 }

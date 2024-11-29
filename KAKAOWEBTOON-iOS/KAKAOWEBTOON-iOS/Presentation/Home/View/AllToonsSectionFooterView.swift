@@ -13,7 +13,7 @@ class AllToonsSectionFooterView: UICollectionReusableView {
     
     // MARK: - Properties
     
-    let ratio: CGFloat = 65 / 353
+    let ratio: CGFloat = 65 / 353 
     
     // MARK: - UI Properties
     
@@ -116,6 +116,7 @@ class AllToonsSectionFooterView: UICollectionReusableView {
         adImageView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(5)
             $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(adImageView.snp.width).multipliedBy(ratio)
         }
         
         serviceStackView.snp.makeConstraints{

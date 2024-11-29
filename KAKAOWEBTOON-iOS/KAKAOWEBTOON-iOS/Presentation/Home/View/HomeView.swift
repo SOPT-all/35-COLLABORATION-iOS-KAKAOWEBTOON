@@ -135,7 +135,7 @@ class HomeView: UIView {
             top: 0, leading: 11, bottom: 0, trailing: 11
         )
         
-        header.pinToVisibleBounds = true
+//        header.pinToVisibleBounds = true
         section.boundarySupplementaryItems = [header]
         
         return section
@@ -143,8 +143,12 @@ class HomeView: UIView {
     
     private func allToonsSection() -> NSCollectionLayoutSection {
         
+        let toonRatio: CGFloat = 230 / 115
+        let toonWidth = (UIScreen.main.bounds.width - 22 - 8) / 3
+        let toonHeight = toonWidth * toonRatio
+        
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .absolute((UIScreen.main.bounds.width-22-8)/3), heightDimension: .absolute(230)
+            widthDimension: .absolute(toonWidth), heightDimension: .absolute(toonHeight)
         )
         
         let item = NSCollectionLayoutItem(
@@ -152,7 +156,7 @@ class HomeView: UIView {
         )
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(230)
+            widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(toonHeight)
         )
         
         let group = NSCollectionLayoutGroup.horizontal(
