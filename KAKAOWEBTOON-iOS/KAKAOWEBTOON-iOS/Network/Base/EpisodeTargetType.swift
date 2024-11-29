@@ -21,9 +21,10 @@ extension EpisodeTargetType: TargetType {
     
     var path: String {
         switch self {
-        case .getEpisodeDetailData, .getEpisodeHeaderData:
-            return "api/v1/episodes/details"
-        }
+        case .getEpisodeDetailData(let webtoonId),
+                    .getEpisodeHeaderData(let webtoonId):
+                   return "api/v1/episodes/details/\(webtoonId)"
+               }
     }
     
     var method: Moya.Method {

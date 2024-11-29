@@ -13,6 +13,7 @@ class EpisodeCell: UICollectionViewCell {
     
     //MARK: - Properties
     
+    
     private let episodeCellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(resource: .imgEpisodeEx)
@@ -142,11 +143,19 @@ class EpisodeCell: UICollectionViewCell {
         }
     }
     
-    func configure(with title: String, date: String, image: UIImage?, progress: Int) {
-        episodeTitleLabel.text = title
-        episodeDateLabel.text = date
-        episodeCellImageView.image = image
-        updateProgressBar(progress: progress)
+    func configure(with episodeDetail: EpisodeDetail) {
+        let dayUntilFree = episodeDetail.dayUntilFree ?? 0
+
+        episodeDateLabel.text = dayUntilFree > 0
+            ? "\(dayUntilFree)일 후 무료"
+            : episodeDetail.date
+        
+        if let url = URL(string: episodeDetail.image) {
+            episodeCellImageView.kf.setImage(with: url)
+        }
+        
+        episodeTitleLabel.text = episodeDetail.title
+        updateProgressBar(progress: episodeDetail.status)
     }
     
     private func updateProgressBar(progress: Int) {

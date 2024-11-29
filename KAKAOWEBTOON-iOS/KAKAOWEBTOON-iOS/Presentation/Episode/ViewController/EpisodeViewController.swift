@@ -13,6 +13,7 @@ class EpisodeViewController: UIViewController {
     // MARK: - Properties
     
     private var webtoon: DailyWebtoon?
+    private var episodes: [EpisodeDetail] = []
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -23,22 +24,6 @@ class EpisodeViewController: UIViewController {
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
-    private let episodes: [EpisodeDetail] = [
-        EpisodeDetail(turn: 0, image: "example1", title: "예고", status: 10, date: "24.10.03", dayUntilFree: 0),
-        EpisodeDetail(turn: 1, image: "example2", title: "선언금지", status: 7, date: "24.10.10", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
-        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0)
-    ]
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -47,6 +32,43 @@ class EpisodeViewController: UIViewController {
         setupNavigationBar()
         setupCollectionView()
         setupLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchEpisodes(webtoonId: 27)
+    }
+    
+    private func fetchEpisodes(webtoonId: Int) {
+        EpisodeService.shared.getEpisodeDetailData(webtoonId: webtoonId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let data):
+                if let episodeData = data as? GetEpisodeDetailResponseDTO {
+                    self.episodes = episodeData.data.episodes
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
+            case .requestErr:
+                fatalError()
+            case .unAuthentication:
+                fatalError()
+            case .unAuthorization:
+                fatalError()
+            case .apiArr:
+                fatalError()
+            case .pathErr:
+                fatalError()
+            case .registerErr:
+                fatalError()
+            case .networkFail:
+                fatalError()
+            case .decodeErr:
+                fatalError()
+            }
+        }
     }
     
     func configure(with webtoon: DailyWebtoon) {
@@ -119,12 +141,7 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
                 // 나머지 아이템: EpisodeCell
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCell.reuseIdentifier, for: indexPath) as! EpisodeCell
                 let episode = episodes[indexPath.item - 1] // -1은 HeaderView 보정
-                cell.configure(
-                    with: episode.title,
-                    date: episode.date,
-                    image: UIImage(resource: .imgEpisodeEx),
-                    progress: 0
-                )
+                cell.configure(with: episode) // 네트워크 데이터 적용
                 return cell
             }
         }
@@ -205,4 +222,3 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
         }
     }
 }
-
