@@ -15,6 +15,7 @@ class EpisodeCell: UICollectionViewCell {
     
     private let episodeCellImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(resource: .imgEpisodeEx)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.setupCornerRadius(8)
@@ -103,7 +104,8 @@ class EpisodeCell: UICollectionViewCell {
     private func setupLayout() {
         episodeCellImageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(117.0 / 218.0)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(contentView.frame.height - 47)
         }
         
         episodeBadgeLabel.snp.makeConstraints { make in
@@ -115,7 +117,7 @@ class EpisodeCell: UICollectionViewCell {
         episodeCellLabelView.snp.makeConstraints { make in
             make.top.equalTo(episodeCellImageView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(101.0 / 218.0)
+            make.height.equalTo(47)
         }
         
         episodeTitleLabel.snp.makeConstraints { make in
@@ -123,7 +125,7 @@ class EpisodeCell: UICollectionViewCell {
         }
         
         episodeDateLabel.snp.makeConstraints { make in
-            make.top.equalTo(episodeTitleLabel.snp.bottom).offset(2)
+            make.bottom.equalToSuperview().inset(8)
             make.leading.equalTo(episodeTitleLabel.snp.leading)
         }
         

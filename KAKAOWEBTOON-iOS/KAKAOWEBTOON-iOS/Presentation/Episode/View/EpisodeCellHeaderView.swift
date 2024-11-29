@@ -101,8 +101,8 @@ class EpisodeCellHeaderView: UICollectionReusableView {
         }
         
         listView.snp.makeConstraints { make in
-            make.centerY.equalTo(totalCountLabel)
-            make.trailing.equalTo(orderView.snp.leading).inset(13)
+            make.top.equalToSuperview().inset(12)
+            make.trailing.equalTo(orderView.snp.leading).offset(-13)
         }
         
         listViewLogo.snp.makeConstraints { make in
@@ -111,10 +111,11 @@ class EpisodeCellHeaderView: UICollectionReusableView {
         
         listViewLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
+            make.leading.equalTo(listViewLogo.snp.trailing)
         }
         
         orderView.snp.makeConstraints { make in
-            make.centerY.equalTo(totalCountLabel)
+            make.top.equalToSuperview().inset(12)
             make.trailing.equalToSuperview().inset(19)
         }
         

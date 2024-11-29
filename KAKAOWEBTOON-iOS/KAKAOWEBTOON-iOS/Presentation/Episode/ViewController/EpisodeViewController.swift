@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class EpisodeViewController: UIViewController {
-
+    
     // MARK: - Properties
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -19,22 +19,31 @@ class EpisodeViewController: UIViewController {
         layout.minimumLineSpacing = 17
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
-
+    
     private let episodes: [EpisodeDetail] = [
         EpisodeDetail(turn: 0, image: "example1", title: "예고", status: 10, date: "24.10.03", dayUntilFree: 0),
         EpisodeDetail(turn: 1, image: "example2", title: "선언금지", status: 7, date: "24.10.10", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
+        EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0),
         EpisodeDetail(turn: 2, image: "example3", title: "소원", status: 7, date: "24.10.17", dayUntilFree: 0)
     ]
-
-    private let headerHeight: CGFloat = 300
-
+        
     // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         setupLayout()
     }
-
+    
     private func setupCollectionView() {
         collectionView.backgroundColor = .black
         collectionView.register(EpisodeHeaderView.self,
@@ -44,11 +53,15 @@ class EpisodeViewController: UIViewController {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: EpisodeTabBarView.reuseIdentifier)
         collectionView.register(EpisodeCell.self, forCellWithReuseIdentifier: EpisodeCell.reuseIdentifier)
+        collectionView.register(EpisodeCellHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: EpisodeCellHeaderView.reuseIdentifier)
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
     }
-
+    
     private func setupLayout() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -60,7 +73,7 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3 // section0, section1, section2
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 2:
@@ -69,7 +82,7 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
             return 0
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCell.reuseIdentifier, for: indexPath) as! EpisodeCell
@@ -77,12 +90,12 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
         cell.configure(
             with: episode.title,
             date: episode.date,
-            image: UIImage(named: episode.image),
-            progress: 0 // 예제에서는 0으로 고정
+            image: UIImage(resource: .imgEpisodeEx),
+            progress: 0
         )
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
@@ -94,7 +107,6 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
                     withReuseIdentifier: EpisodeHeaderView.reuseIdentifier,
                     for: indexPath
                 ) as! EpisodeHeaderView
-                // Configure header with necessary data
                 return header
             case 1:
                 let tabBar = collectionView.dequeueReusableSupplementaryView(
@@ -103,33 +115,71 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
                     for: indexPath
                 ) as! EpisodeTabBarView
                 return tabBar
+            case 2:
+                let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: EpisodeCellHeaderView.reuseIdentifier,
+                    for: indexPath
+                ) as! EpisodeCellHeaderView
+                return header
             default:
                 return UICollectionReusableView()
             }
         }
         return UICollectionReusableView()
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case 0:
-            return CGSize(width: UIScreen.main.bounds.width, height: headerHeight)
+            return CGSize(width: UIScreen.main.bounds.width, height: 330)
         case 1:
             return CGSize(width: UIScreen.main.bounds.width, height: 37)
+        case 2:
+            return CGSize(width: collectionView.bounds.width, height: 46)
         default:
             return .zero
         }
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: (UIScreen.main.bounds.width - 22) / 3, height: 123)
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return 0 // 세로 간격 0
+        }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 22) / 3, height: 123) // 2개씩 표시
-    }
+        func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 0 // 가로 간격 0
+        }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                           layout collectionViewLayout: UICollectionViewLayout,
+                           insetForSectionAt section: Int) -> UIEdgeInsets {
+           // 모든 섹션에 대해 상하좌우 11px의 내부 여백 설정
+           return UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
+       }
+
+       func collectionView(_ collectionView: UICollectionView,
+                           layout collectionViewLayout: UICollectionViewLayout,
+                           sizeForItemAt indexPath: IndexPath) -> CGSize {
+           // 한 줄에 3개의 셀을 배치
+           let itemsPerRow: CGFloat = 3
+//           let totalSpacing = (itemsPerRow - 1) * 0 + 11 // 가로 간격은 0, 좌우 여백은 11px
+           let width = (collectionView.bounds.width - 22) / itemsPerRow
+           return CGSize(width: width, height: width * 128 / 117) // 비율을 조정해 높이 설정
+       }
 }
 
 extension EpisodeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
-        if offsetY >= headerHeight {
+        if offsetY >= 330 {
             navigationController?.navigationBar.prefersLargeTitles = false
         } else {
             navigationController?.navigationBar.prefersLargeTitles = true
