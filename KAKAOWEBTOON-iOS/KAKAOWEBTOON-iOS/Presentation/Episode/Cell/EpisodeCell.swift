@@ -13,6 +13,7 @@ class EpisodeCell: UICollectionViewCell {
     
     //MARK: - Properties
     
+    
     private let episodeCellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(resource: .imgEpisodeEx)
@@ -26,7 +27,7 @@ class EpisodeCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "무료"
         label.textColor = .black4
-        label.backgroundColor = .clear
+        label.backgroundColor = .primaryWhite
         label.setupBorder(1, color: .grey1)
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
@@ -96,9 +97,11 @@ class EpisodeCell: UICollectionViewCell {
     
     private func setupHierarchy() {
         contentView.addSubviews(episodeCellImageView, episodeCellLabelView)
+        episodeCellImageView.addSubview(progressBarBackground)
         progressBarBackground.addSubview(progressBarForeground)
-        episodeCellImageView.addSubviews(episodeBadgeLabel, progressBarBackground)
+        episodeCellImageView.addSubview(episodeBadgeLabel)
         episodeCellLabelView.addSubviews(episodeTitleLabel, episodeDateLabel)
+        contentView.bringSubviewToFront(episodeBadgeLabel)
     }
     
     private func setupLayout() {
@@ -137,25 +140,44 @@ class EpisodeCell: UICollectionViewCell {
         
         progressBarForeground.snp.makeConstraints { make in
             make.leading.verticalEdges.equalToSuperview()
+            make.height.equalTo(4)
             //초기값
-            make.width.equalTo(0)
+            make.width.equalTo(3)
         }
     }
     
-    func configure(with title: String, date: String, image: UIImage?, progress: Int) {
-        episodeTitleLabel.text = title
-        episodeDateLabel.text = date
-        episodeCellImageView.image = image
-        updateProgressBar(progress: progress)
-    }
-    
-    private func updateProgressBar(progress: Int) {
-        // 진행바의 길이를 progress에 따라 설정 (0 ~ 10)
-        progressBarBackground.layoutIfNeeded()
-        let maxWidth = progressBarBackground.frame.width
-        let progressWidth = CGFloat(progress) / 10.0 * maxWidth
-        progressBarForeground.snp.updateConstraints { make in
-            make.width.equalTo(progressWidth)
+    func configure(with episodeDetail: EpisodeDetail) {
+        let dayUntilFree = episodeDetail.dayUntilFree
+        
+        if dayUntilFree > 0 {
+               episodeDateLabel.text = "\(dayUntilFree)일 후 무료"
+               episodeBadgeLabel.isHidden = true
+           } else {
+               episodeDateLabel.text = episodeDetail.date
+               episodeBadgeLabel.isHidden = false
+           }
+        
+
+        if let url = URL(string: episodeDetail.image) {
+            episodeCellImageView.kf.setImage(with: url)
+        }
+        
+        if episodeDetail.status > 0 {
+            self.episodeCellImageView.alpha = 0.25
+            self.episodeCellLabelView.backgroundColor = .dg3
+        }
+            
+            episodeTitleLabel.text = episodeDetail.title
+            updateProgressBar(progress: episodeDetail.status)
+        }
+        
+        func updateProgressBar(progress: Int) {
+            // 진행바의 길이를 progress에 따라 설정 (0 ~ 10)
+            progressBarBackground.layoutIfNeeded()
+            let maxWidth = progressBarBackground.frame.width
+            let progressWidth = CGFloat(progress) / 10.0 * maxWidth
+            progressBarForeground.snp.updateConstraints { make in
+                make.width.equalTo(progressWidth)
+            }
         }
     }
-}

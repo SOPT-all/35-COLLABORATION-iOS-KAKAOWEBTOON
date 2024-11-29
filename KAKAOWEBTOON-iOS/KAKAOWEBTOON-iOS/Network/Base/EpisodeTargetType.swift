@@ -21,34 +21,36 @@ extension EpisodeTargetType: TargetType {
     
     var path: String {
         switch self {
-        case .getEpisodeDetailData, .getEpisodeHeaderData:
-            return "api/v1/episodes/details"
+        case .getEpisodeHeaderData(let webtoonId):
+            return "api/v1/episodes/\(webtoonId)"
+        case .getEpisodeDetailData(let webtoonId):
+            return "api/v1/episodes/details/\(webtoonId)"
         }
     }
-    
-    var method: Moya.Method {
-        switch self {
-        case .getEpisodeDetailData, .getEpisodeHeaderData:
-            return .get
+        
+        var method: Moya.Method {
+            switch self {
+            case .getEpisodeDetailData, .getEpisodeHeaderData:
+                return .get
+            }
+        }
+        
+        var task: Moya.Task {
+            switch self {
+            case .getEpisodeDetailData(webtoonId: let webtoonId):
+                return .requestParameters(
+                    parameters: ["webtoonId": webtoonId],
+                    encoding: URLEncoding.default
+                )
+            case .getEpisodeHeaderData(webtoonId: let webtoonId):
+                return .requestParameters(
+                    parameters: ["webtoonId": webtoonId],
+                    encoding: URLEncoding.default
+                )
+            }
+        }
+        
+        var headers: [String: String]? {
+            return ["Content-Type": "application/json"]
         }
     }
-    
-    var task: Moya.Task {
-        switch self {
-        case .getEpisodeDetailData(webtoonId: let webtoonId):
-            return .requestParameters(
-                parameters: ["webtoonId": webtoonId],
-                encoding: URLEncoding.default
-            )
-        case .getEpisodeHeaderData(webtoonId: let webtoonId):
-            return .requestParameters(
-                parameters: ["webtoonId": webtoonId],
-                encoding: URLEncoding.default
-            )
-        }
-    }
-    
-    var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
-    }
-}

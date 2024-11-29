@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 class EpisodeHeaderView: UICollectionReusableView {
     
@@ -15,8 +16,8 @@ class EpisodeHeaderView: UICollectionReusableView {
     
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(resource: .imgEpisodeBackground)
+        imageView.contentMode = .scaleAspectFit
+        imageView.kf.setImage(with: URL(string: "https://i.ibb.co/N7WKG7j/i-OS-png.png"))
         return imageView
     }()
     
@@ -47,7 +48,7 @@ class EpisodeHeaderView: UICollectionReusableView {
     
     private let couponLabel: UILabel = {
         let label = UILabel()
-        label.text = "이용권 0장"
+        label.text = "이용권 9장"
         label.textColor = .primaryWhite
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
@@ -57,7 +58,7 @@ class EpisodeHeaderView: UICollectionReusableView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "웹툰 제목"
+        label.text = "어쿠스틱 라이프"
         label.textColor = .primaryWhite
         label.font = UIFont.appleSDGothicNeo(.head_sb_22)
         label.applyStyle(.head_sb_22)
@@ -67,7 +68,7 @@ class EpisodeHeaderView: UICollectionReusableView {
     
     private let authorLabel: UILabel = {
         let label = UILabel()
-        label.text = "웹툰 작가"
+        label.text = "난다"
         label.textColor = .grey3
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
@@ -82,7 +83,7 @@ class EpisodeHeaderView: UICollectionReusableView {
     private let genreIconImageView = UIImageView(image: UIImage(resource: .icGenre))
     private let genreLabel: UILabel = {
         let label = UILabel()
-        label.text = "로맨스"
+        label.text = "일상/개그"
         label.textColor = .grey3
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
@@ -97,7 +98,7 @@ class EpisodeHeaderView: UICollectionReusableView {
     private let viewIconImageView = UIImageView(image: UIImage(resource: .icView))
     private let viewCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "1.1억"
+        label.text = "1.5만"
         label.textColor = .grey3
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
@@ -112,7 +113,7 @@ class EpisodeHeaderView: UICollectionReusableView {
     private let goodIconImageView = UIImageView(image: UIImage(resource: .icGood))
     private let goodCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "100.1만"
+        label.text = "3280"
         label.textColor = .grey3
         label.font = UIFont.appleSDGothicNeo(.body5_r_12)
         label.applyStyle(.body5_r_12)
@@ -152,12 +153,13 @@ class EpisodeHeaderView: UICollectionReusableView {
     
     private func setupLayout() {
         backgroundImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(29)
+            make.top.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(11)
         }
         
         promotionBadge.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(130)
+            make.leading.equalToSuperview().inset(10)
             make.height.equalTo(18)
         }
         
@@ -179,7 +181,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(backgroundImageView.snp.bottom).offset(16)
+            make.top.equalTo(backgroundImageView.snp.bottom).inset(20)
         }
         
         authorLabel.snp.makeConstraints { make in
@@ -189,7 +191,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         
         genreLabelView.snp.makeConstraints { make in
             make.trailing.equalTo(viewCountLabelView.snp.leading).offset(-9)
-                        make.top.equalTo(authorLabel.snp.bottom).offset(7)
+            make.top.equalTo(authorLabel.snp.bottom).offset(7)
             make.bottom.equalToSuperview().inset(15)
         }
         
@@ -199,7 +201,7 @@ class EpisodeHeaderView: UICollectionReusableView {
         
         genreLabel.snp.makeConstraints { make in
             make.centerY.equalTo(genreIconImageView)
-                        make.leading.equalTo(genreIconImageView.snp.trailing).offset(1)
+            make.leading.equalTo(genreIconImageView.snp.trailing).offset(1)
             make.trailing.equalToSuperview()
         }
         
@@ -245,26 +247,24 @@ class EpisodeHeaderView: UICollectionReusableView {
             return "\(number)"
         }
     }
+    
+    func configureHeader(with data: EpisodeHeader) {
+        titleLabel.text = data.title
+        authorLabel.text = data.author
+        genreLabel.text = data.genre
+        
+        viewCountLabel.text = formatNumber(data.viewCount)
+        goodCountLabel.text = formatNumber(data.heartCount)
+        
+        promotionLabel.text = data.promotion
+        couponLabel.text = "이용권 \(data.coupon)장"
+        
+        if let url = URL(string: data.image) {
+            backgroundImageView.kf.setImage(with: url)
+        }
+    }
 }
 
 #Preview {
     EpisodeHeaderView()
 }
-
-//func configure(with data: EpisodeHeaderData) {
-//    titleLabel.text = data.title
-//    authorLabel.text = data.author
-//    genreLabel.text = data.genre
-//
-//    let viewCountText = formatNumber(data.viewCount)
-//    let goodCountText = formatNumber(data.heartCount)
-//    viewCountLabel.text = viewCountText
-//    goodCountLabel.text = goodCountText
-//
-//    promotionBadge.text = data.promotion
-//    couponBadge.text = "이용권 \(data.coupon)장"
-//
-//    if let imageUrl = URL(string: data.image) {
-//
-//    }
-//}
