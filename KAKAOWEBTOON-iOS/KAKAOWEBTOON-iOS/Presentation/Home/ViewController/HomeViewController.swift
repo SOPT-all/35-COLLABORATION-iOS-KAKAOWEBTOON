@@ -231,6 +231,24 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return UICollectionReusableView()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sectionType = HomeSection.allCases[indexPath.section]
+        
+        switch sectionType {
+        case .allToonsSection:
+            guard let selectedWebtoon = getDailyWebtoonResponseDTO?.data.webtoons[indexPath.row] else {
+                return
+            }
+            
+            let episodeViewController = EpisodeViewController()
+            episodeViewController.configure(with: selectedWebtoon)
+            navigationController?.pushViewController(episodeViewController, animated: true)
+        default:
+            break
+        }
+    }
+    
+
     
     // MARK: - objc Function
     
