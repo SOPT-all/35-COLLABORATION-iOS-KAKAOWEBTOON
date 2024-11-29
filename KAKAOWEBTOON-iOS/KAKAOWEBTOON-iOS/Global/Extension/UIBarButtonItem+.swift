@@ -13,6 +13,7 @@ enum KWBarButtonType {
     case research
     case menu
     case back
+    case arrow
     case heart
     case seeMore
     
@@ -22,6 +23,7 @@ enum KWBarButtonType {
         case .research: return .icResearch
         case .menu: return .icMenu
         case .back: return .icBack
+        case .arrow: return .icArrowLeft
         case .heart: return .icHeart
         case .seeMore: return .icSeeMore
         }

@@ -59,6 +59,11 @@ class EpisodeViewController: UIViewController {
             target: nil,
             actions: []
         )
+        navigationItem.leftBarButtonItem = UIBarButtonItem.setupBarButton(
+            type: .arrow,
+            target: self,
+            action: #selector(backButtonTapped)
+        )
     }
     
     private func setupCollectionView() {
@@ -83,6 +88,10 @@ class EpisodeViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
