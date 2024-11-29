@@ -14,6 +14,7 @@ class EpisodeViewController: UIViewController {
     
     private var webtoon: DailyWebtoon?
     private var episodes: [EpisodeDetail] = []
+    private var episodeHeaderData: EpisodeHeader?
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -37,6 +38,7 @@ class EpisodeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+//        fetchEpisodeHeader(webtoonId: 27)
         fetchEpisodes(webtoonId: 27)
     }
     
@@ -70,6 +72,37 @@ class EpisodeViewController: UIViewController {
             }
         }
     }
+    
+//    private func fetchEpisodeHeader(webtoonId: Int) {
+//        EpisodeService.shared.getEpisodeHeaderData(webtoonId: webtoonId) { [weak self] result in
+//               guard let self = self else { return }
+//               switch result {
+//               case .success(let data):
+//                   if let headerData = data as? GetEpisodeHeaderRepsponseDTO {
+//                       self.episodeHeaderData = headerData.data
+//                       DispatchQueue.main.async {
+//                           self.collectionView.reloadData()
+//                       }
+//                   }
+//               case .requestErr:
+//                   fatalError()
+//               case .unAuthentication:
+//                   fatalError()
+//               case .unAuthorization:
+//                   fatalError()
+//               case .apiArr:
+//                   fatalError()
+//               case .pathErr:
+//                   fatalError()
+//               case .registerErr:
+//                   fatalError()
+//               case .networkFail:
+//                   fatalError()
+//               case .decodeErr:
+//                   fatalError()
+//               }
+//           }
+//       }
     
     func configure(with webtoon: DailyWebtoon) {
         self.webtoon = webtoon
@@ -140,8 +173,8 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
             } else {
                 // 나머지 아이템: EpisodeCell
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCell.reuseIdentifier, for: indexPath) as! EpisodeCell
-                let episode = episodes[indexPath.item - 1] // -1은 HeaderView 보정
-                cell.configure(with: episode) // 네트워크 데이터 적용
+                let episode = episodes[indexPath.item - 1]
+                cell.configure(with: episode)
                 return cell
             }
         }
@@ -158,7 +191,10 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
                     withReuseIdentifier: EpisodeHeaderView.reuseIdentifier,
                     for: indexPath
                 ) as! EpisodeHeaderView
-                return header
+                if let headerData = episodeHeaderData {
+                                   header.configureHeader(with: headerData)
+                               }
+                               return header
             } else if indexPath.section == 1 {
                 let tabBar = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
@@ -176,7 +212,7 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case 0:
-            return CGSize(width: UIScreen.main.bounds.width, height: 330)
+            return CGSize(width: UIScreen.main.bounds.width, height: 360)
         case 1:
             return CGSize(width: UIScreen.main.bounds.width, height: 37) // TabBar
         default:
@@ -222,3 +258,4 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
         }
     }
 }
+
