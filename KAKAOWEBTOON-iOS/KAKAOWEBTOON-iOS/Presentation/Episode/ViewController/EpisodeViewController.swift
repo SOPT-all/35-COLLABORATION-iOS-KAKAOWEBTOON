@@ -43,9 +43,10 @@ class EpisodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavigationBar()
         setupCollectionView()
         setupLayout()
-        setupNavigationBar()
     }
     
     func configure(with webtoon: DailyWebtoon) {
@@ -67,7 +68,7 @@ class EpisodeViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = .black3
         collectionView.register(EpisodeHeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: EpisodeHeaderView.reuseIdentifier)
@@ -88,7 +89,7 @@ class EpisodeViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
+}
     
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
@@ -197,11 +198,5 @@ extension EpisodeViewController: UICollectionViewDataSource, UICollectionViewDel
 
 extension EpisodeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        if offsetY >= 330 {
-            navigationController?.navigationBar.prefersLargeTitles = false
-        } else {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
     }
 }
